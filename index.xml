@@ -1,3 +1,57 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bkjam</title><link>https://bkjam.github.io/</link><description>Recent content on Bkjam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 11 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Blender Tips &amp; Hot Keys</title><link>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/blender_101/</link><pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate><guid>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/blender_101/</guid><description>Things to take note of when using Blender
-Tips Always enable backface culling.</description></item><item><title>Bookmarks</title><link>https://bkjam.github.io/bookmarks/</link><pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate><guid>https://bkjam.github.io/bookmarks/</guid><description>Personal Stash of useful links
-Ubuntu Setup Java 17 in Ubuntu 18.</description></item><item><title>The Notice Shortcode</title><link>https://bkjam.github.io/post/2022-03-18-sample/notice-shortcode/</link><pubDate>Fri, 18 Mar 2022 21:47:41 +0000</pubDate><guid>https://bkjam.github.io/post/2022-03-18-sample/notice-shortcode/</guid><description>The notice shortcode supports three different types of disclaimers. These are as following:</description></item><item><title>Medium Articles</title><link>https://bkjam.github.io/medium/</link><pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate><guid>https://bkjam.github.io/medium/</guid><description>I still post my articles on Medium.com as it have better support for code syntax and also because it was the first place where I started my dev doc journey.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bkjam</title>
+    <link>https://bkjam.github.io/</link>
+    <description>Recent content on Bkjam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 11 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blender Tips &amp; Hot Keys</title>
+      <link>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/blender_101/</link>
+      <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/blender_101/</guid>
+      
+        <description>Things to take note of when using Blender
+Tips Always enable backface culling.</description>
+      
+    </item>
+    
+    <item>
+      <title>Bookmarks</title>
+      <link>https://bkjam.github.io/bookmarks/</link>
+      <pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/bookmarks/</guid>
+      
+        <description>Personal Stash of useful links
+Ubuntu Setup Java 17 in Ubuntu 18.</description>
+      
+    </item>
+    
+    <item>
+      <title>The Notice Shortcode</title>
+      <link>https://bkjam.github.io/post/2022-03-18-sample/notice-shortcode/</link>
+      <pubDate>Fri, 18 Mar 2022 21:47:41 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2022-03-18-sample/notice-shortcode/</guid>
+      
+        <description>The notice shortcode supports three different types of disclaimers. These are as following:</description>
+      
+    </item>
+    
+    <item>
+      <title>Medium Articles</title>
+      <link>https://bkjam.github.io/medium/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/medium/</guid>
+      
+        <description>I still post my articles on Medium.com as it have better support for code syntax and also because it was the first place where I started my dev doc journey.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

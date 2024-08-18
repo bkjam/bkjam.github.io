@@ -1,1 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://bkjam.github.io/</loc><lastmod>2024-05-11T00:00:00+00:00</lastmod></url><url><loc>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/blender_101/</loc><lastmod>2024-05-11T00:00:00+00:00</lastmod></url><url><loc>https://bkjam.github.io/tags/index/</loc><lastmod>2024-05-11T00:00:00+00:00</lastmod></url><url><loc>https://bkjam.github.io/post/</loc><lastmod>2024-05-11T00:00:00+00:00</lastmod></url><url><loc>https://bkjam.github.io/tags/</loc><lastmod>2024-05-11T00:00:00+00:00</lastmod></url><url><loc>https://bkjam.github.io/bookmarks/</loc><lastmod>2024-02-19T00:00:00+00:00</lastmod></url><url><loc>https://bkjam.github.io/tags/demo/</loc><lastmod>2022-03-18T21:47:41+00:00</lastmod></url><url><loc>https://bkjam.github.io/tags/shortcode/</loc><lastmod>2022-03-18T21:47:41+00:00</lastmod></url><url><loc>https://bkjam.github.io/post/2022-03-18-sample/notice-shortcode/</loc><lastmod>2022-03-18T21:47:41+00:00</lastmod></url><url><loc>https://bkjam.github.io/medium/</loc><lastmod>2019-02-28T00:00:00+00:00</lastmod></url><url><loc>https://bkjam.github.io/categories/</loc></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://bkjam.github.io/</loc>
+    <lastmod>2024-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/blender_101/</loc>
+    <lastmod>2024-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/tags/index/</loc>
+    <lastmod>2024-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/post/</loc>
+    <lastmod>2024-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/tags/</loc>
+    <lastmod>2024-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/bookmarks/</loc>
+    <lastmod>2024-02-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/tags/demo/</loc>
+    <lastmod>2022-03-18T21:47:41+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/tags/shortcode/</loc>
+    <lastmod>2022-03-18T21:47:41+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/post/2022-03-18-sample/notice-shortcode/</loc>
+    <lastmod>2022-03-18T21:47:41+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/medium/</loc>
+    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/categories/</loc>
+  </url>
+</urlset>
