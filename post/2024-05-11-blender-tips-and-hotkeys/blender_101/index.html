@@ -197,7 +197,7 @@ Tips Always enable backface culling." />
 
     ,
         "url" : "https:\/\/bkjam.github.io\/post\/2024-05-11-blender-tips-and-hotkeys\/blender_101\/",
-        "wordCount" : "106",
+        "wordCount" : "632",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -421,7 +421,7 @@ Tips Always enable backface culling." />
           </li>
           <li class="post__meta-item">
             <em class="fas fa-stopwatch post__meta-icon"></em>
-            <span class="post__meta-text">One-minute read</span>
+            <span class="post__meta-text">3-minute read</span>
           </li>
         </ul>
       <p>Things to take note of when using Blender</p>
@@ -445,18 +445,139 @@ Tips Always enable backface culling." />
 </ul>
 </li>
 </ol>
-<h2 id="hot-keys">Hot Keys</h2>
+<h2 id="shortcuts">Shortcuts</h2>
+<h3 id="navigating-3d-scene">Navigating 3D Scene</h3>
+<p>Navigate the scene using the mouse</p>
 <ul>
-<li><strong>Tab</strong> &ndash;&gt; toggle between edit/object mode</li>
+<li><strong>Middle Mouse</strong> = pivot</li>
+<li><strong>Shift + Middle Mouse</strong> = pan</li>
+<li><strong>Ctrl + Middle Mouse</strong> or <strong>Scroll</strong> = zoom</li>
+</ul>
+<p>Use <strong>Numpad</strong> or <strong>Ctrl+Numpad</strong> to change scene angle</p>
+<h3 id="manipulating-3d-object">Manipulating 3D Object</h3>
+<p>Basic Keys include <strong>G</strong> - Grab / Move, <strong>S</strong> - Scale, <strong>R</strong> - Rotate</p>
+<p>Additionally, after pressing the above keys, you can use do the following:</p>
+<ul>
+<li>press <strong>x</strong>, <strong>y</strong>, <strong>z</strong> to move on particular axis</li>
+<li>press <strong>shift</strong> + <strong>x/y/z</strong> to exclude the particular axis</li>
+</ul>
+<p>To move precise units, press <strong>G</strong> followed by axis <strong>x/y/z</strong> and key in the number (eg. 1) then press <strong>Enter</strong></p>
+<h3 id="objectedit-mode">Object/Edit Mode</h3>
+<p>Use <strong>Tab</strong> &ndash;&gt; toggle between edit/object mode</p>
+<p>In Edit Mode</p>
+<ul>
 <li><strong>1, 2, 3</strong> &ndash;&gt; change select mode between vertex, edge and face</li>
-<li><strong>ctrl + num pad 1</strong> &ndash;&gt; frontal view</li>
-<li><strong>a</strong> &ndash;&gt; select all the vertices</li>
-<li><strong>aa</strong> &ndash;&gt; deselect all the vertices</li>
+</ul>
+<h3 id="editing-geometry">Editing Geometry</h3>
+<p>In Edit Mode</p>
+<ul>
+<li><strong>1, 2, 3</strong> &ndash;&gt; change select mode between vertex, edge and face</li>
+<li><strong>Shift + A</strong> &ndash;&gt; Add Geometry Menu</li>
 <li><strong>e</strong> &ndash;&gt; extrude</li>
-<li><strong>s</strong> &ndash;&gt; scale</li>
-<li><strong>g</strong> &ndash;&gt; move</li>
-<li><strong>gg</strong> &ndash;&gt; move along edge</li>
-<li><strong>r</strong> &ndash;&gt; rotate</li>
+<li><strong>ctrl + r</strong> &ndash;&gt; add loop cut
+<ul>
+<li><strong>left click</strong> to confirm</li>
+<li><strong>right click</strong> to be added in the center</li>
+<li><strong>scroll</strong> to add more loop cut before confirming</li>
+</ul>
+</li>
+<li><strong>a</strong> &ndash;&gt; select all the vertices</li>
+<li><strong>Alt + A / aa</strong> &ndash;&gt; Deselect</li>
+<li><strong>Alt + Select</strong> &ndash;&gt; select a loop</li>
+<li><strong>ctrl + numpad+</strong> or <strong>ctrl + numpad-</strong> to increase selection</li>
+</ul>
+<p>In Object Mode</p>
+<ul>
+<li><strong>x</strong> &ndash;&gt; delete object</li>
+<li><strong>Shift + d</strong> to duplicate object</li>
+</ul>
+<h2 id="tips-1">Tips</h2>
+<ol>
+<li>
+<p>Connecting 2 Edges</p>
+<ul>
+<li>In Edit Mode, Use Edge Select <strong>2</strong></li>
+<li><strong>Alt + Click</strong> to select first edge</li>
+<li><strong>Alt + Shift + Click</strong> to select second edge</li>
+<li><strong>Right Click</strong> -&gt; <strong>Bridge Edge Loops</strong> to create faces to connect the edges</li>
+</ul>
+</li>
+<li>
+<p>Wireframe mode</p>
+<ul>
+<li>In Edit Mode, Use Vertex Select <strong>1</strong></li>
+<li>Press <strong>z</strong> and select <strong>wireframe</strong></li>
+<li>Now, click and drag to select multiple vertices</li>
+</ul>
+</li>
+<li>
+<p>Navigate Scene Focus</p>
+<ul>
+<li>Click on a Vertex in Edit Mode</li>
+<li>Click on <strong>del</strong> in numpad to set the focus on that</li>
+</ul>
+</li>
+<li>
+<p>Linking Materials</p>
+<ul>
+<li>In Object Mode</li>
+<li>Create Material on an object</li>
+<li><strong>Shift Select</strong> all objects followed by the object with the material (last)</li>
+<li><strong>Ctrl + L</strong> (links menu) -&gt; Materials</li>
+</ul>
+</li>
+<li>
+<p>Setting Camera</p>
+<ul>
+<li>In Object Mode</li>
+<li>Click on <strong>Ctrl + Alt + 0</strong> to shift the camera to where you are looking at</li>
+<li>Click on the camera grid, <strong>G + Middle Mouse Click</strong> to zoom in and out the camera</li>
+</ul>
+</li>
+<li>
+<p>Sculpting Objects</p>
+<ul>
+<li>In Sculting Mode, go to properties bar, under <strong>Active Tools &amp; Workspace Settings</strong> -&gt; <strong>DynoTopo</strong></li>
+<li>Set Detailing to <strong>Constant Detail</strong> and Resolution to <strong>0.75</strong> for low poly</li>
+<li>Click on <strong>f</strong> to change brush size</li>
+<li>Click on <strong>Shift + f</strong> to change intensity of brush</li>
+<li>Click on <strong>Ctrl + left click</strong> to invert (create dent)</li>
+<li>Click on <strong>Shift + left click</strong> to flatten</li>
+</ul>
+</li>
+<li>
+<p>Vertex Paint Mode (Painting Parts of Object)</p>
+<ul>
+<li>In Edit Mode, use <strong>Face Select + c</strong> to select an area</li>
+<li>In Vertex Paint Mode, use <strong>Face Paint</strong> to show the area</li>
+<li>Note that this will only create color attribute, to view the color in object mode
+<ul>
+<li>set viewport shading to <strong>Material Preview</strong> (top right)</li>
+<li>create a new material</li>
+<li>open a new tab, shader editor, add a <strong>Color Attribute</strong> and connect the base color</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Create Faces on Vertices/Edges</p>
+<ul>
+<li>In Edit Mode, use <strong>Vertex/Edge Select</strong> and <strong>shift select</strong> your vertices/edges</li>
+<li>Click on <strong>f</strong> to create a face to fill the space</li>
+</ul>
+</li>
+<li>
+<p>Smoothing out the model (Edge Slide)</p>
+<ul>
+<li>In Edit Mode, use <strong>Edge Select</strong> and <strong>Alt + Select</strong> to slide an edge</li>
+<li>Click on <strong>gg</strong> to smooth out the model</li>
+</ul>
+</li>
+</ol>
+<h2 id="modifiers">Modifiers</h2>
+<ul>
+<li>Mirror Modifier</li>
+<li>Array Modifier - duplicates object and make sure changing one, change all when its duplicated</li>
 </ul>
 </div>
     <div class="post__footer">
