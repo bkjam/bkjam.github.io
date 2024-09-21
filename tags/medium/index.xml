@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Bkjam</title>
-    <link>https://bkjam.github.io/post/</link>
-    <description>Recent content in Posts on Bkjam</description>
+    <title>Medium on Bkjam</title>
+    <link>https://bkjam.github.io/tags/medium/</link>
+    <description>Recent content in Medium on Bkjam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 09 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/tags/medium/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>New Medium Article Alert</title>
       <link>https://bkjam.github.io/post/2024-09-09-medium-update/</link>
@@ -26,18 +26,6 @@
       <guid>https://bkjam.github.io/post/2024-06-07-medium-update/</guid>
       
         <description>UpdateCheck out my latest write-up on Avoid This HTTPS Mistake When Setting up a Custom Domain for Github Pages Website.</description>
-      
-    </item>
-    
-    <item>
-      <title>Blender Tips &amp; Hot Keys</title>
-      <link>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/blender_101/</link>
-      <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/blender_101/</guid>
-      
-        <description>Things to take note of when using Blender
-Tips Always enable backface culling.</description>
       
     </item>
     

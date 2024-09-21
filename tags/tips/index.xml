@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tips on Bkjam</title>
+    <link>https://bkjam.github.io/tags/tips/</link>
+    <description>Recent content in Tips on Bkjam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 11 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/tags/tips/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blender Tips &amp; Hot Keys</title>
+      <link>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/blender_101/</link>
+      <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/blender_101/</guid>
+      
+        <description>Things to take note of when using Blender
+Tips Always enable backface culling.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
