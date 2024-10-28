@@ -6,7 +6,29 @@
     <description>Recent content on Bkjam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 09 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exporting FBX from Blender to Unity</title>
+      <link>https://bkjam.github.io/post/2024-10-19-blender-to-unity-settings/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2024-10-19-blender-to-unity-settings/</guid>
+      
+        <description>Here&amp;rsquo;s a quick guide on how to export FBX from Blender to Unity.</description>
+      
+    </item>
+    
+    <item>
+      <title>Development VM Setup</title>
+      <link>https://bkjam.github.io/post/2024-09-24-development-vm-setup/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2024-09-24-development-vm-setup/</guid>
+      
+        <description>Quick Guide on how I setup my Ubuntu VM (22.04) on VirtualBox</description>
+      
+    </item>
+    
     <item>
       <title>New Medium Article Alert</title>
       <link>https://bkjam.github.io/post/2024-09-09-medium-update/</link>
@@ -31,13 +53,13 @@
     
     <item>
       <title>Blender Tips &amp; Hot Keys</title>
-      <link>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/blender_101/</link>
+      <link>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/</link>
       <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/blender_101/</guid>
+      <guid>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/</guid>
       
         <description>Things to take note of when using Blender
-Tips Always enable backface culling.</description>
+Set up Always enable backface culling.</description>
       
     </item>
     
@@ -70,9 +92,8 @@ Tips Always enable backface culling.</description>
       
       <guid>https://bkjam.github.io/bookmarks/</guid>
       
-        <description>Personal Stash of useful links
-Game Development
-Level Design Book Lospec - Color Palette List Kubernetes</description>
+        <description>Personal stash of useful links
+| CI/CD / DevOps / GitOps ArgoCD How to Structure Your Argo CD Repositories Using Application Sets A Comprehensive Overview of Argo CD Architectures – 2024 Understanding Argo CD: Kubernetes GitOps Made Simple How to register Rancher managed Kubernetes clusters in Argo CD GitHub Actions How to Fix the set-output GitHub Actions Deprecation Warning Workflow commands for GitHub Actions Youtube - Push Code To A Different Repo With Github Actions | Game Development Game Design Level Design Book Medium - Top-down shooter level design: how map design supports game mechanics Unity - Design Patterns Solid Ebook VFX Unity - Create spellbinding visual effects with our advanced VFX guide All About VFX In Game Development BorisFx - VFX in Gaming: The Ultimate Guide to Visual Effects in Video Games Gabriel Aguiar Prod - VFX for Games - Where to Start?</description>
       
     </item>
     
