@@ -6,7 +6,30 @@
     <description>Recent content on Bkjam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 19 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blender - How to create a Smoke Cloud</title>
+      <link>https://bkjam.github.io/post/2024-10-31-blender-smoke-cloud/</link>
+      <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2024-10-31-blender-smoke-cloud/</guid>
+      
+        <description>This is a simple guide on creating a smoke cloud mesh in blender which I picked up from a course</description>
+      
+    </item>
+    
+    <item>
+      <title>Unity VFX References</title>
+      <link>https://bkjam.github.io/post/2024-10-30-unity-vfx-references/</link>
+      <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2024-10-30-unity-vfx-references/</guid>
+      
+        <description>Quick Reference Guides for creating VFX in Unity.
+VFX Tips Rule of VFX = Anticipation, Climax, Aftermath (Dissipation) When animating with shader graph, you will typically use the Time Node To create the effect where particles slow down towards the end of their duration.</description>
+      
+    </item>
+    
     <item>
       <title>Exporting FBX from Blender to Unity</title>
       <link>https://bkjam.github.io/post/2024-10-19-blender-to-unity-settings/</link>
@@ -52,7 +75,7 @@
     </item>
     
     <item>
-      <title>Blender Tips &amp; Hot Keys</title>
+      <title>Blender - Tips &amp; Hot Keys</title>
       <link>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/</link>
       <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
       
@@ -75,13 +98,13 @@ Set up Always enable backface culling.</description>
     </item>
     
     <item>
-      <title>New Medium Article Alert</title>
-      <link>https://bkjam.github.io/post/2024-04-08-medium-update/</link>
+      <title>Why I Use Hugo as an Alternative to WordPress for My Blogging Website</title>
+      <link>https://bkjam.github.io/post/2024-04-08-why-i-use-hugo-as-an-alternative-to-wordpress-for-my-blogging-website/</link>
       <pubDate>Mon, 08 Apr 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-04-08-medium-update/</guid>
+      <guid>https://bkjam.github.io/post/2024-04-08-why-i-use-hugo-as-an-alternative-to-wordpress-for-my-blogging-website/</guid>
       
-        <description>UpdateCheck out my latest write-up on Why I Use Hugo as an Alternative to WordPress for My Blogging Website.</description>
+        <description>Hugo + Github Pages can be a cheaper option for blogging compared to WordPress</description>
       
     </item>
     
@@ -92,8 +115,19 @@ Set up Always enable backface culling.</description>
       
       <guid>https://bkjam.github.io/bookmarks/</guid>
       
-        <description>Personal stash of useful links
-| CI/CD / DevOps / GitOps ArgoCD How to Structure Your Argo CD Repositories Using Application Sets A Comprehensive Overview of Argo CD Architectures – 2024 Understanding Argo CD: Kubernetes GitOps Made Simple How to register Rancher managed Kubernetes clusters in Argo CD GitHub Actions How to Fix the set-output GitHub Actions Deprecation Warning Workflow commands for GitHub Actions Youtube - Push Code To A Different Repo With Github Actions | Game Development Game Design Level Design Book Medium - Top-down shooter level design: how map design supports game mechanics Unity - Design Patterns Solid Ebook VFX Unity - Create spellbinding visual effects with our advanced VFX guide All About VFX In Game Development BorisFx - VFX in Gaming: The Ultimate Guide to Visual Effects in Video Games Gabriel Aguiar Prod - VFX for Games - Where to Start?</description>
+        <description>Personal stash of useful reads
+| CI/CD / DevOps / GitOps ArgoCD How to Structure Your Argo CD Repositories Using Application Sets A Comprehensive Overview of Argo CD Architectures – 2024 Understanding Argo CD: Kubernetes GitOps Made Simple How to register Rancher managed Kubernetes clusters in Argo CD GitHub Actions How to Fix the set-output GitHub Actions Deprecation Warning Workflow commands for GitHub Actions Youtube - Push Code To A Different Repo With Github Actions | Game Development Art Lospec - Color Palette List Game Design Level Design Book Medium - Top-down shooter level design: how map design supports game mechanics Unity - Design Patterns Solid Ebook VFX Unity - Create spellbinding visual effects with our advanced VFX guide All About VFX In Game Development BorisFx - VFX in Gaming: The Ultimate Guide to Visual Effects in Video Games Gabriel Aguiar Prod - VFX for Games - Where to Start?</description>
+      
+    </item>
+    
+    <item>
+      <title>Tools That I Use</title>
+      <link>https://bkjam.github.io/tools/</link>
+      <pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/tools/</guid>
+      
+        <description>List of all Tools/Websites/Assets/Tech Stacks that I like to use for my development :)</description>
       
     </item>
     

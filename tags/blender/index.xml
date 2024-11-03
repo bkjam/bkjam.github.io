@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blender on Bkjam</title>
+    <link>https://bkjam.github.io/tags/blender/</link>
+    <description>Recent content in Blender on Bkjam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 31 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/tags/blender/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blender - How to create a Smoke Cloud</title>
+      <link>https://bkjam.github.io/post/2024-10-31-blender-smoke-cloud/</link>
+      <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2024-10-31-blender-smoke-cloud/</guid>
+      
+        <description>This is a simple guide on creating a smoke cloud mesh in blender which I picked up from a course</description>
+      
+    </item>
+    
+    <item>
+      <title>Exporting FBX from Blender to Unity</title>
+      <link>https://bkjam.github.io/post/2024-10-19-blender-to-unity-settings/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2024-10-19-blender-to-unity-settings/</guid>
+      
+        <description>Here&amp;rsquo;s a quick guide on how to export FBX from Blender to Unity.</description>
+      
+    </item>
+    
+    <item>
+      <title>Blender - Tips &amp; Hot Keys</title>
+      <link>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/</link>
+      <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/</guid>
+      
+        <description>Things to take note of when using Blender
+Set up Always enable backface culling.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -48,6 +48,16 @@ Indie Game Developer
     type="text/css"
   />
   
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.19f92adb679c3cf147c093205c1520eb6ac118e8389afddb7cecf75f1a085e4c.css"
+      integrity="sha256-Gfkq22ecPPFHwJMgXBUg62rBGOg4mv3bfOz3XxoIXkw="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
   
   <link
     rel="stylesheet"
@@ -195,11 +205,25 @@ Indie Game Developer
 
     ,
         "url" : "https:\/\/bkjam.github.io\/post\/2024-10-19-blender-to-unity-settings\/",
-        "wordCount" : "272",
+        "wordCount" : "285",
         "genre" : [ ],
         "keywords" : [ 
       
-      "tips"
+      "blog"
+
+    
+      
+        ,
+
+      
+      "blender"
+
+    
+      
+        ,
+
+      
+      "unity"
 
     ]
     }
@@ -213,7 +237,8 @@ Indie Game Developer
         
           class="wrapper__sidebar"
         
-      ><div
+      >
+<div
   class="sidebar
     animated fadeInDown
   "
@@ -262,18 +287,6 @@ Indie Game Developer
       
         <li class="sidebar__list-item">
           <a
-            href="https://ko-fi.com/supportbkjam"
-            target="_blank"
-            rel="noopener me"
-            aria-label="Support Me"
-            title="Support Me"
-          >
-            <i class="fas fa-mug-saucer fa-2x" aria-hidden="true"></i>
-          </a>
-        </li>
-      
-        <li class="sidebar__list-item">
-          <a
             href="https://rustycruiselabs.com"
             target="_blank"
             rel="noopener me"
@@ -285,6 +298,11 @@ Indie Game Developer
         </li>
       
     </ul>
+    <div class="sidebar__introduction">
+      <a href="https://ko-fi.com/supportbkjam">
+        <img src="/images/kofi-supportme_small.png" alt="Support Me on Ko-fi" />
+      </a>
+    </div>
   </div><footer class="footer footer__sidebar">
   <ul class="footer__list">
     <li class="footer__item">
@@ -355,10 +373,10 @@ Indie Game Developer
             
             <a
               
-              href="/tags/tips/"
+              href="/tags/blog/"
               
               title=""
-              >Tips</a
+              >Blog</a
             >
           </li>
         
@@ -389,6 +407,21 @@ Indie Game Developer
               
               title=""
               >Bookmarks</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tools/"
+              
+              title=""
+              >Toolkit</a
             >
           </li>
         
@@ -445,10 +478,11 @@ Indie Game Developer
 <h3 id="step-1-set-up-the-nla-strips">Step 1. Set up the NLA Strips</h3>
 <p>In Blender, under animation window, select <strong>Nolinear Animation</strong></p>
 <p><img src="nla_strips.png" alt="NLA Strips"></p>
-<p>Drag a new window, and select <strong>Dope Sheet</strong>. Change to <strong>Action Editor</strong>. Select the animation you want and click on <strong>Push Down</strong>. This will create the NLA Strip. <em>Note: <strong>_TPose</strong> should be the last NLA Strip</em>.</p>
-<p><img src="action_editor.png" alt="NLA Strips"></p>
+<p>Drag a new window, and select <strong>Dope Sheet</strong>. Change to <strong>Action Editor</strong>. Select the animation you want and click on <strong>Push Down</strong>. This will create the NLA Strip. <em>Note: <strong>_TPose</strong> should be the last NLA Strip so that when importing in Unity, it will be the model&rsquo;s default pose</em>.</p>
+<p><img src="action_editor.png" alt="Action Editor"></p>
 <h3 id="step-2-exporting-as-fbx-in-blender">Step 2. Exporting as FBX in Blender</h3>
 <p>In Blender, select the mesh that you want to export and click on <strong>File &ndash;&gt; Export &ndash;&gt; FBX</strong>. When the export menu will pop up, configure the following parameters:</p>
+<p><img src="blender_export_include.png" alt="Blender Export - Include Section"></p>
 <ul>
 <li>under Include section
 <ul>
@@ -456,6 +490,9 @@ Indie Game Developer
 <li>select <strong>Mesh</strong> and <strong>Armature</strong> for Object Type</li>
 </ul>
 </li>
+</ul>
+<p><img src="blender_export_transform.png" alt="Blender Export - Transform Section"></p>
+<ul>
 <li>under Transform section
 <ul>
 <li>apply scaling = <strong>FBX Unit Scale</strong></li>
@@ -463,12 +500,18 @@ Indie Game Developer
 <li>up = <strong>Z up</strong> (when modelling, the up should be +z)</li>
 </ul>
 </li>
+</ul>
+<p><img src="blender_export_armature.png" alt="Blender Export - Armature Section"></p>
+<ul>
 <li>under Armature
 <ul>
 <li>check <strong>Only deform Bones</strong></li>
 <li>uncheck <strong>Add Leaf Bones</strong></li>
 </ul>
 </li>
+</ul>
+<p><img src="blender_export_animation.png" alt="Blender Export - Animation Section"></p>
+<ul>
 <li>under Bake animation section
 <ul>
 <li>uncheck <strong>all actions</strong> (Exporting NLA Strips only)</li>
@@ -490,7 +533,7 @@ Indie Game Developer
       
 
       
-        <span><a class="tag" href="/tags/tips/">tips</a></span>
+        <span><a class="tag" href="/tags/blog/">blog</a><a class="tag" href="/tags/blender/">blender</a><a class="tag" href="/tags/unity/">unity</a></span>
 
 
       
