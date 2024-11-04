@@ -18,7 +18,7 @@
 
   </title>
 
-  <meta name="generator" content="Hugo 0.124.1"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="generator" content="Hugo 0.136.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="author" content="Bryan" />
   <meta
     name="description"
@@ -32,8 +32,8 @@ Indie Game Developer
     
     <link
       rel="stylesheet"
-      href="/scss/main.min.c80d3a01d275af845c9127eb8957e4707b6f08256c1d3a46878770a63fec205a.css"
-      integrity="sha256-yA06AdJ1r4RckSfriVfkcHtvCCVsHTpGh4dwpj/sIFo="
+      href="/scss/main.min.1f4526598994b776237b2b6eb48a4a9d442c1943c7d18dc0acf2c87507d30c7d.css"
+      integrity="sha256-H0UmWYmUt3YjeytutIpKnUQsGUPH0Y3ArPLIdQfTDH0="
       crossorigin="anonymous"
       type="text/css"
     />
@@ -52,8 +52,8 @@ Indie Game Developer
     
     <link
       rel="stylesheet"
-      href="/css/custom.min.19f92adb679c3cf147c093205c1520eb6ac118e8389afddb7cecf75f1a085e4c.css"
-      integrity="sha256-Gfkq22ecPPFHwJMgXBUg62rBGOg4mv3bfOz3XxoIXkw="
+      href="/css/custom.min.5938ae3d91389633531df948d7227ff5083aae069a0a59dc82507a3a6e6332c5.css"
+      integrity="sha256-WTiuPZE4ljNTHflI1yJ/9Qg6rgaaClncglB6Om5jMsU="
       crossorigin="anonymous"
       media="screen"
     />
@@ -61,32 +61,32 @@ Indie Game Developer
   
   <link
     rel="stylesheet"
-    href="/fontawesome/css/fontawesome.min.7f3c2281c7f965ce3c64888aa452793252a0416909c181097f81d0a0f7d1624e.css"
-    integrity="sha256-fzwigcf5Zc48ZIiKpFJ5MlKgQWkJwYEJf4HQoPfRYk4="
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
     crossorigin="anonymous"
     type="text/css"
   />
   
   <link
     rel="stylesheet"
-    href="/fontawesome/css/solid.min.35fc032da8ede6681675d20a2f862fb9e1045c1d512d495fcf862c054daffef2.css"
-    integrity="sha256-NfwDLajt5mgWddIKL4YvueEEXB1RLUlfz4YsBU2v/vI="
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
     crossorigin="anonymous"
     type="text/css"
   />
   
   <link
     rel="stylesheet"
-    href="/fontawesome/css/regular.min.3b92357925ea7284f0c6b0378396f39f470f7842ed9702f337e667c4026bf837.css"
-    integrity="sha256-O5I1eSXqcoTwxrA3g5bzn0cPeELtlwLzN&#43;ZnxAJr&#43;Dc="
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
     crossorigin="anonymous"
     type="text/css"
   />
   
   <link
     rel="stylesheet"
-    href="/fontawesome/css/brands.min.ebb1096e1976e8cc4e2532cfa050b8f30eb13b8eb06be5cee3e38eb426b838ea.css"
-    integrity="sha256-67EJbhl26MxOJTLPoFC48w6xO46wa&#43;XO4&#43;OOtCa4OOo="
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
     crossorigin="anonymous"
     type="text/css"
   />
@@ -126,20 +126,27 @@ Indie Game Developer
 
 
   
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Unity VFX References"/>
-<meta name="twitter:description" content="Quick Reference Guides for creating VFX in Unity.
-VFX Tips Rule of VFX = Anticipation, Climax, Aftermath (Dissipation) When animating with shader graph, you will typically use the Time Node To create the effect where particles slow down towards the end of their duration."/>
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Unity VFX References">
+  <meta name="twitter:description" content="Quick Reference Guides for creating VFX in Unity.
+VFX Tips Rule of VFX = Anticipation, Climax, Aftermath (Dissipation) When animating with shader graph, you will typically use the Time Node To create the effect where particles slow down towards the end of their duration. Use Limit Velocity over lifetime with speed = 3 and dampen = 0.15 To create a blinking effect, use Color over lifetime, add 3 keys around 30% mark, and 3 keys around 70% mark and make the middle of each 3 keys with 0 alpha To create a single burst effect, disable Shape, set Emission rate over time = 0 and burst count = 1 Particle Systems Here are some tips on how to use Unity’s Particle System.">
 
 
 
   
-  <meta property="og:title" content="Unity VFX References" />
-<meta property="og:description" content="Quick Reference Guides for creating VFX in Unity.
-VFX Tips Rule of VFX = Anticipation, Climax, Aftermath (Dissipation) When animating with shader graph, you will typically use the Time Node To create the effect where particles slow down towards the end of their duration." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://bkjam.github.io/post/2024-10-30-unity-vfx-references/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2024-10-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-10-30T00:00:00+00:00" /><meta property="og:site_name" content="I&#39;m Bryan" />
+  <meta property="og:url" content="https://bkjam.github.io/post/2024-10-30-unity-vfx-references/">
+  <meta property="og:site_name" content="Bkjam">
+  <meta property="og:title" content="Unity VFX References">
+  <meta property="og:description" content="Quick Reference Guides for creating VFX in Unity.
+VFX Tips Rule of VFX = Anticipation, Climax, Aftermath (Dissipation) When animating with shader graph, you will typically use the Time Node To create the effect where particles slow down towards the end of their duration. Use Limit Velocity over lifetime with speed = 3 and dampen = 0.15 To create a blinking effect, use Color over lifetime, add 3 keys around 30% mark, and 3 keys around 70% mark and make the middle of each 3 keys with 0 alpha To create a single burst effect, disable Shape, set Emission rate over time = 0 and burst count = 1 Particle Systems Here are some tips on how to use Unity’s Particle System.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-10-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-30T00:00:00+00:00">
+    <meta property="article:tag" content="Blog">
+    <meta property="article:tag" content="Unity">
 
 
 
@@ -157,7 +164,7 @@ VFX Tips Rule of VFX = Anticipation, Climax, Aftermath (Dissipation) When animat
         "alternativeHeadline": "",
         "description": "
       
-        Quick Reference Guides for creating VFX in Unity.\nVFX Tips Rule of VFX = Anticipation, Climax, Aftermath (Dissipation) When animating with shader graph, you will typically use the Time Node To create the effect where particles slow down towards the end of their duration.
+        \u003cp\u003eQuick Reference Guides for creating VFX in Unity.\u003c\/p\u003e\n\u003ch1 id=\u0022vfx-tips\u0022\u003eVFX Tips\u003c\/h1\u003e\n\u003col\u003e\n\u003cli\u003eRule of VFX = \u003cstrong\u003eAnticipation, Climax, Aftermath (Dissipation)\u003c\/strong\u003e\u003c\/li\u003e\n\u003cli\u003eWhen animating with shader graph, you will typically use the \u003cstrong\u003eTime Node\u003c\/strong\u003e\u003c\/li\u003e\n\u003cli\u003eTo create the effect where particles slow down towards the end of their duration. Use \u003cstrong\u003eLimit Velocity over lifetime\u003c\/strong\u003e with speed = 3 and dampen = 0.15\u003c\/li\u003e\n\u003cli\u003eTo create a blinking effect, use \u003cstrong\u003eColor over lifetime\u003c\/strong\u003e, add 3 keys around 30% mark, and 3 keys around 70% mark and make the middle of each 3 keys with 0 alpha\u003c\/li\u003e\n\u003cli\u003eTo create a single burst effect, disable \u003cstrong\u003eShape\u003c\/strong\u003e, set \u003cstrong\u003eEmission\u003c\/strong\u003e rate over time = 0 and burst count = 1\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003chr\u003e\n\u003ch1 id=\u0022particle-systems\u0022\u003eParticle Systems\u003c\/h1\u003e\n\u003cp\u003eHere are some tips on how to use Unity\u0026rsquo;s Particle System.\u003c\/p\u003e
 
 
       
@@ -445,7 +452,9 @@ VFX Tips Rule of VFX = Anticipation, Climax, Aftermath (Dissipation) When animat
   >
     
     <div class="post__content">
-      <h1>Unity VFX References</h1>
+      
+        <h1>Unity VFX References</h1>
+      
       
         <ul class="post__meta">
           <li class="post__meta-item">

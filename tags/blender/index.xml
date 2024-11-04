@@ -14,7 +14,7 @@
       
       <guid>https://bkjam.github.io/post/2024-10-31-blender-smoke-cloud/</guid>
       
-        <description>This is a simple guide on creating a smoke cloud mesh in blender which I picked up from a course</description>
+        <description>&lt;p&gt;This is a simple guide on creating a smoke cloud mesh in blender which I picked up from a course&lt;/p&gt;</description>
       
     </item>
     
@@ -25,7 +25,7 @@
       
       <guid>https://bkjam.github.io/post/2024-10-19-blender-to-unity-settings/</guid>
       
-        <description>Here&amp;rsquo;s a quick guide on how to export FBX from Blender to Unity.</description>
+        <description>&lt;p&gt;Here&amp;rsquo;s a quick guide on how to export FBX from Blender to Unity. You can also refer to these videos that I referenced.&lt;/p&gt;</description>
       
     </item>
     
@@ -36,8 +36,11 @@
       
       <guid>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/</guid>
       
-        <description>Things to take note of when using Blender
-Set up Always enable backface culling.</description>
+        <description>&lt;p&gt;Things to take note of when using Blender&lt;/p&gt;
+&lt;h2 id=&#34;set-up&#34;&gt;Set up&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Always enable &lt;strong&gt;backface culling&lt;/strong&gt;.&lt;/p&gt;</description>
       
     </item>
     

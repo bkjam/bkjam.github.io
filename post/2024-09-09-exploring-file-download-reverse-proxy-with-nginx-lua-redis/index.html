@@ -1,0 +1,638 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <title>
+    Bryan
+        |
+        Exploring File Download Reverse Proxy with Nginx &#43; Lua &#43; Redis
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.136.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Bryan" />
+  <meta
+    name="description"
+    content="Software Engineer
+Indie Game Developer 
+"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.c80d3a01d275af845c9127eb8957e4707b6f08256c1d3a46878770a63fec205a.css"
+      integrity="sha256-yA06AdJ1r4RckSfriVfkcHtvCCVsHTpGh4dwpj/sIFo="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.c477a4168ce48fc2050beed5f61b65e11f86c62d56a9a5c08d48d53be8f24a5c.css"
+      integrity="sha256-xHekFozkj8IFC&#43;7V9htl4R&#43;Gxi1WqaXAjUjVO&#43;jySlw="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.7f3c2281c7f965ce3c64888aa452793252a0416909c181097f81d0a0f7d1624e.css"
+    integrity="sha256-fzwigcf5Zc48ZIiKpFJ5MlKgQWkJwYEJf4HQoPfRYk4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.35fc032da8ede6681675d20a2f862fb9e1045c1d512d495fcf862c054daffef2.css"
+    integrity="sha256-NfwDLajt5mgWddIKL4YvueEEXB1RLUlfz4YsBU2v/vI="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.3b92357925ea7284f0c6b0378396f39f470f7842ed9702f337e667c4026bf837.css"
+    integrity="sha256-O5I1eSXqcoTwxrA3g5bzn0cPeELtlwLzN&#43;ZnxAJr&#43;Dc="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.ebb1096e1976e8cc4e2532cfa050b8f30eb13b8eb06be5cee3e38eb426b838ea.css"
+    integrity="sha256-67EJbhl26MxOJTLPoFC48w6xO46wa&#43;XO4&#43;OOtCa4OOo="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="http://localhost:1313/post/2024-09-09-exploring-file-download-reverse-proxy-with-nginx-lua-redis/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Exploring File Download Reverse Proxy with Nginx &#43; Lua &#43; Redis">
+  <meta name="twitter:description" content="How to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua">
+
+
+
+  
+  <meta property="og:url" content="http://localhost:1313/post/2024-09-09-exploring-file-download-reverse-proxy-with-nginx-lua-redis/">
+  <meta property="og:site_name" content="Bkjam">
+  <meta property="og:title" content="Exploring File Download Reverse Proxy with Nginx &#43; Lua &#43; Redis">
+  <meta property="og:description" content="How to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-09-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-09T00:00:00+00:00">
+    <meta property="article:tag" content="Blog">
+    <meta property="article:tag" content="Medium">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "Exploring File Download Reverse Proxy with Nginx \u002b Lua \u002b Redis",
+        "headline": "Exploring File Download Reverse Proxy with Nginx \u002b Lua \u002b Redis",
+        "alternativeHeadline": "",
+        "description": "
+      
+        \u003cp\u003eHow to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua\u003c\/p\u003e
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/post\/2024-09-09-exploring-file-download-reverse-proxy-with-nginx-lua-redis\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightYear" : "2024",
+        "dateCreated": "2024-09-09T00:00:00.00Z",
+        "datePublished": "2024-09-09T00:00:00.00Z",
+        "dateModified": "2024-09-09T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Bryan",
+            "url": "http://localhost:1313/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http:\/\/localhost:1313\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "http:\/\/localhost:1313\/post\/2024-09-09-exploring-file-download-reverse-proxy-with-nginx-lua-redis\/",
+        "wordCount" : "716",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "blog"
+
+    
+      
+        ,
+
+      
+      "medium"
+
+    ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      >
+<div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">I&#39;m Bryan</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Software Engineer<br />Indie Game Developer <br /></p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://medium.com/@kbryan1008"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Medium"
+            title="Medium"
+          >
+            <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/bkjam"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Github"
+            title="Github"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://rustycruiselabs.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Game Dev"
+            title="Game Dev"
+          >
+            <i class="fas fa-gamepad fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+    <div class="sidebar__introduction">
+      <a href="https://ko-fi.com/supportbkjam">
+        <img src="/images/kofi-supportme_small.png" alt="Support Me on Ko-fi" />
+      </a>
+    </div>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tags/blog/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/medium/"
+              
+              title=""
+              >Medium Articles</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/bookmarks/"
+              
+              title=""
+              >Bookmarks</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tools/"
+              
+              title=""
+              >Toolkit</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      <h1>Exploring File Download Reverse Proxy With Nginx &#43; Lua &#43; Redis</h1>
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                
+                  Mon, Sep 9, 2024
+                
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">4-minute read</span>
+          </li>
+        </ul>
+      <p>How to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua</p>
+<div
+  class="notice
+    notice--update
+  "
+>
+  <span
+    class="notice__title
+      notice__title--update
+    "
+  >Update</span><div class="notice__content">
+    Medium Link: <a href="https://medium.com/@kbryan1008/exploring-file-download-reverse-proxy-with-nginx-lua-redis-896bd3bd88c4">Exploring File Download Reverse Proxy with Nginx + Lua + Redis</a><br>
+<strong>If you have a medium.com membership, please read this article on medium.com instead to support me~ Thank You! 🚀</strong>
+  </div>
+</div>
+
+<h2 id="intro">Intro</h2>
+<p>This article is an exploration of how to reverse proxy an HTTP request to a dynamic URL stored in Redis. I will be using download as the base for my exploration where my dynamic URL is a S3 Presigned URL. So read on if you are interested to find out more!</p>
+<p>Before we start, check out my previous article “<a href="https://medium.com/gitconnected/building-a-s3-file-download-service-using-spring-boot-and-minio-client-c85cb377c0ce">Building a S3 File Download Service using Spring Boot and Minio</a>” if you have yet to :)</p>
+<h3 id="file-download-series">File Download Series</h3>
+<ul>
+<li><a href="https://medium.com/gitconnected/building-a-s3-file-download-service-using-spring-boot-and-minio-client-c85cb377c0ce">Building a S3 File Download Service using Spring Boot and Minio</a></li>
+<li>Exploring File Download Reverse Proxy with Nginx + Lua + Redis</li>
+</ul>
+<hr>
+<h2 id="background-context">Background Context</h2>
+<p>I have a download service for downloading files from my S3 cloud storage service (Minio). The client can download files using the Presigned URL after the download service has validated/authenticated the client’s request.</p>
+<h3 id="what-is-a-presigned-url">What is a Presigned URL</h3>
+<p>Presigned URLs are a commonly used method to share files securely while maintaining control over access. In general, a user with access to the file generates a Presigned URL and any unauthorized user can download the file using the Presigned URL.</p>
+<blockquote>
+<p><em>Note: Presigned URL can also be used for uploading and it is only valid for a specified duration.</em></p>
+</blockquote>
+<p>However, instead of providing the unauthorized user with the Presigned URL, I want to explore using a custom dynamic download URL.</p>
+<h3 id="what-is-the-download-url">What is the Download URL</h3>
+<p>Download URL is a custom URL generated by the download service where a typical download flow is made up of 2 parts (similar to Presigned URL).</p>
+<ul>
+<li><strong>The API call to get a download URL</strong></li>
+<li><strong>The API call to download the file using the download URL</strong></li>
+</ul>
+<p>The diagram above illustrates how the download flow works with a custom download URL. An example of a download request is as such:</p>
+<ol>
+<li>The client requests to download a file.</li>
+<li>Nginx proxy request to download service.</li>
+<li>Download service process the download request (Eg. authenticating/validating / etc…) → generates a downloadId (Eg <code>123456</code>) → request for a <strong>Presigned URL</strong> from S3 (Eg. <code>http://s3_presigned_url</code>) → stores the presigned URL in Redis where key = <strong>downloadId</strong> → return a response with the <strong>download URL</strong> (Eg. <code>http://example/download/123456</code>).</li>
+<li>The client requests to download using the download URL — <code>http://example/download/123456</code>.</li>
+<li>Nginx gets the Presigned URL from Redis using downloadId (<code>123456</code>) and proxies the download request from <code>http://example/download/123456</code> to <code>http://s3_presigned_url</code>. Note: The downloadId key is deleted from Redis after retrieval.</li>
+</ol>
+<hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="c1"># nginx-lua.conf</span>
+</span></span><span class="line"><span class="cl"><span class="n">env</span> <span class="n">REDIS_PASSWORD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">env</span> <span class="n">REDIS_HOSTNAME</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">env</span> <span class="n">REDIS_PORT</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">env</span> <span class="n">S3_HOSTNAME</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">env</span> <span class="n">S3_PORT</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">http</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resolver</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.11</span> <span class="n">ipv6</span><span class="o">=</span><span class="n">off</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">init_worker_by_lua_block</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">redis</span> <span class="o">=</span> <span class="n">require</span> <span class="s2">&#34;resty.redis&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">listen</span> <span class="mi">8000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Allow special characters in headers</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ignore_invalid_headers</span> <span class="n">off</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Allow any size file to be uploaded.</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Set to a value such as 1000m; to restrict file size to a specific value</span>
+</span></span><span class="line"><span class="cl">        <span class="n">client_max_body_size</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Disable buffering</span>
+</span></span><span class="line"><span class="cl">        <span class="n">proxy_buffering</span> <span class="n">off</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">proxy_request_buffering</span> <span class="n">off</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">location</span> <span class="o">/</span><span class="n">download</span><span class="o">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">set</span> <span class="o">$</span><span class="n">target</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">access_by_lua_block</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">local</span> <span class="n">uri</span> <span class="o">=</span> <span class="n">ngx</span><span class="o">.</span><span class="k">var</span><span class="o">.</span><span class="n">uri</span>
+</span></span><span class="line"><span class="cl">                <span class="n">local</span> <span class="n">downloadId</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s2">&#34;^/download/(%w+)$&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="ow">not</span> <span class="n">downloadId</span> <span class="n">then</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ngx</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s2">&#34;Invalid Download URL&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">ngx</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">local</span> <span class="n">red</span> <span class="o">=</span> <span class="n">redis</span><span class="p">:</span><span class="n">new</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="n">red</span><span class="p">:</span><span class="n">set_timeout</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="o">--</span> <span class="mi">1</span> <span class="n">second</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">local</span> <span class="n">redis_password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;REDIS_PASSWORD&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="ow">not</span> <span class="n">redis_password</span> <span class="n">then</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ngx</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ngx</span><span class="o">.</span><span class="n">ERR</span><span class="p">,</span> <span class="s2">&#34;REDIS_PASSWORD environment variable is not set&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">ngx</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">local</span> <span class="n">redis_hostname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;REDIS_HOSTNAME&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">local</span> <span class="n">redis_port</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;REDIS_PORT&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">red</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">redis_hostname</span><span class="p">,</span> <span class="n">redis_port</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span> <span class="n">then</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ngx</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ngx</span><span class="o">.</span><span class="n">ERR</span><span class="p">,</span> <span class="s2">&#34;failed to connect to redis: &#34;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">ngx</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">red</span><span class="p">:</span><span class="n">auth</span><span class="p">(</span><span class="n">redis_password</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="ow">not</span> <span class="n">res</span> <span class="n">then</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ngx</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ngx</span><span class="o">.</span><span class="n">ERR</span><span class="p">,</span> <span class="s2">&#34;failed to authenticate: &#34;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">ngx</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">local</span> <span class="n">presignedUrl</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">red</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="n">downloadId</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="ow">not</span> <span class="n">res</span> <span class="n">then</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ngx</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ngx</span><span class="o">.</span><span class="n">ERR</span><span class="p">,</span> <span class="s2">&#34;failed to get key: &#34;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">ngx</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">presignedUrl</span> <span class="o">==</span> <span class="n">ngx</span><span class="o">.</span><span class="n">null</span> <span class="n">then</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ngx</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s2">&#34;Download URL no longer valid!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">ngx</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">red</span><span class="p">:</span><span class="n">del</span><span class="p">(</span><span class="n">downloadId</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="ow">not</span> <span class="n">res</span> <span class="n">then</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">ngx</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ngx</span><span class="o">.</span><span class="n">ERR</span><span class="p">,</span> <span class="s2">&#34;failed to delete key: &#34;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">return</span> <span class="n">ngx</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">end</span>
+</span></span><span class="line"><span class="cl">                <span class="n">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">ngx</span><span class="o">.</span><span class="k">var</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">presignedUrl</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">set_by_lua</span> <span class="o">$</span><span class="n">s3_hostname</span> <span class="s1">&#39;return os.getenv(&#34;S3_HOSTNAME&#34;)&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">set_by_lua</span> <span class="o">$</span><span class="n">s3_port</span> <span class="s1">&#39;return os.getenv(&#34;S3_PORT&#34;)&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">proxy_set_header</span> <span class="n">Host</span> <span class="o">$</span><span class="n">s3_hostname</span><span class="p">:</span><span class="o">$</span><span class="n">s3_port</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">proxy_set_header</span> <span class="n">X</span><span class="o">-</span><span class="n">Real</span><span class="o">-</span><span class="ne">IP</span> <span class="o">$</span><span class="n">remote_addr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">proxy_set_header</span> <span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">For</span> <span class="o">$</span><span class="n">proxy_add_x_forwarded_for</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">proxy_set_header</span> <span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">Proto</span> <span class="o">$</span><span class="n">scheme</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">proxy_connect_timeout</span> <span class="mi">300</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">proxy_http_version</span> <span class="mf">1.1</span><span class="p">;</span>                         <span class="c1"># Default is HTTP/1, keepalive is only enabled in HTTP/1.1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">proxy_set_header</span> <span class="n">Connection</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">chunked_transfer_encoding</span> <span class="n">off</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">proxy_pass</span> <span class="o">$</span><span class="n">target</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div>
+    <div class="post__footer">
+      
+
+      
+        <span><a class="tag" href="/tags/blog/">blog</a><a class="tag" href="/tags/medium/">medium</a></span>
+
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script></body>
+</html>
