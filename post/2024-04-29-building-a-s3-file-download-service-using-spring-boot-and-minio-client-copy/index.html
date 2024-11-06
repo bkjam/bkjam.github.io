@@ -1,0 +1,527 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <title>
+    Bryan
+        |
+        Building a S3 File Download Service using Spring Boot and Minio Client
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.136.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Bryan" />
+  <meta
+    name="description"
+    content="Software Engineer
+Indie Game Developer 
+"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1f4526598994b776237b2b6eb48a4a9d442c1943c7d18dc0acf2c87507d30c7d.css"
+      integrity="sha256-H0UmWYmUt3YjeytutIpKnUQsGUPH0Y3ArPLIdQfTDH0="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.85143502f3c76e2a9a482492948a53b3955bd729a5784f26306cec1f9172c242.css"
+      integrity="sha256-hRQ1AvPHbiqaSCSSlIpTs5Vb1ymleE8mMGzsH5FywkI="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="http://localhost:1313/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Building a S3 File Download Service using Spring Boot and Minio Client">
+  <meta name="twitter:description" content="UpdateMedium Link: Building a S3 File Download Service using Spring Boot and Minio Client
+If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀Photo by AuthorThis article is an exploration of how to reverse proxy an HTTP request to a dynamic URL stored in Redis. I will be using download as the base for my exploration where my dynamic URL is a S3 Presigned URL. So read on if you are interested to find out more!">
+
+
+
+  
+  <meta property="og:url" content="http://localhost:1313/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/">
+  <meta property="og:site_name" content="Bkjam">
+  <meta property="og:title" content="Building a S3 File Download Service using Spring Boot and Minio Client">
+  <meta property="og:description" content="UpdateMedium Link: Building a S3 File Download Service using Spring Boot and Minio Client
+If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀Photo by AuthorThis article is an exploration of how to reverse proxy an HTTP request to a dynamic URL stored in Redis. I will be using download as the base for my exploration where my dynamic URL is a S3 Presigned URL. So read on if you are interested to find out more!">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-04-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-04-29T00:00:00+00:00">
+    <meta property="article:tag" content="Blog">
+    <meta property="article:tag" content="Medium">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "Building a S3 File Download Service using Spring Boot and Minio Client",
+        "headline": "Building a S3 File Download Service using Spring Boot and Minio Client",
+        "alternativeHeadline": "",
+        "description": "
+      
+        \u003cdiv\r\n  class=\u0022notice\r\n    notice--update\r\n  \u0022\r\n\u003e\r\n  \u003cspan\r\n    class=\u0022notice__title\r\n      notice__title--update\r\n    \u0022\r\n  \u003eUpdate\u003c\/span\u003e\u003cdiv class=\u0022notice__content\u0022\u003e\r\n    Medium Link: \u003ca href=\u0022https:\/\/medium.com\/gitconnected\/building-a-s3-file-download-service-using-spring-boot-and-minio-client-c85cb377c0ce\u0022\u003eBuilding a S3 File Download Service using Spring Boot and Minio Client\u003c\/a\u003e\u003cbr\u003e\n\u003cstrong\u003eIf you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀\u003c\/strong\u003e\r\n  \u003c\/div\u003e\r\n\u003c\/div\u003e\r\n\n\u003cfigure\u003e\u003ca class=\u0022lightgallery\u0022 href=\u0022\/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/images\/intro.png\u0022 title=\u0022images\/intro.png\u0022 data-thumbnail=\u0022\/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/images\/intro.png\u0022 data-sub-html=\u0022\u003ch2\u003ePhoto by Author\u003c\/h2\u003e\u0022\u003e\r\n        \u003cimg\r\n            \r\n            loading=\u0022lazy\u0022\r\n            src=\u0022\/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/images\/intro.png\u0022\r\n            srcset=\u0022\/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/images\/intro.png 1080w,\r\n                \/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/images\/intro.png 1080w,\r\n                \/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/images\/intro.png 1080w\u0022\r\n            alt=\u0022images\/intro.png\u0022 height=\u0022540\u0022  width=\u00221080\u0022 \u003e\r\n    \u003c\/a\u003e\u003cfigcaption class=\u0022image-caption\u0022\u003ePhoto by Author\u003c\/figcaption\u003e\r\n    \u003c\/figure\u003e\n\u003cp\u003eThis article is an exploration of how to reverse proxy an HTTP request to a dynamic URL stored in Redis. I will be using download as the base for my exploration where my dynamic URL is a S3 Presigned URL. So read on if you are interested to find out more!\u003c\/p\u003e
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightYear" : "2024",
+        "dateCreated": "2024-04-29T00:00:00.00Z",
+        "datePublished": "2024-04-29T00:00:00.00Z",
+        "dateModified": "2024-04-29T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Bryan",
+            "url": "http://localhost:1313/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http:\/\/localhost:1313\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "http:\/\/localhost:1313\/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/",
+        "wordCount" : "118",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "blog"
+
+    
+      
+        ,
+
+      
+      "medium"
+
+    ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">I&#39;m Bryan</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Software Engineer<br />Indie Game Developer <br /></p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://medium.com/@kbryan1008"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Medium"
+            title="Medium"
+          >
+            <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/bkjam"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Github"
+            title="Github"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://rustycruiselabs.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Game Dev"
+            title="Game Dev"
+          >
+            <i class="fas fa-gamepad fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+    <div class="sidebar__introduction">
+      <a href="https://ko-fi.com/supportbkjam">
+        <img src="/images/kofi-supportme_small.png" alt="Support Me on Ko-fi" />
+      </a>
+    </div>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tags/blog/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/medium/"
+              
+              title=""
+              >Medium Articles</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/bookmarks/"
+              
+              title=""
+              >Bookmarks</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tools/"
+              
+              title=""
+              >Toolkit</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>Building a S3 File Download Service Using Spring Boot and Minio Client</h1>
+      
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                
+                  Mon, Apr 29, 2024
+                
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">One-minute read</span>
+          </li>
+        </ul>
+      <div
+  class="notice
+    notice--update
+  "
+>
+  <span
+    class="notice__title
+      notice__title--update
+    "
+  >Update</span><div class="notice__content">
+    Medium Link: <a href="https://medium.com/gitconnected/building-a-s3-file-download-service-using-spring-boot-and-minio-client-c85cb377c0ce">Building a S3 File Download Service using Spring Boot and Minio Client</a><br>
+<strong>If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀</strong>
+  </div>
+</div>
+
+<figure><a class="lightgallery" href="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/intro.png" title="images/intro.png" data-thumbnail="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/intro.png" data-sub-html="<h2>Photo by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/intro.png"
+            srcset="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/intro.png 1080w,
+                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/intro.png 1080w,
+                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/intro.png 1080w"
+            alt="images/intro.png" height="540"  width="1080" >
+    </a><figcaption class="image-caption">Photo by Author</figcaption>
+    </figure>
+<p>This article is an exploration of how to reverse proxy an HTTP request to a dynamic URL stored in Redis. I will be using download as the base for my exploration where my dynamic URL is a S3 Presigned URL. So read on if you are interested to find out more!</p>
+<p>Before we start, check out my previous article &ldquo;Building a S3 File Download Service using Spring Boot and Minio&rdquo; if you have yet to :)</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+        <span><a class="tag" href="/tags/blog/">blog</a><a class="tag" href="/tags/medium/">medium</a></span>
+
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script></body>
+</html>
