@@ -63,6 +63,17 @@
     </item>
     
     <item>
+      <title>Exploring File Download Reverse Proxy with Nginx &#43; Lua &#43; Redis</title>
+      <link>https://bkjam.github.io/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/</guid>
+      
+        <description>&lt;p&gt;How to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>Blender - Tips &amp; Hot Keys</title>
       <link>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/</link>
       <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>

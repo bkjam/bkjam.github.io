@@ -52,8 +52,8 @@ Indie Game Developer
     
     <link
       rel="stylesheet"
-      href="/css/custom.min.85143502f3c76e2a9a482492948a53b3955bd729a5784f26306cec1f9172c242.css"
-      integrity="sha256-hRQ1AvPHbiqaSCSSlIpTs5Vb1ymleE8mMGzsH5FywkI="
+      href="/css/custom.min.bad98e22363d2e9b059c810f454f691a67257f112ddf87a92b046c0fbf5a0de8.css"
+      integrity="sha256-utmOIjY9LpsFnIEPRU9pGmclfxEt34epKwRsD79aDeg="
       crossorigin="anonymous"
       media="screen"
     />
@@ -129,8 +129,7 @@ Indie Game Developer
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Building a S3 File Download Service using Spring Boot and Minio Client">
-  <meta name="twitter:description" content="UpdateMedium Link: Building a S3 File Download Service using Spring Boot and Minio Client
-If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀Photo by AuthorThis article is an exploration of how to reverse proxy an HTTP request to a dynamic URL stored in Redis. I will be using download as the base for my exploration where my dynamic URL is a S3 Presigned URL. So read on if you are interested to find out more!">
+  <meta name="twitter:description" content="Implement a File Download Service that can handle large file downloads and multiple file downloads as zip">
 
 
 
@@ -138,8 +137,7 @@ If you have a medium.com membership, I would appreciate it if you read this arti
   <meta property="og:url" content="http://localhost:1313/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/">
   <meta property="og:site_name" content="Bkjam">
   <meta property="og:title" content="Building a S3 File Download Service using Spring Boot and Minio Client">
-  <meta property="og:description" content="UpdateMedium Link: Building a S3 File Download Service using Spring Boot and Minio Client
-If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀Photo by AuthorThis article is an exploration of how to reverse proxy an HTTP request to a dynamic URL stored in Redis. I will be using download as the base for my exploration where my dynamic URL is a S3 Presigned URL. So read on if you are interested to find out more!">
+  <meta property="og:description" content="Implement a File Download Service that can handle large file downloads and multiple file downloads as zip">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -164,7 +162,7 @@ If you have a medium.com membership, I would appreciate it if you read this arti
         "alternativeHeadline": "",
         "description": "
       
-        \u003cdiv\r\n  class=\u0022notice\r\n    notice--update\r\n  \u0022\r\n\u003e\r\n  \u003cspan\r\n    class=\u0022notice__title\r\n      notice__title--update\r\n    \u0022\r\n  \u003eUpdate\u003c\/span\u003e\u003cdiv class=\u0022notice__content\u0022\u003e\r\n    Medium Link: \u003ca href=\u0022https:\/\/medium.com\/gitconnected\/building-a-s3-file-download-service-using-spring-boot-and-minio-client-c85cb377c0ce\u0022\u003eBuilding a S3 File Download Service using Spring Boot and Minio Client\u003c\/a\u003e\u003cbr\u003e\n\u003cstrong\u003eIf you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀\u003c\/strong\u003e\r\n  \u003c\/div\u003e\r\n\u003c\/div\u003e\r\n\n\u003cfigure\u003e\u003ca class=\u0022lightgallery\u0022 href=\u0022\/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/images\/intro.png\u0022 title=\u0022images\/intro.png\u0022 data-thumbnail=\u0022\/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/images\/intro.png\u0022 data-sub-html=\u0022\u003ch2\u003ePhoto by Author\u003c\/h2\u003e\u0022\u003e\r\n        \u003cimg\r\n            \r\n            loading=\u0022lazy\u0022\r\n            src=\u0022\/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/images\/intro.png\u0022\r\n            srcset=\u0022\/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/images\/intro.png 1080w,\r\n                \/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/images\/intro.png 1080w,\r\n                \/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/images\/intro.png 1080w\u0022\r\n            alt=\u0022images\/intro.png\u0022 height=\u0022540\u0022  width=\u00221080\u0022 \u003e\r\n    \u003c\/a\u003e\u003cfigcaption class=\u0022image-caption\u0022\u003ePhoto by Author\u003c\/figcaption\u003e\r\n    \u003c\/figure\u003e\n\u003cp\u003eThis article is an exploration of how to reverse proxy an HTTP request to a dynamic URL stored in Redis. I will be using download as the base for my exploration where my dynamic URL is a S3 Presigned URL. So read on if you are interested to find out more!\u003c\/p\u003e
+        \u003cp\u003eImplement a File Download Service that can handle large file downloads and multiple file downloads as zip\u003c\/p\u003e
 
 
       
@@ -214,7 +212,7 @@ If you have a medium.com membership, I would appreciate it if you read this arti
 
     ,
         "url" : "http:\/\/localhost:1313\/post\/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy\/",
-        "wordCount" : "118",
+        "wordCount" : "1421",
         "genre" : [ ],
         "keywords" : [ 
       
@@ -459,19 +457,15 @@ If you have a medium.com membership, I would appreciate it if you read this arti
           </li>
           <li class="post__meta-item">
             <em class="fas fa-stopwatch post__meta-icon"></em>
-            <span class="post__meta-text">One-minute read</span>
+            <span class="post__meta-text">7-minute read</span>
           </li>
         </ul>
-      <div
+      <p>Implement a File Download Service that can handle large file downloads and multiple file downloads as zip</p>
+<div
   class="notice
     notice--update
   "
->
-  <span
-    class="notice__title
-      notice__title--update
-    "
-  >Update</span><div class="notice__content">
+><div class="notice__content">
     Medium Link: <a href="https://medium.com/gitconnected/building-a-s3-file-download-service-using-spring-boot-and-minio-client-c85cb377c0ce">Building a S3 File Download Service using Spring Boot and Minio Client</a><br>
 <strong>If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀</strong>
   </div>
@@ -482,14 +476,268 @@ If you have a medium.com membership, I would appreciate it if you read this arti
             
             loading="lazy"
             src="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/intro.png"
-            srcset="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/intro.png 1080w,
-                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/intro.png 1080w,
-                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/intro.png 1080w"
-            alt="images/intro.png" height="540"  width="1080" >
+            srcset="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/intro.png 810w,
+                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/intro.png 810w,
+                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/intro.png 810w"
+            alt="images/intro.png" height="420"  width="810" >
     </a><figcaption class="image-caption">Photo by Author</figcaption>
     </figure>
-<p>This article is an exploration of how to reverse proxy an HTTP request to a dynamic URL stored in Redis. I will be using download as the base for my exploration where my dynamic URL is a S3 Presigned URL. So read on if you are interested to find out more!</p>
-<p>Before we start, check out my previous article &ldquo;Building a S3 File Download Service using Spring Boot and Minio&rdquo; if you have yet to :)</p>
+<h2 id="intro">Intro</h2>
+<p>A file download service is a very common service, and you can probably find tons of tutorials online on how to build a file download service. This article aims to provide a quick code reference on how to design and implement a file download service that can handle large file downloads and multiple file downloads as a zip from S3 using Minio Client SDK.</p>
+<p><em>Note: At the point of writing, I am using Spring Boot 3.2.4 and Java 17.</em></p>
+<h2 id="file-downloadseries">File Download Series</h2>
+<ol>
+<li>Building a S3 File Download Service using Spring Boot and Minio</li>
+<li>Exploring File Download Reverse Proxy with Nginx + Lua + Redis</li>
+</ol>
+<hr>
+<h2 id="design-considerations-for-file-downloadservice">Design Considerations for File Download Service</h2>
+<figure><a class="lightgallery" href="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/download_design.png" title="images/download_design.png" data-thumbnail="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/download_design.png" data-sub-html="<h2>Photo by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/download_design.png"
+            srcset="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/download_design.png 746w,
+                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/download_design.png 746w,
+                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/download_design.png 746w"
+            alt="images/download_design.png" height="152"  width="746" >
+    </a><figcaption class="image-caption">Photo by Author</figcaption>
+    </figure>
+<hr>
+<p>The file download service is a server-side application, in our case built with Spring Boot framework, that acts as a middleware between the client (web browser) and the file storage (s3). When designing a file download service, some considerations made include:</p>
+<ol>
+<li><strong>Security</strong> - Authenticating download requests, encrypting downloads, digital signatures, and secure protocols (eg. HTTPS) to prevent intercepting and tampering with downloads.</li>
+<li><strong>Scalability</strong> - It is easy to horizontally scale the file download service during peak download periods.</li>
+<li><strong>Performance</strong> - Separating the file download service as a dedicated service ensures that other API functionalities remain responsive during peak download periods.</li>
+<li><strong>Large Files</strong> - Instead of loading the entire file into the memory of the file download service, a streaming approach should be used where the service sends the file content directly to the client in chunks.</li>
+<li><strong>Offloading Download to S3</strong> - One option is to make use of S3&rsquo;s presigned URL to offload the download request to S3 directly. This provides direct access and a more reliable download.</li>
+</ol>
+<p>For this article, I am mainly focusing on points 4 and 5.</p>
+<hr>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="step-1-create-spring-boot-application">Step 1: Create Spring Boot Application</h3>
+<p>Head over to <a href="https://start.spring.io/">https://start.spring.io/</a> and initialize a Spring Boot project. Minimally, you will require Spring Web dependencies.</p>
+<figure><a class="lightgallery" href="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/spring_initializr.png" title="images/spring_initializr.png" data-thumbnail="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/spring_initializr.png" data-sub-html="<h2>Screenshot by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/spring_initializr.png"
+            srcset="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/spring_initializr.png 1200w,
+                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/spring_initializr.png 1200w,
+                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/spring_initializr.png 1200w"
+            alt="images/spring_initializr.png" height="591"  width="1200" >
+    </a><figcaption class="image-caption">Screenshot by Author</figcaption>
+    </figure>
+<h3 id="step-2-setupminio">Step 2: Setup Minio</h3>
+<p>For demonstration purposes, I will be using Minio as my S3.</p>
+<h4 id="step-2a-setup-minio-s3-using-docker">Step 2a: Setup Minio (s3) using Docker</h4>
+<p>To set up our S3, we can use the following docker-compose file to quickly run a Minio Docker instance.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># docker-compose.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.7&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">minio</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">minio_server</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">minio/minio:RELEASE.2024-04-18T19-09-19Z</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;9000:9000&#34;</span><span class="w">  </span><span class="c"># For connecting to Minio API</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;9001:9001&#34;</span><span class="w">  </span><span class="c"># For viewing Minio Web Console</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./storage:/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MINIO_ROOT_USER</span><span class="p">:</span><span class="w"> </span><span class="l">admin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MINIO_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">password</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">server --console-address &#34;:9001&#34; /data</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Create and Start the Docker Containers in Background Mode</span>
+</span></span><span class="line"><span class="cl">docker-compose -f minio-single-node-docker-compose.yaml up -d
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># View the Docker Container Instances</span>
+</span></span><span class="line"><span class="cl">docker ps -a
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># You should see the following</span>
+</span></span><span class="line"><span class="cl">CONTAINER ID   IMAGE                                      COMMAND                  CREATED         STATUS                    PORTS                                                           NAMES
+</span></span><span class="line"><span class="cl">bf9d43b04476   minio/minio:RELEASE.2024-04-18T19-09-19Z   <span class="s2">&#34;/usr/bin/docker-ent…&#34;</span>   <span class="m">3</span> seconds ago   Up <span class="m">2</span> seconds              0.0.0.0:9000-9001-&gt;9000-9001/tcp, :::9000-9001-&gt;9000-9001/tcp   minio_server
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># To delete the Docker Container Instances</span>
+</span></span><span class="line"><span class="cl">docker-compose -f minio-single-node-docker-compose.yaml down -v
+</span></span></code></pre></div><h4 id="step-2b-add-minio-java-sdk-as-dependencies">Step 2b: Add Minio Java SDK as Dependencies</h4>
+<p>In your Spring Boot application, you will need to configure a Minio Client to communicate with the Minio that you have created. We will be using the MinIO Java SDK (<code>io.minio:minio</code>) for Amazon S3 Compatible Cloud Storage. Add the dependencies to your <code>build.gradle.kts</code> or <code>pom.xml</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># build.gradle.kts</span>
+</span></span><span class="line"><span class="cl">dependencies <span class="o">{</span>
+</span></span><span class="line"><span class="cl">   ...
+</span></span><span class="line"><span class="cl">   implementation<span class="o">(</span><span class="s2">&#34;io.minio:minio:8.5.9&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">   ...
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>Next, add the connection properties in your <code>resources/application.yaml</code> and configure a <code>MinioClient</code> for communicating with the Minio that was created in step 2a.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># application.yaml</span>
+</span></span><span class="line"><span class="cl">object-storage:
+</span></span><span class="line"><span class="cl">  endpoint: http://localhost:9000
+</span></span><span class="line"><span class="cl">  access-key: admin
+</span></span><span class="line"><span class="cl">  access-secret: password
+</span></span><span class="line"><span class="cl">  bucket: storage
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@Configuration</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MinioClientConfig</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Value</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\$</span><span class="s2">{object-storage.endpoint}&#34;</span><span class="p">)</span> <span class="k">private</span> <span class="k">val</span> <span class="py">s3Endpoint</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Value</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\$</span><span class="s2">{object-storage.access-key}&#34;</span><span class="p">)</span> <span class="k">private</span> <span class="k">val</span> <span class="py">accessKey</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Value</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\$</span><span class="s2">{object-storage.access-secret}&#34;</span><span class="p">)</span> <span class="k">private</span> <span class="k">val</span> <span class="py">accessSecret</span><span class="p">:</span> <span class="n">String</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Bean</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">minioClient</span><span class="p">():</span> <span class="n">MinioClient</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nc">MinioClient</span><span class="p">.</span><span class="n">builder</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="n">endpoint</span><span class="p">(</span><span class="n">s3Endpoint</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="n">credentials</span><span class="p">(</span><span class="n">accessKey</span><span class="p">,</span> <span class="n">accessSecret</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="n">build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">Exception</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="n">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>With that, we have set up a Minio on localhost and configured a Spring Boot Application (AKA our file download service) that can connect and communicate with the Minio. Next, let’s look at how to implement the download logic.</p>
+<h3 id="step-3-writing-file-download-logics">Step 3: Writing File Download Logics</h3>
+<p>As mentioned in the design considerations above, simpler file download services typically load the entire file into memory before sending it to the client. This usually happens when the implementation is reading the file content into a byte array or string before writing it to the HTTP response stream.</p>
+<p>However, this will cause out of memory (OOM) issues easily when we are dealing with multiple large file downloads during peak periods. Hence, we will make use of <strong>HttpServletResponse</strong>, an interface that enables us to control the HTTP response that is sent back to the client’s web browser, to write the file content (bytes) directly to the output stream. So file content is streamed directly from Minio to the client’s web browser.</p>
+<h4 id="step-3a-single-file-downloads">Step 3a: Single File Downloads</h4>
+<p>We can make use of <code>IOUtils.copyLarge()</code>, a method provided by Apache Commons IO library, which is designed to copy large data from one input stream to one output stream.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@Service</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">StorageService</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">minioClient</span><span class="p">:</span> <span class="n">MinioClient</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Value</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\$</span><span class="s2">{object-storage.bucket}&#34;</span><span class="p">)</span> <span class="k">private</span> <span class="k">val</span> <span class="py">bucket</span><span class="p">:</span> <span class="n">String</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">downloadFile</span><span class="p">(</span><span class="n">fileId</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">HttpServletResponse</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Set File Content
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">val</span> <span class="py">statArgs</span> <span class="p">=</span> <span class="nc">StatObjectArgs</span><span class="p">.</span><span class="n">builder</span><span class="p">().</span><span class="n">bucket</span><span class="p">(</span><span class="n">bucket</span><span class="p">).</span><span class="n">`object`</span><span class="p">(</span><span class="n">fileId</span><span class="p">).</span><span class="n">build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">stat</span> <span class="p">=</span> <span class="n">minioClient</span><span class="p">.</span><span class="n">statObject</span><span class="p">(</span><span class="n">statArgs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// Set Response Header
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">response</span><span class="p">.</span><span class="n">contentType</span> <span class="p">=</span> <span class="n">stat</span><span class="p">.</span><span class="n">contentType</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span><span class="p">.</span><span class="n">addHeader</span><span class="p">(</span><span class="nc">HttpHeaders</span><span class="p">.</span><span class="n">CONTENT_DISPOSITION</span><span class="p">,</span> <span class="s2">&#34;attachment; filename=</span><span class="se">\&#34;</span><span class="si">$fileId</span><span class="se">\&#34;</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// Download File
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">val</span> <span class="py">getArgs</span> <span class="p">=</span> <span class="nc">GetObjectArgs</span><span class="p">.</span><span class="n">builder</span><span class="p">().</span><span class="n">bucket</span><span class="p">(</span><span class="n">bucket</span><span class="p">).</span><span class="n">`object`</span><span class="p">(</span><span class="n">fileId</span><span class="p">).</span><span class="n">build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">inputStream</span><span class="p">:</span> <span class="n">InputStream</span> <span class="p">=</span> <span class="n">minioClient</span><span class="p">.</span><span class="n">getObject</span><span class="p">(</span><span class="n">getArgs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nc">IOUtils</span><span class="p">.</span><span class="n">copyLarge</span><span class="p">(</span><span class="n">inputStream</span><span class="p">,</span> <span class="n">response</span><span class="p">.</span><span class="n">outputStream</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p><em>Note: <code>org.apache.commons.io.IOUtils</code> doesn’t seems to work well with <code>jakarta.servlet.http.HttpServletResponse</code> which is the default in Spring Boot 3.0. I will probably update this piece of code after researching abit more.</em></p>
+<p><em>You can refer to the changes here — <a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide#Jakarta-EE">https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide#Jakarta-EE</a></em></p>
+</blockquote>
+<h4 id="step-3b-multiple-file-downloads-as-a-zip">Step 3b: Multiple File Downloads as a Zip</h4>
+<p>When dealing with multiple files, it is better to download the files from Minio and add them to a zip file. The file download service then writes the zip file to the output stream of the HTTP response, without storing the zip file in memory.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@Service</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">StorageService</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">minioClient</span><span class="p">:</span> <span class="n">MinioClient</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Value</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\$</span><span class="s2">{object-storage.bucket}&#34;</span><span class="p">)</span> <span class="k">private</span> <span class="k">val</span> <span class="py">bucket</span><span class="p">:</span> <span class="n">String</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">downloadMultipleFiles</span><span class="p">(</span><span class="n">fileIds</span><span class="p">:</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;,</span> <span class="n">response</span><span class="p">:</span> <span class="n">HttpServletResponse</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Set Response Header
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">response</span><span class="p">.</span><span class="n">contentType</span> <span class="p">=</span> <span class="s2">&#34;application/zip&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span><span class="p">.</span><span class="n">addHeader</span><span class="p">(</span><span class="nc">HttpHeaders</span><span class="p">.</span><span class="n">CONTENT_DISPOSITION</span><span class="p">,</span> <span class="s2">&#34;attachment; filename=</span><span class="se">\&#34;</span><span class="s2">files.zip</span><span class="se">\&#34;</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1">// Create Zip File and write to Output Stream
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">val</span> <span class="py">zipOut</span> <span class="p">=</span> <span class="n">ZipOutputStream</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">outputStream</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fileIds</span><span class="p">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="n">fileId</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">val</span> <span class="py">args</span> <span class="p">=</span> <span class="nc">GetObjectArgs</span><span class="p">.</span><span class="n">builder</span><span class="p">().</span><span class="n">bucket</span><span class="p">(</span><span class="n">bucket</span><span class="p">).</span><span class="n">`object`</span><span class="p">(</span><span class="n">fileId</span><span class="p">).</span><span class="n">build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="k">val</span> <span class="py">inputStream</span> <span class="p">=</span> <span class="n">minioClient</span><span class="p">.</span><span class="n">getObject</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">val</span> <span class="py">zipEntry</span> <span class="p">=</span> <span class="n">ZipEntry</span><span class="p">(</span><span class="n">fileId</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">zipOut</span><span class="p">.</span><span class="n">putNextEntry</span><span class="p">(</span><span class="n">zipEntry</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nc">StreamUtils</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">inputStream</span><span class="p">,</span> <span class="n">zipOut</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">zipOut</span><span class="p">.</span><span class="n">closeEntry</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">zipOut</span><span class="p">.</span><span class="n">finish</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">zipOut</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="step-3c-generating-presigned-url">Step 3c: Generating Presigned URL</h4>
+<figure><a class="lightgallery" href="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/presign_url_design.png" title="images/presign_url_design.png" data-thumbnail="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/presign_url_design.png" data-sub-html="<h2>Photo by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/presign_url_design.png"
+            srcset="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/presign_url_design.png 746w,
+                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/presign_url_design.png 746w,
+                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/presign_url_design.png 746w"
+            alt="images/presign_url_design.png" height="242"  width="746" >
+    </a><figcaption class="image-caption">Photo by Author</figcaption>
+    </figure>
+<p>Instead of using the download service as a download middleware between the client and S3, we can generate a temporary presigned URL and offload the download to S3.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@Service</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">StorageService</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">minioClient</span><span class="p">:</span> <span class="n">MinioClient</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Value</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\$</span><span class="s2">{object-storage.bucket}&#34;</span><span class="p">)</span> <span class="k">private</span> <span class="k">val</span> <span class="py">bucket</span><span class="p">:</span> <span class="n">String</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">generatePresignedUrl</span><span class="p">(</span><span class="n">fileId</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span> <span class="n">String</span><span class="p">?</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">args</span> <span class="p">=</span> <span class="nc">GetPresignedObjectUrlArgs</span><span class="p">.</span><span class="n">builder</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">bucket</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">`object`</span><span class="p">(</span><span class="n">fileId</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">method</span><span class="p">(</span><span class="nc">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">expiry</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="nc">TimeUnit</span><span class="p">.</span><span class="n">MINUTES</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">minioClient</span><span class="p">.</span><span class="n">getPresignedObjectUrl</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="step-4-configuring-the-rest-controller">Step 4: Configuring the Rest Controller</h3>
+<p>Lastly, let’s generate the APIs for calling the download logic we implemented in step 3. To do that, simply create a Rest Controller.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@RestController</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s2">&#34;/api/v1/download&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">DownloadController</span><span class="p">(</span><span class="k">private</span> <span class="k">val</span> <span class="py">storageService</span><span class="p">:</span> <span class="n">StorageService</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">private</span> <span class="k">val</span> <span class="py">logger</span> <span class="p">=</span> <span class="nc">LoggerFactory</span><span class="p">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">DownloadController</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@GetMapping</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">downloadFile</span><span class="p">(</span><span class="nd">@RequestParam</span> <span class="n">fileId</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">HttpServletResponse</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Received request to download file - </span><span class="si">$fileId</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">storageService</span><span class="p">.</span><span class="n">downloadFile</span><span class="p">(</span><span class="n">fileId</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@GetMapping</span><span class="p">(</span><span class="s2">&#34;/presigned&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">getFilePresignedUrl</span><span class="p">(</span><span class="nd">@RequestParam</span> <span class="n">fileId</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span> <span class="n">ResponseEntity</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Received request to generate presigned url for file - </span><span class="si">$fileId</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">presignedUrl</span> <span class="p">=</span> <span class="n">storageService</span><span class="p">.</span><span class="n">generatePresignedUrl</span><span class="p">(</span><span class="n">fileId</span><span class="p">)</span> <span class="o">?:</span> <span class="k">return</span> <span class="nc">ResponseEntity</span><span class="p">.</span><span class="n">notFound</span><span class="p">().</span><span class="n">build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nc">ResponseEntity</span><span class="p">.</span><span class="n">ok</span><span class="p">(</span><span class="n">presignedUrl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@GetMapping</span><span class="p">(</span><span class="s2">&#34;/zip&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">downloadMultipleFiles</span><span class="p">(</span><span class="nd">@RequestParam</span> <span class="n">fileIds</span><span class="p">:</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;,</span> <span class="n">response</span><span class="p">:</span> <span class="n">HttpServletResponse</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Received request to download files - </span><span class="si">${fileIds.joinToString(&#34;,&#34;)}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">storageService</span><span class="p">.</span><span class="n">downloadMultipleFiles</span><span class="p">(</span><span class="n">fileIds</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><hr>
+<h2 id="testing-downloads">Testing Downloads</h2>
+<p>To test your service, the simplest way is to open up a web browser, and enter the following URLs!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Single File Download</span>
+</span></span><span class="line"><span class="cl">http://localhost:8080/api/v1/download?fileId<span class="o">=</span>yourfile
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Multiple File Download</span>
+</span></span><span class="line"><span class="cl">http://localhost:8080/api/v1/download/zip?fileIds<span class="o">=</span>yourfile,yourfile2
+</span></span><span class="line"><span class="cl">http://localhost:8080/api/v1/download/zip?fileIds<span class="o">=</span>yourfile<span class="p">&amp;</span><span class="nv">fileIds</span><span class="o">=</span>yourfile2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Presigned Url</span>
+</span></span><span class="line"><span class="cl">http://localhost:8080/api/v1/download/presigned?fileId<span class="o">=</span>yourfile
+</span></span></code></pre></div><p>Note that you will need to first upload your files to Minio. You can access the Minio web console by entering <code>http://localhost:9001</code> and login with username <code>admin</code> and password <code>password</code> which was configured in the <code>docker-compose.yaml</code> file in step 2a.</p>
+<figure><a class="lightgallery" href="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/minio_ui.png" title="images/minio_ui.png" data-thumbnail="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/minio_ui.png" data-sub-html="<h2>Screenshot by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/minio_ui.png"
+            srcset="/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/minio_ui.png 1200w,
+                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/minio_ui.png 1200w,
+                /post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client-copy/images/minio_ui.png 1200w"
+            alt="images/minio_ui.png" height="481"  width="1200" >
+    </a><figcaption class="image-caption">Screenshot by Author</figcaption>
+    </figure>
+<h2 id="conclusion">Conclusion</h2>
+<p>This concludes the file download service implementation. This is nothing complicated but I hope it gives you a good sense of how to handle large file downloads efficiently with Spring Boot and Minio.</p>
+<p>Refer to the GitHub repo below for the codes.</p>
+<ul>
+<li><a href="https://github.com/bkjam/download-service">https://github.com/bkjam/download-service</a></li>
+</ul>
+<hr>
+<p><strong>Thank you for reading till the end! ☕</strong><br>
+If you enjoyed this article and would like to support my work, feel free to buy me a coffee on Ko-fi. Your support helps me keep creating, and I truly appreciate it! 🙏</p>
 </div>
     <div class="post__footer">
       

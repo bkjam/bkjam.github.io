@@ -1,0 +1,883 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Bryan
+        |
+        Exploring File Download Reverse Proxy with Nginx &#43; Lua &#43; Redis
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.136.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Bryan" />
+  <meta
+    name="description"
+    content="Software Engineer
+Indie Game Developer 
+"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1f4526598994b776237b2b6eb48a4a9d442c1943c7d18dc0acf2c87507d30c7d.css"
+      integrity="sha256-H0UmWYmUt3YjeytutIpKnUQsGUPH0Y3ArPLIdQfTDH0="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.98749881060456eb289ddf2ed2ad935d86a8f4cdbbf6187504adf718cbb2eb34.css"
+      integrity="sha256-mHSYgQYEVusond8u0q2TXYao9M279hh1BK33GMuy6zQ="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://bkjam.github.io/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Exploring File Download Reverse Proxy with Nginx &#43; Lua &#43; Redis">
+  <meta name="twitter:description" content="How to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua">
+
+
+
+  
+  <meta property="og:url" content="https://bkjam.github.io/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/">
+  <meta property="og:site_name" content="Bkjam">
+  <meta property="og:title" content="Exploring File Download Reverse Proxy with Nginx &#43; Lua &#43; Redis">
+  <meta property="og:description" content="How to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-09-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-09T00:00:00+00:00">
+    <meta property="article:tag" content="Blog">
+    <meta property="article:tag" content="Medium">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "Exploring File Download Reverse Proxy with Nginx \u002b Lua \u002b Redis",
+        "headline": "Exploring File Download Reverse Proxy with Nginx \u002b Lua \u002b Redis",
+        "alternativeHeadline": "",
+        "description": "
+      
+        \u003cp\u003eHow to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua\u003c\/p\u003e
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bkjam.github.io\/post\/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightYear" : "2024",
+        "dateCreated": "2024-09-09T00:00:00.00Z",
+        "datePublished": "2024-09-09T00:00:00.00Z",
+        "dateModified": "2024-09-09T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Bryan",
+            "url": "https://bkjam.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/bkjam.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/bkjam.github.io\/post\/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis\/",
+        "wordCount" : "1719",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "blog"
+
+    
+      
+        ,
+
+      
+      "medium"
+
+    ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">I&#39;m Bryan</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Software Engineer<br />Indie Game Developer <br /></p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://medium.com/@kbryan1008"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Medium"
+            title="Medium"
+          >
+            <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/bkjam"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Github"
+            title="Github"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://rustycruiselabs.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Game Dev"
+            title="Game Dev"
+          >
+            <i class="fas fa-gamepad fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+    <div class="sidebar__introduction">
+      <a href="https://ko-fi.com/supportbkjam">
+        <img src="/images/kofi-supportme_small.png" alt="Support Me on Ko-fi" />
+      </a>
+    </div>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tags/blog/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/medium/"
+              
+              title=""
+              >Medium Articles</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/bookmarks/"
+              
+              title=""
+              >Bookmarks</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tools/"
+              
+              title=""
+              >Toolkit</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>Exploring File Download Reverse Proxy With Nginx &#43; Lua &#43; Redis</h1>
+      
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                
+                  Mon, Sep 9, 2024
+                
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">9-minute read</span>
+          </li>
+        </ul>
+      <p>How to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua</p>
+<div
+  class="notice
+    notice--update
+  "
+><div class="notice__content">
+    Medium Link: <a href="https://medium.com/@kbryan1008/exploring-file-download-reverse-proxy-with-nginx-lua-redis-896bd3bd88c4">Exploring File Download Reverse Proxy with Nginx + Lua + Redis</a><br>
+<strong>If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀</strong>
+  </div>
+</div>
+
+<figure><a class="lightgallery" href="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/intro.png" title="images/intro.png" data-thumbnail="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/intro.png" data-sub-html="<h2>Photo by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/intro.png"
+            srcset="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/intro.png 1080w,
+                /post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/intro.png 1080w,
+                /post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/intro.png 1080w"
+            alt="images/intro.png" height="540"  width="1080" >
+    </a><figcaption class="image-caption">Photo by Author</figcaption>
+    </figure>
+<h2 id="intro">Intro</h2>
+<p>This article is an exploration of how to reverse proxy an HTTP request to a dynamic URL stored in Redis. I will be using download as the base for my exploration where my dynamic URL is a S3 Presigned URL. So read on if you are interested to find out more!</p>
+<p>Before we start, check out my previous article “<a href="https://medium.com/gitconnected/building-a-s3-file-download-service-using-spring-boot-and-minio-client-c85cb377c0ce">Building a S3 File Download Service using Spring Boot and Minio</a>” if you have yet to :)</p>
+<h2 id="file-download-series">File Download Series</h2>
+<ul>
+<li><a href="https://medium.com/gitconnected/building-a-s3-file-download-service-using-spring-boot-and-minio-client-c85cb377c0ce">Building a S3 File Download Service using Spring Boot and Minio</a></li>
+<li>Exploring File Download Reverse Proxy with Nginx + Lua + Redis</li>
+</ul>
+<hr>
+<h2 id="background-context">Background Context</h2>
+<p>I have a download service for downloading files from my S3 cloud storage service (Minio). The client can download files using the Presigned URL after the download service has validated/authenticated the client’s request.</p>
+<h3 id="what-is-a-presigned-url">What is a Presigned URL</h3>
+<figure><a class="lightgallery" href="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram.png" title="images/download_flow_diagram.png" data-thumbnail="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram.png" data-sub-html="<h2>Photo by Author - Flow for Downloading with Presigned Url</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram.png"
+            srcset="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram.png 723w,
+                /post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram.png 723w,
+                /post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram.png 723w"
+            alt="images/download_flow_diagram.png" height="422"  width="723" >
+    </a><figcaption class="image-caption">Photo by Author - Flow for Downloading with Presigned Url</figcaption>
+    </figure>
+<p>Presigned URLs are a commonly used method to share files securely while maintaining control over access. In general, a user with access to the file generates a Presigned URL and any unauthorized user can download the file using the Presigned URL.</p>
+<blockquote>
+<p><em>Note: Presigned URL can also be used for uploading and it is only valid for a specified duration.</em></p>
+</blockquote>
+<p>However, instead of providing the unauthorized user with the Presigned URL, I want to explore using a custom dynamic download URL.</p>
+<h3 id="what-is-the-download-url">What is the Download URL</h3>
+<p>Download URL is a custom URL generated by the download service where a typical download flow is made up of 2 parts (similar to Presigned URL).</p>
+<ol>
+<li><strong>The API call to get a download URL</strong></li>
+<li><strong>The API call to download the file using the download URL</strong></li>
+</ol>
+<figure><a class="lightgallery" href="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram.png" title="images/download_flow_diagram.png" data-thumbnail="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram.png" data-sub-html="<h2>Photo by Author - Flow for Downloading with dynamic download URL</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram.png"
+            srcset="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram.png 723w,
+                /post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram.png 723w,
+                /post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram.png 723w"
+            alt="images/download_flow_diagram.png" height="422"  width="723" >
+    </a><figcaption class="image-caption">Photo by Author - Flow for Downloading with dynamic download URL</figcaption>
+    </figure>
+<p>The diagram above illustrates how the download flow works with a custom download URL. An example of a download request is as such:</p>
+<ol>
+<li>The client requests to download a file.</li>
+<li>Nginx proxy request to download service.</li>
+<li>Download service process the download request (Eg. authenticating/validating / etc…) → generates a downloadId (Eg <code>123456</code>) → request for a <strong>Presigned URL</strong> from S3 (Eg. <code>http://s3_presigned_url</code>) → stores the presigned URL in Redis where key = <strong>downloadId</strong> → return a response with the <strong>download URL</strong> (Eg. <code>http://example/download/123456</code>).</li>
+<li>The client requests to download using the download URL — <code>http://example/download/123456</code>.</li>
+<li>Nginx gets the Presigned URL from Redis using downloadId (<code>123456</code>) and proxies the download request from <code>http://example/download/123456</code> to <code>http://s3_presigned_url</code>. <em>Note: The downloadId key is deleted from Redis after retrieval.</em></li>
+</ol>
+<hr>
+<h2 id="implementing-the-download-reverseproxy">Implementing the Download Reverse Proxy</h2>
+<p>This exploration is an expansion from the previous article, so please refer to that on how to create a File Download Service.</p>
+<h3 id="step-1-generating-downloadurl">Step 1 - Generating Download Url</h3>
+<p>Instead of returning a Presigned URL, we want to return a custom download URL as our response. So firstly, using the service below, we can connect to S3 and generate the Presigned URL.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@Service</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">StorageService</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">minioClient</span><span class="p">:</span> <span class="n">MinioClient</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Value</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\$</span><span class="s2">{object-storage.bucket}&#34;</span><span class="p">)</span> <span class="k">private</span> <span class="k">val</span> <span class="py">bucket</span><span class="p">:</span> <span class="n">String</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">generatePresignedUrl</span><span class="p">(</span><span class="n">fileId</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span> <span class="n">String</span><span class="p">?</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">args</span> <span class="p">=</span> <span class="nc">GetPresignedObjectUrlArgs</span><span class="p">.</span><span class="n">builder</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">bucket</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">`object`</span><span class="p">(</span><span class="n">fileId</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">method</span><span class="p">(</span><span class="nc">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">expiry</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="nc">TimeUnit</span><span class="p">.</span><span class="n">MINUTES</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">minioClient</span><span class="p">.</span><span class="n">getPresignedObjectUrl</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Next, we will create a unique download ID to generate a download URL and store the download ID to the Presigned URL mapping in Redis.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@Service</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UrlService</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">redisTemplate</span><span class="p">:</span> <span class="n">StringRedisTemplate</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">uniqueIdGenerator</span><span class="p">:</span> <span class="n">UniqueIdGenerator</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Value</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\$</span><span class="s2">{download.url}&#34;</span><span class="p">)</span> <span class="k">private</span> <span class="k">val</span> <span class="py">downloadUrl</span><span class="p">:</span> <span class="n">String</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">private</span> <span class="k">val</span> <span class="py">logger</span> <span class="p">=</span> <span class="nc">LoggerFactory</span><span class="p">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">UrlService</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">generateDownloadUrl</span><span class="p">(</span><span class="n">presignedUrl</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span> <span class="n">String</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">downloadId</span> <span class="p">=</span> <span class="n">uniqueIdGenerator</span><span class="p">.</span><span class="n">generateUniqueId</span><span class="p">()</span> <span class="o">?:</span> <span class="k">throw</span> <span class="n">Exception</span><span class="p">(</span><span class="s2">&#34;Unable to generate unique download Id&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(!</span><span class="n">redisTemplate</span><span class="p">.</span><span class="n">opsForValue</span><span class="p">().</span><span class="k">get</span><span class="p">(</span><span class="n">downloadId</span><span class="p">).</span><span class="n">isNullOrEmpty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="n">Exception</span><span class="p">(</span><span class="s2">&#34;Download Id already exists!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Storing to Redis :  </span><span class="si">$downloadId</span><span class="s2"> = </span><span class="si">$presignedUrl</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">redisTemplate</span><span class="p">.</span><span class="n">opsForValue</span><span class="p">()[</span><span class="n">downloadId</span><span class="p">]</span> <span class="p">=</span> <span class="n">presignedUrl</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s2">&#34;</span><span class="si">$downloadUrl</span><span class="s2">/</span><span class="si">$downloadId</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p><em>Note that the <code>download.url</code> value refers to the Nginx URL, which is our file download gateway.</em></p>
+<p><em>Also If you are curious, the <code>uniqueIdGenerator</code> is a just simple service that creates a md5 hash of a timestamp combined with some random string value.</em></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@RestController</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s2">&#34;/api/v1/download&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">DownloadController</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">storageService</span><span class="p">:</span> <span class="n">StorageService</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">urlService</span><span class="p">:</span> <span class="n">UrlService</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">private</span> <span class="k">val</span> <span class="py">logger</span> <span class="p">=</span> <span class="nc">LoggerFactory</span><span class="p">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">DownloadController</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@GetMapping</span><span class="p">(</span><span class="s2">&#34;/url&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">getFileDownloadUrl</span><span class="p">(</span><span class="nd">@RequestParam</span> <span class="n">fileId</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span> <span class="n">ResponseEntity</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Received request to generate download url for file - </span><span class="si">$fileId</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">presignedUrl</span> <span class="p">=</span> <span class="n">storageService</span><span class="p">.</span><span class="n">generatePresignedUrl</span><span class="p">(</span><span class="n">fileId</span><span class="p">)</span> <span class="o">?:</span> <span class="k">return</span> <span class="nc">ResponseEntity</span><span class="p">.</span><span class="n">notFound</span><span class="p">().</span><span class="n">build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">downloadUrl</span> <span class="p">=</span> <span class="n">urlService</span><span class="p">.</span><span class="n">generateDownloadUrl</span><span class="p">(</span><span class="n">presignedUrl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nc">ResponseEntity</span><span class="p">.</span><span class="n">ok</span><span class="p">(</span><span class="n">downloadUrl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Lastly, the download URL is then returned as a response to the client as shown in the controller above. With that, we completed the first part of the download flow!</p>
+<figure><a class="lightgallery" href="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram_cut1.png" title="images/download_flow_diagram_cut1.png" data-thumbnail="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram_cut1.png" data-sub-html="<h2>Photo by Author - Recap of the 1st part (generating a download URL)</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram_cut1.png"
+            srcset="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram_cut1.png 641w,
+                /post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram_cut1.png 641w,
+                /post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram_cut1.png 641w"
+            alt="images/download_flow_diagram_cut1.png" height="282"  width="641" >
+    </a><figcaption class="image-caption">Photo by Author - Recap of the 1st part (generating a download URL)</figcaption>
+    </figure>
+<p>Whenever a download request is made, the download service will process the request, generate and store the Presigned URL and download ID in Redis, and return a download URL to the client.</p>
+<p>Now that we have the download URL, let’s look at how Nginx is configured to route download requests to the download service and the S3.</p>
+<h3 id="step-2--configure-nginx-reverseproxy">Step 2- Configure Nginx Reverse Proxy</h3>
+<p>We are using <code>openresty</code> docker image as our Nginx gateway. It is a superset of Nginx, bundled with LuaJIT interpreter as well as various Lua libraries which enables us to run embeddable scripts in Nginx. Here&rsquo;s what we will be configuring in the <code>nginx.conf</code>!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># nginx-lua.conf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">env DOWNLOAD_SERVICE_URL;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">http {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">lua_package_path &#34;/path/to/lua-resty-redis/lib/?.lua;;&#34;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">include /usr/local/openresty/nginx/conf/mime.types;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">default_type application/octet-stream;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">resolver 127.0.0.11 ipv6=off;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">server {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">listen 8000;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Download Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">location /download-service {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">set_by_lua $upstream_server &#39;return os.getenv(&#34;DOWNLOAD_SERVICE_URL&#34;)&#39;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">rewrite ^/download-service/(.*) /$1 break;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">proxy_pass $upstream_server;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">proxy_set_header Host $host;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># docker-compose.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.9&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">minio</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">download_service:  # &lt;-- note</span><span class="p">:</span><span class="w"> </span><span class="l">service&#39;s name = hostname</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx_gateway</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">openresty/openresty:1.25.3.1-3-alpine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;8000:8000&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./nginx-lua.conf:/usr/local/openresty/nginx/conf/nginx.conf:ro</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;DOWNLOAD_SERVICE_URL=http://download_service:8080&#34;</span><span class="w">
+</span></span></span></code></pre></div><blockquote>
+<p><em><code>resolver 127.0.0.11 ipv6=off</code> → this is necessary to instruct NGINX to use Docker&rsquo;s internal DNS resolver which allows containers within the same bridge network to communicate with each other using the service names as hostnames (for docker-compose).</em></p>
+</blockquote>
+<p>Firstly, in the <code>nginx.conf</code> above, we added a path proxy that will route all requests with prefix <code>/download-service</code> to the download service as shown above. Notice, that we are using environment variables to set the <code>upstream_server</code> at runtime.</p>
+<p>Next, we will add a path proxy in the <code>nginx.conf</code> to process the download URL.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># nginx-lua.conf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">env REDIS_PASSWORD;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">env REDIS_HOSTNAME;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">env REDIS_PORT;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">env S3_HOSTNAME;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">env S3_PORT;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">http {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">resolver 127.0.0.11 ipv6=off;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">init_worker_by_lua_block {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">redis = require &#34;resty.redis&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">server {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">listen 8000;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c"># Allow special characters in headers</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">ignore_invalid_headers off;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c"># Allow any size file to be uploaded.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c"># Set to a value such as 1000m; to restrict file size to a specific value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">client_max_body_size 0;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c"># Disable buffering</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">proxy_buffering off;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">proxy_request_buffering off;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">location /download/ {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">set $target &#39;&#39;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">access_by_lua_block {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">local uri = ngx.var.uri</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">local downloadId = string.match(uri, &#34;^/download/(%w+)$&#34;)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">if not downloadId then</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">ngx.say(&#34;Invalid Download URL&#34;)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">return ngx.exit(400)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">local red = redis:new()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">red:set_timeout(1000) -- 1 second</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">local redis_password = os.getenv(&#34;REDIS_PASSWORD&#34;)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">if not redis_password then</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">ngx.log(ngx.ERR, &#34;REDIS_PASSWORD environment variable is not set&#34;)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">return ngx.exit(500)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">local redis_hostname = os.getenv(&#34;REDIS_HOSTNAME&#34;)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">local redis_port = os.getenv(&#34;REDIS_PORT&#34;)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">local ok, err = red:connect(redis_hostname, redis_port)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">if not ok then</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">ngx.log(ngx.ERR, &#34;failed to connect to redis: &#34;, err)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">return ngx.exit(500)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">local res, err = red:auth(redis_password)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">if not res then</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">ngx.log(ngx.ERR, &#34;failed to authenticate: &#34;, err)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">return ngx.exit(500)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">local presignedUrl, err = red:get(downloadId)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">if not res then</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">ngx.log(ngx.ERR, &#34;failed to get key: &#34;, err)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">return ngx.exit(500)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">if presignedUrl == ngx.null then</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">ngx.say(&#34;Download URL no longer valid!&#34;)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">return ngx.exit(400)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">else</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">local res, err = red:del(downloadId)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">if not res then</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="l">ngx.log(ngx.ERR, &#34;failed to delete key: &#34;, err)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="l">return ngx.exit(500)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="l">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">ngx.var.target = presignedUrl</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">set_by_lua $s3_hostname &#39;return os.getenv(&#34;S3_HOSTNAME&#34;)&#39;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">set_by_lua $s3_port &#39;return os.getenv(&#34;S3_PORT&#34;)&#39;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">proxy_set_header Host $s3_hostname:$s3_port;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">proxy_set_header X-Real-IP $remote_addr;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">proxy_set_header X-Forwarded-Proto $scheme;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">proxy_connect_timeout 300;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">proxy_http_version 1.1;                        </span><span class="w"> </span><span class="c"># Default is HTTP/1, keepalive is only enabled in HTTP/1.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">proxy_set_header Connection &#34;&#34;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">chunked_transfer_encoding off;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">proxy_pass $target;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># docker-compose.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.9&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">minio</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">download_service</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;REDIS_PASSWORD=APHGGBHQkHdgD49pjuBfkyKCKZAsrr&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;REDIS_HOSTNAME=redis&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;REDIS_PORT=6379&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;S3_HOSTNAME=minio&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;S3_PORT=9000&#34;</span><span class="w">
+</span></span></span></code></pre></div><blockquote>
+<p><code>proxy_set_header Host $s3_hostname:$s3_port;</code> → this is important for resolving SignatureDoesNotMatch error. Refer below for more details.</p>
+</blockquote>
+<p>In the <code>nginx.conf</code> above, to connect to Redis, we will make use of <a href="https://github.com/openresty/lua-resty-redis">lua-resty-redis - a lua redis client driver</a>. The script above basically extracts the <strong>download Id</strong> from the download URL, lookup Redis using the download ID (key) for the <strong>Presigned URL</strong>, and proxies the request from the download URL to the Presigned URL.</p>
+<figure><a class="lightgallery" href="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram_cut1.png" title="images/download_flow_diagram_cut1.png" data-thumbnail="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram_cut1.png" data-sub-html="<h2>Photo by Author - Recap of the 2nd part (downloading file using download URL)</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram_cut1.png"
+            srcset="/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram_cut1.png 641w,
+                /post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram_cut1.png 641w,
+                /post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/images/download_flow_diagram_cut1.png 641w"
+            alt="images/download_flow_diagram_cut1.png" height="282"  width="641" >
+    </a><figcaption class="image-caption">Photo by Author - Recap of the 2nd part (downloading file using download URL)</figcaption>
+    </figure>
+<p>With that, our Nginx is now configured to proxy our custom download URL to the Presigned URL that we stored in Redis. Awesome!</p>
+<hr>
+<h2 id="issues-you-mightface">Issues you might face…</h2>
+<h3 id="signaturedoesnotmatch-error">SignatureDoesNotMatch Error</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;Error&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;Code&gt;</span>SignatureDoesNotMatch<span class="nt">&lt;/Code&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;Message&gt;</span>The request signature we calculated does not match the signature you provided. Check your key and signing method.<span class="nt">&lt;/Message&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;Key&gt;</span>test.txt<span class="nt">&lt;/Key&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;BucketName&gt;</span>storage<span class="nt">&lt;/BucketName&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;Resource&gt;</span>/storage/test.txt<span class="nt">&lt;/Resource&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;RequestId&gt;</span>17C8ACB0FC2FA7B7<span class="nt">&lt;/RequestId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;HostId&gt;</span>dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8<span class="nt">&lt;/HostId&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/Error&gt;</span>
+</span></span></code></pre></div><p>Referencing this <a href="https://github.com/minio/minio/issues/7857">issue</a>, it is noted that the <code>proxy_set_header</code> Host value must match the Presigned URL. When using docker-compose, my s3 endpoint was <code>http://minio:9000</code> as shown below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.9&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">minio</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">download_service</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="s2">&#34;OBJECT_STORAGE_ENDPOINT=http://minio:9000&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">minio</span><span class="w">
+</span></span></span></code></pre></div><p>When a download request is made, the download URL will look like <code>http://localhost:8000/download/&lt;downloadId&gt;</code> and a Presigned URL will look like this <code>http://minio:9000/presigned_params….</code> This will result in a <em>SignatureDoesNotMatch</em> error if we do not set the appropriate Host in our reverse proxy configuration.</p>
+<p>Hence, in other to resolve the <em>SignatureDoesNotMatch</em> error, we just have to set <code>proxy_set_header Host minio:9000</code>.</p>
+<hr>
+<h2 id="summary">Summary</h2>
+<p>That&rsquo;s it! This was an interesting topic for exploration. I am not sure whether this is the right approach for dynamically proxying URLs, but it was definitely fun to get this to work. If you have the time, do give this a try as I think it challenges your knowledge of Lua Scripting, Nginx, and Docker Networking.</p>
+<p>Refer to the GitHub repo below for the codes.</p>
+<ul>
+<li><a href="https://github.com/bkjam/download-service">https://github.com/bkjam/download-service</a></li>
+</ul>
+<hr>
+<p><strong>Thank you for reading till the end! ☕</strong><br>
+If you enjoyed this article and would like to support my work, feel free to buy me a coffee on Ko-fi. Your support helps me keep creating, and I truly appreciate it! 🙏</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+        <span><a class="tag" href="/tags/blog/">blog</a><a class="tag" href="/tags/medium/">medium</a></span>
+
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</body>
+</html>
