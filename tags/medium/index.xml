@@ -73,5 +73,27 @@
       
     </item>
     
+    <item>
+      <title>React - How to Implement Custom MultiSelect Cell Editor in AgGrid</title>
+      <link>https://bkjam.github.io/post/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/</guid>
+      
+        <description>&lt;p&gt;Issues Faced and Code References on How to Implement Mantine MultiSelect Dropdown in AgGrid Tables&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>React - Avoid Unnecessary Re-Rendering of Array Components When Using Zustand</title>
+      <link>https://bkjam.github.io/post/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/</link>
+      <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/</guid>
+      
+        <description>&lt;p&gt;How to avoid re-rendering all array components when only one component’s state is updated when using Zustand and React&lt;/p&gt;</description>
+      
+    </item>
+    
   </channel>
 </rss>
