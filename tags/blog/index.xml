@@ -122,6 +122,17 @@
     </item>
     
     <item>
+      <title>Updates to AutoConfiguration in Spring Boot 3</title>
+      <link>https://bkjam.github.io/post/2024-03-22-updates-to-auto-configuration-in-spring-boot-3/</link>
+      <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2024-03-22-updates-to-auto-configuration-in-spring-boot-3/</guid>
+      
+        <description>&lt;p&gt;If you are working with a custom starter library, take note of this auto-configuration change!&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>Quick Reference to Setup Universal Render Pipeline for Unity Projects</title>
       <link>https://bkjam.github.io/post/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</link>
       <pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate>
