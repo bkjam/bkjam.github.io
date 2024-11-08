@@ -1,0 +1,742 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Bryan
+        |
+        5 Observations on Spring Boot&#39;s Loading Precedence for Properties Files With Spring Cloud Config
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.136.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Bryan" />
+  <meta
+    name="description"
+    content="Software Engineer
+Indie Game Developer 
+"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1f4526598994b776237b2b6eb48a4a9d442c1943c7d18dc0acf2c87507d30c7d.css"
+      integrity="sha256-H0UmWYmUt3YjeytutIpKnUQsGUPH0Y3ArPLIdQfTDH0="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.6b2546bcd98560543dbad1638565a4e6f70a12afeb7d68c387313f1eaa9f7327.css"
+      integrity="sha256-ayVGvNmFYFQ9utFjhWWk5vcKEq/rfWjDhzE/Hqqfcyc="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://bkjam.github.io/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="5 Observations on Spring Boot&#39;s Loading Precedence for Properties Files With Spring Cloud Config">
+  <meta name="twitter:description" content="Sharing my experience on the order of precedence for properties files in Spring Boot applications when using Spring Cloud Config and Spring Profiles">
+
+
+
+  
+  <meta property="og:url" content="https://bkjam.github.io/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/">
+  <meta property="og:site_name" content="Bkjam">
+  <meta property="og:title" content="5 Observations on Spring Boot&#39;s Loading Precedence for Properties Files With Spring Cloud Config">
+  <meta property="og:description" content="Sharing my experience on the order of precedence for properties files in Spring Boot applications when using Spring Cloud Config and Spring Profiles">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-06-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-06-21T00:00:00+00:00">
+    <meta property="article:tag" content="Medium">
+    <meta property="article:tag" content="Spring-Boot">
+    <meta property="article:tag" content="Spring-Cloud">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "posts",
+        "name": "5 Observations on Spring Boot\u0027s Loading Precedence for Properties Files With Spring Cloud Config",
+        "headline": "5 Observations on Spring Boot\u0027s Loading Precedence for Properties Files With Spring Cloud Config",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Sharing my experience on the order of precedence for properties files in Spring Boot applications when using Spring Cloud Config and Spring Profiles
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bkjam.github.io\/posts\/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightYear" : "2022",
+        "dateCreated": "2022-06-21T00:00:00.00Z",
+        "datePublished": "2022-06-21T00:00:00.00Z",
+        "dateModified": "2022-06-21T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Bryan",
+            "url": "https://bkjam.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/bkjam.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/bkjam.github.io\/posts\/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config\/",
+        "wordCount" : "1812",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "medium"
+
+    
+      
+        ,
+
+      
+      "spring-boot"
+
+    
+      
+        ,
+
+      
+      "spring-cloud"
+
+    ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">I&#39;m Bryan</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Software Engineer<br />Indie Game Developer <br /></p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://medium.com/@kbryan1008"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Medium"
+            title="Medium"
+          >
+            <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/bkjam"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Github"
+            title="Github"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://rustycruiselabs.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Game Dev"
+            title="Game Dev"
+          >
+            <i class="fas fa-gamepad fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+    <div class="sidebar__introduction">
+      <a href="https://ko-fi.com/supportbkjam">
+        <img src="/images/kofi-supportme_small.png" alt="Support Me on Ko-fi" />
+      </a>
+    </div>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/posts/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tags/"
+              
+              title=""
+              >Tags</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/medium/"
+              
+              title=""
+              >Medium Articles</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/bookmarks/"
+              
+              title=""
+              >Bookmarks</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tools/"
+              
+              title=""
+              >Toolkit</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>5 Observations on Spring Boot&#39;s Loading Precedence for Properties Files With Spring Cloud Config</h1>
+      
+      <div
+  class="notice
+    notice--update
+  "
+><div class="notice__content">
+    Medium Link: <a href="https://medium.com/better-programming/5-observations-on-spring-boots-loading-precedence-for-properties-files-with-spring-cloud-config-331d1af9052e">5 Observations on Spring Boot&rsquo;s Loading Precedence for Properties Files With Spring Cloud Config</a><br>
+<strong>If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀</strong>
+  </div>
+</div>
+
+<figure><a class="lightgallery" href="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/unsplash.jpg" title="images/unsplash.jpg" data-thumbnail="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/unsplash.jpg" data-sub-html="<h2>Photo by Brett Jordan on Unsplash</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/unsplash.jpg"
+            srcset="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/unsplash.jpg 1200w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/unsplash.jpg 1200w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/unsplash.jpg 1200w"
+            alt="images/unsplash.jpg" height="900"  width="1200" >
+    </a><figcaption class="image-caption">Photo by <a href="https://unsplash.com/@brett_jordan?utm_source=medium&amp;utm_medium=referral">Brett Jordan</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></figcaption>
+    </figure>
+<h2 id="intro">Intro</h2>
+<p>Do you externalize and centralize your configurations using Spring Cloud Config Server? Do you use Spring Profiles to manage your configurations for different deployment environments? Do you get confused about which configurations in your Spring Boot applications take the higher priority when you deploy them? Me too!</p>
+<p>Join me in this article where I share my experience with using Spring Cloud Config in Spring Boot applications and the order of precedence for properties files when running the Spring Boot applications.</p>
+<p><em>Note: This article will not go into detail on how to implement Spring Cloud Config Server and will require some knowledge in deploying Spring Boot applications. At the point of writing, Spring Boot Version = 2.7.0, Spring Cloud Version = 2021.0.3-SNAPSHOT, and Spring Cloud Config Version = 3.1.3-SNAPSHOT.</em></p>
+<hr>
+<h2 id="background-context">Background Context</h2>
+<p>Before we start, let&rsquo;s align our knowledge on the concepts of configurations in Spring Boot applications as well as how Spring Cloud Config and Spring Profiles come into play.</p>
+<figure><a class="lightgallery" href="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/containerization.png" title="images/containerization.png" data-thumbnail="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/containerization.png" data-sub-html="<h2>Process for Containerizing and Deploying Spring Boot Microservices</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/containerization.png"
+            srcset="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/containerization.png 511w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/containerization.png 511w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/containerization.png 511w"
+            alt="images/containerization.png" height="221"  width="511" >
+    </a><figcaption class="image-caption">Process for Containerizing and Deploying Spring Boot Microservices</figcaption>
+    </figure>
+<p>The diagram above is a quick overview of how we can containerize a Spring Boot application and deploy it as a microservice. As you have noticed, when deploying the Spring Boot application, you can pass in properties to alter the behavior of the application for different deployment environments.</p>
+<p>These properties are typically defined in properties files (<code>application.yaml</code> or <code>application.properties</code>) and they can be overridden by environment variables. An example would be connecting to different database instances in the development vs production environment as shown in the diagram below.</p>
+<figure><a class="lightgallery" href="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/deployment-env.png" title="images/deployment-env.png" data-thumbnail="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/deployment-env.png" data-sub-html="<h2>Customizing database URL based on the deployment environment</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/deployment-env.png"
+            srcset="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/deployment-env.png 414w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/deployment-env.png 414w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/deployment-env.png 414w"
+            alt="images/deployment-env.png" height="214"  width="414" >
+    </a><figcaption class="image-caption">Customizing database URL based on the deployment environment</figcaption>
+    </figure>
+<p>However, it can be tedious to manage the properties for different deployment environments. Hence, we use Spring Profiles to aid us.</p>
+<h2 id="integrating-with-springprofiles">Integrating with Spring Profiles</h2>
+<p>Spring Profiles allows us to define properties files categorized by &ldquo;profiles&rdquo;. When you are deploying your Spring Boot application, you will define the active Spring Profiles using environment variables to load the profile-specific properties (AKA deployment environment-specific properties). Here&rsquo;s an example using the docker command.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run --env SPRING_PROFILES_ACTIVE=&#39;dev&#39; spring-boot-app
+</span></span></code></pre></div><p>Below is a simple illustration of how properties are loaded using Spring Profiles:</p>
+<figure><a class="lightgallery" href="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/spring-profiles.png" title="images/spring-profiles.png" data-thumbnail="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/spring-profiles.png" data-sub-html="<h2>Loading properties using Spring Profiles</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/spring-profiles.png"
+            srcset="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/spring-profiles.png 681w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/spring-profiles.png 681w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/spring-profiles.png 681w"
+            alt="images/spring-profiles.png" height="231"  width="681" >
+    </a><figcaption class="image-caption">Loading properties using Spring Profiles</figcaption>
+    </figure>
+<p>Additionally, Spring Profiles allows us to load multiple properties files. If you were to set your profiles as follows:</p>
+<ul>
+<li><code>spring.profiles.active=&quot;dev&quot;</code> → This will load <code>application.yaml</code> and <code>application-dev.yaml</code> properties files.</li>
+<li><code>spring.profiles.active=&quot;dev, local&quot;</code> → This will load <code>application.yaml</code>, <code>application-dev.yaml</code> and <code>application-local.yaml</code> properties files.</li>
+</ul>
+<h2 id="externalized-configurations-with-spring-cloudconfig">Externalized Configurations with Spring Cloud Config</h2>
+<p>Internal Configurations is where you store the properties files within the Spring Boot applications in the <code>classpath</code>. These properties files are packaged within the application, hence we can also call them packaged files.</p>
+<blockquote>
+<p><code>classpath</code> refers to the location where resource files are stored and in a Maven project, the standard location for storing the application&rsquo;s resources is in the <code>src/main/resources</code> folder.</p>
+</blockquote>
+<p>An issue with internal configurations is that every time a change to the configuration is required, you will have to re-build the container and re-deploy the application as shown below.</p>
+<figure><a class="lightgallery" href="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/internal-config.png" title="images/internal-config.png" data-thumbnail="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/internal-config.png" data-sub-html="<h2>Internal Configurations Approach</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/internal-config.png"
+            srcset="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/internal-config.png 481w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/internal-config.png 481w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/internal-config.png 481w"
+            alt="images/internal-config.png" height="171"  width="481" >
+    </a><figcaption class="image-caption">Internal Configurations Approach</figcaption>
+    </figure>
+<p>This issue can be simplified using externalized configurations where we override the properties using Java System Properties, Environment variables, Command-Line arguments, or external properties files.</p>
+<p>Spring Cloud Config is an approach that allows you to store your properties files externally and retrieves them when the Spring Boot application starts. Hence, we will only need to re-deploy the application to reflect the configuration changes as shown below.</p>
+<figure><a class="lightgallery" href="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/internal-config.png" title="images/internal-config.png" data-thumbnail="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/internal-config.png" data-sub-html="<h2>External Configurations Approach using Spring Cloud Config</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/internal-config.png"
+            srcset="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/internal-config.png 481w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/internal-config.png 481w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/internal-config.png 481w"
+            alt="images/internal-config.png" height="171"  width="481" >
+    </a><figcaption class="image-caption">External Configurations Approach using Spring Cloud Config</figcaption>
+    </figure>
+<p>With these, we have covered the basic background context on Spring Boot properties, Spring Profiles, and Spring Cloud Config, let&rsquo;s dive deeper into understanding the order of precedence for properties files that are loaded from different sources.</p>
+<h2 id="how-do-i-configure-my-spring-cloud-configserver">How do I configure my Spring Cloud Config Server?</h2>
+<p>I am using Git to store my configuration data. The diagram below is the folder structure for my configuration data where <code>{application}</code> is a placeholder that refers to the Spring Boot application&rsquo;s name configurable by the property <code>spring.application.name</code>.</p>
+<figure><a class="lightgallery" href="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/config-repo.png" title="images/config-repo.png" data-thumbnail="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/config-repo.png" data-sub-html="<h2>Folder structure for my configuration data in the remote repository</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/config-repo.png"
+            srcset="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/config-repo.png 511w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/config-repo.png 511w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/config-repo.png 511w"
+            alt="images/config-repo.png" height="240"  width="511" >
+    </a><figcaption class="image-caption">Folder structure for my configuration data in the remote repository</figcaption>
+    </figure>
+<p>The Spring Cloud Config Server is configured to connect to a single repository with the configuration data stored in the <code>config-repo</code> folder. Additionally, there are 2 search paths (subfolders) within the <code>config-repo</code> folder.</p>
+<figure><a class="lightgallery" href="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/config-server-git.png" title="images/config-server-git.png" data-thumbnail="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/config-server-git.png" data-sub-html="<h2>Spring Cloud Config Server Configurations (partial)</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/config-server-git.png"
+            srcset="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/config-server-git.png 717w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/config-server-git.png 717w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/config-server-git.png 717w"
+            alt="images/config-server-git.png" height="216"  width="717" >
+    </a><figcaption class="image-caption">Spring Cloud Config Server Configurations (partial)</figcaption>
+    </figure>
+<p>The <code>shared</code> subfolder is where all the common configurations shared across all Spring Boot applications are stored and each Spring Boot application has its own <code>{application}</code> subfolder.</p>
+<h2 id="looking-into-the-order-of-precedence">Looking into the order of precedence</h2>
+<p>Let&rsquo;s get started! You can refer to the order of precedence for externalized configuration in <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config">Spring Boot&rsquo;s documentation</a>. Here, I will try to demonstrate the common scenarios for configuring externalized configurations in Spring Boot.</p>
+<p>To frame the context for the demonstration, I will have a Spring Boot application (config-client) with 2 Spring Profiles (dev, local), a Spring Cloud Config Server, and several properties files as defined below.</p>
+<figure><a class="lightgallery" href="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/demo.png" title="images/demo.png" data-thumbnail="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/demo.png" data-sub-html="<h2>Overview of Demonstration Setup</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/demo.png"
+            srcset="/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/demo.png 831w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/demo.png 831w,
+                /posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/images/demo.png 831w"
+            alt="images/demo.png" height="361"  width="831" >
+    </a><figcaption class="image-caption">Overview of Demonstration Setup</figcaption>
+    </figure>
+<p>There are 3 main locations for the properties files that I have configured.</p>
+<ul>
+<li>The <code>classpath</code> root - src/main/resources (Internal)</li>
+<li>Spring Cloud Config Server (External)</li>
+<li>A <code>/config</code> folder (External)</li>
+</ul>
+<p>The Spring Boot application will load the properties from these locations and add them to the Spring Environment.</p>
+<h3 id="normal-deployments-with-springprofiles">Normal Deployments with Spring Profiles</h3>
+<p>Using a deployment scenario for the demonstration setup, let&rsquo;s deploy the Spring Boot application with the Spring Profiles <code>dev</code> and <code>local</code> using the command below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run \ 
+</span></span><span class="line"><span class="cl">   --env SPRING_PROFILES_ACTIVE=&#39;dev, local&#39; \
+</span></span><span class="line"><span class="cl">   --env SPRING_CONFIG_ADDITIONAL_LOCATION=&#39;/config/&#39; \
+</span></span><span class="line"><span class="cl">   --volume &lt;path_to_config_folder&gt;:/config \
+</span></span><span class="line"><span class="cl">   config-client
+</span></span></code></pre></div><p>When the Spring Boot application starts, it will load the properties files in the following order of precedence (highest to lowest):</p>
+<ul>
+<li>Config Dir: <code>config/application-local.yaml</code> (profile-specific)</li>
+<li>Config Dir: <code>config/application-dev.yaml</code> (profile-specific)</li>
+<li>Config Dir: <code>config/application.yaml</code> (default)</li>
+<li>Config Server: <code>config-client/config-client-local.yaml</code> (profile-specific)</li>
+<li>Config Server: <code>shared/application-local.yaml</code> (shared, profile-specific)</li>
+<li>Config Server: <code>config-client/config-client-dev.yaml</code> (profile-specific)</li>
+<li>Config Server: <code>shared/application-dev.yaml</code> (shared, profile-specific)</li>
+<li>Classpath: <code>resources/application-local.yaml</code> (profile-specific)</li>
+<li>Classpath: <code>resources/application-dev.yaml</code> (profile-specific)</li>
+<li>Config Server: <code>config-client/config-client.yaml</code> (default)</li>
+<li>Config Server: <code>shared/application.yaml</code> (shared, default)</li>
+<li>Classpath: <code>resources/application.yaml</code> (default)</li>
+</ul>
+<h2 id="what-are-the-key-observations-about-the-order-of-precedence">What are the key observations about the order of precedence?</h2>
+<p>Based on the preceding example and my findings from the documentation, I have identified 5 key observations.</p>
+<h3 id="1-properties-vs-yamlfiles">1 - Properties vs Yaml files</h3>
+<p><code>.properties</code> files have a higher priority than <code>.yaml</code> files as mentioned in the Spring&rsquo;s documentation. It is also highly recommended to stick to a single file format.</p>
+<h3 id="2-springprofiles">2 - Spring Profiles</h3>
+<p>Profile-specific properties files always override non-specific properties files. Eg. <code>application-{profile}.yaml</code> &gt; <code>application.yaml</code>.</p>
+<p>In the event of <strong>multiple Spring Profiles</strong>, a last-win strategy is applied where the order of precedence for properties files is from <code>the right to the left</code>. Eg. <code>application-local.yaml</code> &gt; <code>application-dev.yaml</code> for Spring Profiles <code>spring.profiles.active=&quot;dev, local&quot;</code>.</p>
+<h3 id="3-config-server-search-paths-configurations">3 - Config Server Search Paths Configurations</h3>
+<p>The configuration for search paths in the Spring Cloud Config Server (<code>spring.cloud.config.server.git.search-paths</code>) applies a last-win strategy. This means that the properties in the latter folders will have a higher priority. Using my configuration above, the priorities for the properties files will be as such <code>config-repo/{application} &gt; config-repo/shared</code>.</p>
+<h3 id="4-how-config-client-loads-properties-from-spring-cloud-configserver">4 - How Config-Client loads Properties from Spring Cloud Config Server</h3>
+<p>With reference to Spring Boot 2.4 onwards, the <a href="https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#config-data-import">Spring Cloud Config Client documentation</a> recommends configurations from the Spring Cloud Config Server to be imported via the <code>spring.config.import</code> property. If we were to take a look at <a href="https://spring.io/blog/2020/08/14/config-file-processing-in-spring-boot-2-4">Spring Boot&rsquo;s blog update on config file processing in Spring 2.4</a>, you will find the following statement:</p>
+<blockquote>
+<p><em>Imports can be considered as additional documents inserted just below the document that declares them. They follow the same top-down ordering as regular multi-document files: An import will only be imported once, no matter how many times it is declared.</em></p>
+</blockquote>
+<p>This means that properties files from Spring Cloud Config Server are resolved and prioritized against properties files in the same location group as the &ldquo;document&rdquo; that declares them. Moreover, properties files from Spring Cloud Config Server will have a higher priority than the &ldquo;document&rdquo; due to the way it is imported.</p>
+<p>In our example above, we declared the property <code>spring.config.import: &lt;Config Server URL&gt;</code> in the Spring Boot application&rsquo;s <code>classpath</code> (<code>resources/application.yaml</code>). Hence, all properties files from the Spring Cloud Config Server and classpath will be prioritized and resolved under the same location group in the following order (highest to lowest):</p>
+<ul>
+<li>profile-specific properties files (<code>config-server</code>)</li>
+<li>profile-specific properties files (<code>classpath</code>)</li>
+<li>default properties files (<code>config-server</code>)</li>
+<li>default properties files (<code>classpath</code>)</li>
+</ul>
+<p>However, strangely enough, <strong>ALL</strong> profile-specific properties files (in config-server) that are imported via <code>spring.config.import</code> has a higher priority compared to the profile-specific properties files in the <code>classpath</code>. I believe this is the intended behavior for externally imported files.</p>
+<h3 id="5-externalized-properties-files">5 - Externalized Properties Files</h3>
+<p>Referencing the <a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-Config-Data-Migration-Guide#profile-specific-external-configuration">Spring Boot&rsquo;s Config Data Migration Guide</a>, external files always override packaged files (profile-specific or not). Hence, you will notice the new change where the property <code>spring.config.location</code> defines the following default location groups with the latter one having a higher priority.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">optional:classpath:/;optional:classpath:/config/
+</span></span><span class="line"><span class="cl">optional:file:./;optional:file:./config/;optional:file:./config/*/
+</span></span></code></pre></div><p>In our example above, all properties files in the <code>/config</code> external folder have a higher priority compared to the Spring Cloud Config Server or <code>classpath</code>. The properties files are prioritized and resolved within each location group in the following order (highest to lowest)</p>
+<ul>
+<li><code>/config</code> folder (<strong>External</strong>) → <code>spring.config.additional.location</code></li>
+<li>Spring Cloud Config Server (<strong>External</strong>) &gt; <code>classpath</code> (<strong>Internal</strong>) → same location group as explained in point 4 above</li>
+</ul>
+<blockquote>
+<p><em>On a side note, if the <code>spring.config.import</code> property for Spring Cloud Config Server was defined in the external folder <code>/config/application.yaml</code>, then the order of precedence would change since <code>/config</code> and Spring Cloud Config Server will be in the same location group.</em></p>
+</blockquote>
+<h2 id="summary">Summary</h2>
+<p>That&rsquo;s it! These are the 5 key observations that I have identified as I am working with Spring Boot and Spring Cloud Config. Depending on the way you bind the Spring Cloud Config Server to the Spring Config Client, the order of precedence may change, but the concepts should remain the same.</p>
+<p>Do note that I am using a very fundamental setup with multiple profile-specific properties files. There are also many other approaches that you can use such as multi-document properties files, profile groups, profile activations, or Kubernetes Config Maps which were introduced in Spring Boot 2.4.</p>
+<p>As for the Spring Cloud Config Server, you can also configure it to load from multiple git repositories or Vault. Do check all these cool features out on your own.</p>
+<p>Lastly, I don&rsquo;t think this article is anything new for people who are experienced with Spring Boot and Spring Cloud Config, but I do hope that it will be useful for people who are new to Spring Cloud Config :)</p>
+<p>Refer to the Git Repo below for the code reference.</p>
+<ul>
+<li><a href="https://github.com/bkjam/config-server-order">https://github.com/bkjam/config-server-order</a></li>
+</ul>
+<hr>
+<p><strong>Thank you for reading till the end! ☕</strong><br>
+If you enjoyed this article and would like to support my work, feel free to buy me a coffee on Ko-fi. Your support helps me keep creating, and I truly appreciate it! 🙏</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+        <span><a class="tag" href="/tags/medium/">medium</a><a class="tag" href="/tags/spring-boot/">spring-boot</a><a class="tag" href="/tags/spring-cloud/">spring-cloud</a></span>
+
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</body>
+</html>

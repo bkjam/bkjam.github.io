@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 30 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/tags/unity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unity VFX References</title>
-      <link>https://bkjam.github.io/post/2024-10-30-unity-vfx-references/</link>
+      <link>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</link>
       <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-10-30-unity-vfx-references/</guid>
+      <guid>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</guid>
       
         <description>&lt;p&gt;Quick Reference Guides for creating VFX in Unity.&lt;/p&gt;
 &lt;h1 id=&#34;vfx-tips&#34;&gt;VFX Tips&lt;/h1&gt;
@@ -31,10 +31,10 @@
     
     <item>
       <title>Exporting FBX from Blender to Unity</title>
-      <link>https://bkjam.github.io/post/2024-10-19-blender-to-unity-settings/</link>
+      <link>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</link>
       <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-10-19-blender-to-unity-settings/</guid>
+      <guid>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</guid>
       
         <description>&lt;p&gt;Here&amp;rsquo;s a quick guide on how to export FBX from Blender to Unity. You can also refer to these videos that I referenced.&lt;/p&gt;</description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>Quick Reference to Setup Universal Render Pipeline for Unity Projects</title>
-      <link>https://bkjam.github.io/post/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</link>
+      <link>https://bkjam.github.io/posts/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</link>
       <pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</guid>
+      <guid>https://bkjam.github.io/posts/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</guid>
       
         <description>Step-by-step guide on how to set up URP for Unity Projects</description>
       

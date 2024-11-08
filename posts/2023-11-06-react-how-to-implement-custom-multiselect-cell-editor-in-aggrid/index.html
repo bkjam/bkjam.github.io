@@ -1,0 +1,762 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Bryan
+        |
+        React - How to Implement Custom MultiSelect Cell Editor in AgGrid
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.136.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Bryan" />
+  <meta
+    name="description"
+    content="Software Engineer
+Indie Game Developer 
+"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1f4526598994b776237b2b6eb48a4a9d442c1943c7d18dc0acf2c87507d30c7d.css"
+      integrity="sha256-H0UmWYmUt3YjeytutIpKnUQsGUPH0Y3ArPLIdQfTDH0="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.6b2546bcd98560543dbad1638565a4e6f70a12afeb7d68c387313f1eaa9f7327.css"
+      integrity="sha256-ayVGvNmFYFQ9utFjhWWk5vcKEq/rfWjDhzE/Hqqfcyc="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://bkjam.github.io/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="React - How to Implement Custom MultiSelect Cell Editor in AgGrid">
+  <meta name="twitter:description" content="Issues Faced and Code References on How to Implement Mantine MultiSelect Dropdown in AgGrid Tables">
+
+
+
+  
+  <meta property="og:url" content="https://bkjam.github.io/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/">
+  <meta property="og:site_name" content="Bkjam">
+  <meta property="og:title" content="React - How to Implement Custom MultiSelect Cell Editor in AgGrid">
+  <meta property="og:description" content="Issues Faced and Code References on How to Implement Mantine MultiSelect Dropdown in AgGrid Tables">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-11-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-11-06T00:00:00+00:00">
+    <meta property="article:tag" content="Medium">
+    <meta property="article:tag" content="React">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "posts",
+        "name": "React - How to Implement Custom MultiSelect Cell Editor in AgGrid",
+        "headline": "React - How to Implement Custom MultiSelect Cell Editor in AgGrid",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Issues Faced and Code References on How to Implement Mantine MultiSelect Dropdown in AgGrid Tables
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bkjam.github.io\/posts\/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightYear" : "2023",
+        "dateCreated": "2023-11-06T00:00:00.00Z",
+        "datePublished": "2023-11-06T00:00:00.00Z",
+        "dateModified": "2023-11-06T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Bryan",
+            "url": "https://bkjam.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/bkjam.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/bkjam.github.io\/posts\/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid\/",
+        "wordCount" : "1149",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "medium"
+
+    
+      
+        ,
+
+      
+      "react"
+
+    ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">I&#39;m Bryan</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Software Engineer<br />Indie Game Developer <br /></p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://medium.com/@kbryan1008"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Medium"
+            title="Medium"
+          >
+            <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/bkjam"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Github"
+            title="Github"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://rustycruiselabs.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Game Dev"
+            title="Game Dev"
+          >
+            <i class="fas fa-gamepad fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+    <div class="sidebar__introduction">
+      <a href="https://ko-fi.com/supportbkjam">
+        <img src="/images/kofi-supportme_small.png" alt="Support Me on Ko-fi" />
+      </a>
+    </div>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/posts/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tags/"
+              
+              title=""
+              >Tags</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/medium/"
+              
+              title=""
+              >Medium Articles</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/bookmarks/"
+              
+              title=""
+              >Bookmarks</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tools/"
+              
+              title=""
+              >Toolkit</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>React - How to Implement Custom MultiSelect Cell Editor in AgGrid</h1>
+      
+      <div
+  class="notice
+    notice--update
+  "
+><div class="notice__content">
+    Medium Link: <a href="https://javascript.plainenglish.io/react-how-to-implement-custom-multiselect-cell-editor-in-aggrid-9b5470ecd0eb">React - How to Implement Custom MultiSelect Cell Editor in AgGrid</a><br>
+<strong>If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀</strong>
+  </div>
+</div>
+
+<figure><a class="lightgallery" href="/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/images/multiselect-dropbox-in-aggrid-tables.png" title="images/multiselect-dropbox-in-aggrid-tables.png" data-thumbnail="/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/images/multiselect-dropbox-in-aggrid-tables.png" data-sub-html="<h2>MultiSelect Dropdown in AgGrid Tables</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/images/multiselect-dropbox-in-aggrid-tables.png"
+            srcset="/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/images/multiselect-dropbox-in-aggrid-tables.png 1017w,
+                /posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/images/multiselect-dropbox-in-aggrid-tables.png 1017w,
+                /posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/images/multiselect-dropbox-in-aggrid-tables.png 1017w"
+            alt="images/multiselect-dropbox-in-aggrid-tables.png" height="572"  width="1017" >
+    </a><figcaption class="image-caption">MultiSelect Dropdown in AgGrid Tables</figcaption>
+    </figure>
+<h2 id="intro">Intro</h2>
+<p>This article is a short write-up (with code references) on how to implement a multiselect dropdown in AgGrid tables with Mantine UI components. At the point of writing, I am using <code>react@18.2.0</code>, <code>ag-grid-community@30.2.0</code>, <code>ag-grid-react@30.2.0</code>, <code>@mantine/core@7.1.7</code>.You can find the source code links down below.</p>
+<h2 id="background-context">Background Context</h2>
+<p><strong>AG Grid</strong> is a feature-rich data grid designed for the major JavaScript Frameworks. I have played around with this library and it is a very powerful tool with lots of features for displaying data. One of the features I needed was the ability to edit/display the data with customized inputs and components.</p>
+<ul>
+<li>For displaying data with customized components, we can use <a href="https://www.ag-grid.com/react-data-grid/component-cell-renderer/">Cell Renderers</a> or <a href="https://www.ag-grid.com/react-data-grid/value-formatters/">Value Formatters</a>.</li>
+<li>For editing data with customized inputs, we can use <a href="https://www.ag-grid.com/react-data-grid/provided-cell-editors/">Provided Cell Editors</a> or implement our own <a href="https://www.ag-grid.com/react-data-grid/component-cell-editor/">Customized Cell Editors</a>.</li>
+</ul>
+<p>As there are no multiselect cell editors provided by AgGrid, I had to implement my cell editor and that&rsquo;s the main goal of this writeup.</p>
+<h2 id="implementation">Implementation</h2>
+<p>Instead of coding a multiselect component from scratch, I will be using the <a href="https://mantine.dev/core/multi-select/">Mantine MultiSelect component</a>. So let&rsquo;s start by implementing the customized cell editor (code snippet below).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">AgGridMultiSelectEditorParams</span> <span class="kr">extends</span> <span class="nx">ICellEditorParams</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">options</span>: <span class="kt">string</span><span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">AgGridMultiSelectEditorRef</span> <span class="kr">extends</span> <span class="nx">ICellEditorReactComp</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getValue</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="kt">string</span><span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">AgGridMultiSelectEditor</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">forwardRef</span><span class="o">&lt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">AgGridMultiSelectEditorRef</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">AgGridMultiSelectEditorParams</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span><span class="p">((</span><span class="nx">props</span><span class="p">,</span> <span class="nx">_ref</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">&lt;</span><span class="nt">string</span><span class="err">[]</span><span class="p">&gt;(</span><span class="nx">props</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">refInput</span> <span class="o">=</span> <span class="nx">useRef</span><span class="p">&lt;</span><span class="nt">HTMLInputElement</span><span class="p">&gt;(</span><span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// focus on input
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">refInput</span><span class="p">.</span><span class="nx">current</span><span class="o">?</span><span class="p">.</span><span class="nx">focus</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="p">[]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="cm">/* Component Editor Lifecycle methods */</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">useImperativeHandle</span><span class="p">(</span><span class="nx">_ref</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">getValue</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">      <span class="nx">isPopup</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;ag-cell-edit-wrapper&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">MultiSelect</span>
+</span></span><span class="line"><span class="cl">        <span class="na">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">refInput</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="na">className</span><span class="o">=</span><span class="s">&#34;ag-cell-editor&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">data</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">option</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="nx">label</span>: <span class="kt">option</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">option</span> <span class="p">}))}</span>
+</span></span><span class="line"><span class="cl">        <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="na">onChange</span><span class="o">=</span><span class="p">{</span><span class="nx">setValue</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="na">searchable</span>
+</span></span><span class="line"><span class="cl">      <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><p>Some of the key things that you will probably have to take note of are the following:</p>
+<ul>
+<li><strong>ICellEditorReactComp (getValue &amp; isPopup)</strong> - These are the interfaces for the cell editor component</li>
+<li><strong>ICellEditorParams</strong> - These are cell &amp; row values made available to the customized cell editor via props.</li>
+<li><strong>CSS Style (ag-cell-edit-wrapper &amp; ag-cell-editor)</strong> - I added additional CSS styles to the Mantine component due to an issue I faced (more on this will be covered below).</li>
+</ul>
+<p>To use the customized cell editor in AgGrid tables, simply define the customized cell editor in your column definitions.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/* type definition for data */</span>
+</span></span><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">Job</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">tasks</span>: <span class="kt">string</span><span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* hard coded data */</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">allTasks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;T1&#34;</span><span class="p">,</span> <span class="s2">&#34;T2&#34;</span><span class="p">,</span> <span class="s2">&#34;T3&#34;</span><span class="p">,</span> <span class="s2">&#34;T4&#34;</span><span class="p">,</span> <span class="s2">&#34;T5&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">data</span>: <span class="kt">Job</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Tom&#34;</span><span class="p">,</span> <span class="nx">tasks1</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;T1&#34;</span><span class="p">,</span> <span class="s2">&#34;T4&#34;</span><span class="p">]</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Jerry&#34;</span><span class="p">,</span> <span class="nx">tasks1</span><span class="o">:</span> <span class="p">[]</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* AgGrid Column Definition */</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">columnDefs</span>: <span class="kt">ColDef</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">field</span><span class="o">:</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">headerName</span><span class="o">:</span> <span class="s2">&#34;Name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">maxWidth</span>: <span class="kt">150</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">field</span><span class="o">:</span> <span class="s2">&#34;tasks&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">headerName</span><span class="o">:</span> <span class="s2">&#34;Tasks&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cellEditor</span>: <span class="kt">AgGridMultiSelectEditor</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">editable</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cellEditorParams</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">options</span>: <span class="kt">allTasks</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="kr">as</span> <span class="nx">AgGridMultiSelectEditorParams</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">valueFormatter</span><span class="o">:</span> <span class="p">(</span><span class="nx">params</span>: <span class="kt">ValueFormatterParams</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">params</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;, &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cellRenderer</span><span class="o">:</span> <span class="p">(</span><span class="nx">params</span>: <span class="kt">ICellRendererParams</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">tasks</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">Text</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;sm&#34;</span> <span class="na">c</span><span class="o">=</span><span class="s">&#34;dimmed&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">Click</span> <span class="nx">to</span> <span class="nx">tag</span> <span class="nx">tasks</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;/</span><span class="nt">Text</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">&lt;</span><span class="nt">Text</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;md&#34;</span><span class="p">&gt;{</span><span class="nx">params</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">tasks</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;, &#34;</span><span class="p">)}&lt;/</span><span class="nt">Text</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* AgGrid Component */</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">AgGridReact</span>
+</span></span><span class="line"><span class="cl">  <span class="na">rowData</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="na">columnDefs</span><span class="o">=</span><span class="p">{</span><span class="nx">columnDefs</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="na">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">/&gt;</span>
+</span></span></code></pre></div><p>With that, you should have all you need to implement a customized MultiSelect dropdown cell editor in AgGrid. Read on to find out some of the problems I faced and how I managed to resolve them.</p>
+<h2 id="issue-1-resolving-the-cssstyling">Issue #1 - Resolving the CSS Styling</h2>
+<figure><a class="lightgallery" href="/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/images/compare-ag-cell-edit-wrapper.png" title="images/compare-ag-cell-edit-wrapper.png" data-thumbnail="/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/images/compare-ag-cell-edit-wrapper.png" data-sub-html="<h2>Comparison between having ag-cell-edit-wrapper and without</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/images/compare-ag-cell-edit-wrapper.png"
+            srcset="/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/images/compare-ag-cell-edit-wrapper.png 1175w,
+                /posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/images/compare-ag-cell-edit-wrapper.png 1175w,
+                /posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/images/compare-ag-cell-edit-wrapper.png 1175w"
+            alt="images/compare-ag-cell-edit-wrapper.png" height="544"  width="1175" >
+    </a><figcaption class="image-caption">Comparison between having ag-cell-edit-wrapper and without</figcaption>
+    </figure>
+<p>One of my struggles I had was with the css styling where I tried to get my customized cell editor to fill up the entire cell. After some code tracing, I realized the issue occurs when I set the Ag Grid column properties for <code>autoHeight</code> and <code>autoHeaderHeight</code> to be <strong>true</strong> as shown below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">AgGridReact</span>
+</span></span><span class="line"><span class="cl">  <span class="na">defaultColDef</span><span class="o">=</span><span class="p">{{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">autoHeight</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">autoHeaderHeight</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">/&gt;</span>
+</span></span></code></pre></div><p>When these properties are set to true, an additional div wraps around the multiselect component as shown below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;ag-cell ...&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;ag-cell-wrapper&#34;</span><span class="p">&gt;</span>  <span class="c">&lt;!-- added by autoHeight --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;ag-cell-value&#34;</span><span class="p">&gt;</span>   <span class="c">&lt;!-- added by autoHeight + autoHeaderHeight --&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">MultiSelect</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>Because of these additional divs, my multiselect input component was unable to fill up the entire cell. After referencing <a href="https://github.com/ag-grid/ag-grid/blob/latest/grid-community-modules/core/src/ts/rendering/cellEditors/selectCellEditor.ts">AgGrid&rsquo;s source code</a>, I managed to resolve the issue by adding the CSS styles <code>ag-cell-edit-wrapper</code> &amp; <code>ag-cell-editor</code> to my <code>AgGridMultiSelectEditor</code> as shown below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;ag-cell-edit-wrapper&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">MultiSelect</span>
+</span></span><span class="line"><span class="cl">    <span class="na">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">refInput</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">className</span><span class="o">=</span><span class="s">&#34;ag-cell-editor&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">data</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">option</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="nx">label</span>: <span class="kt">option</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">option</span> <span class="p">}))}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">onChange</span><span class="o">=</span><span class="p">{</span><span class="nx">setValue</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">searchable</span>
+</span></span><span class="line"><span class="cl">  <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="issue-2-saving-thedata">Issue #2 - Saving the Data</h2>
+<p>Well, any edits on AgGrid apply to the client-side data only, which means that if you refresh the page, the data is not saved. To save the data, you can either listen to the changes or save the data with a save button.</p>
+<h3 id="option-1-listening-for-cell-valueevents">Option 1) Listening for Cell Value Events</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">Job</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">tasks</span>: <span class="kt">string</span><span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleCellValueChanged</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span>: <span class="kt">CellValueChangedEvent</span><span class="p">&lt;</span><span class="nt">Job</span><span class="p">&gt;)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">AgGridReact</span>
+</span></span><span class="line"><span class="cl">      <span class="na">onCellValueChanged</span><span class="o">=</span><span class="p">{</span><span class="nx">handleCellValueChanged</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="na">...</span>
+</span></span><span class="line"><span class="cl">    <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>You can listen for cell value changes with the <code>onCellValueChanged</code> event and update your state with your event handler <code>handleCellValueChanged</code>.</p>
+<h3 id="option-2-saving-changes-with-buttonclick">Option 2) Saving Changes with Button Click</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">Job</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">tasks</span>: <span class="kt">string</span><span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">gridRef</span> <span class="o">=</span> <span class="nx">useRef</span><span class="p">&lt;</span><span class="nt">AgGridReact</span><span class="p">&gt;(</span><span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">onSaveButtonClick</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">gridRef</span><span class="p">.</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">gridApi</span> <span class="o">=</span> <span class="nx">gridRef</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">api</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="c1">// To get all the row data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kr">const</span> <span class="nx">allRowData</span>: <span class="kt">Job</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">gridApi</span><span class="p">.</span><span class="nx">forEachNode</span><span class="p">((</span><span class="nx">node</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">allRowData</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">allRowData</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;App&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">Button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onSaveButtonClick</span><span class="p">}&gt;</span><span class="nx">Save</span><span class="p">&lt;/</span><span class="nt">Button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">AgGridReact</span>
+</span></span><span class="line"><span class="cl">        <span class="na">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">gridRef</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="na">...</span>
+</span></span><span class="line"><span class="cl">      <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>In this case, you will need to store the reference <code>gridRef</code> of the AgGrid table and on the button&rsquo;s click event, retrieve all data from using the <a href="https://www.ag-grid.com/react-data-grid/grid-api/">Grid APIs</a> provided by AgGrid.</p>
+<h2 id="issue-3--improving-user-experience">Issue #3- Improving User Experience</h2>
+<p>Lastly, these are some configurations that I like to add to my AgGrid tables as the user experience feels much smoother when it comes to editing. So here are my recommendations:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">AgGridReact</span>
+</span></span><span class="line"><span class="cl">  <span class="na">singleClickEdit</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="na">editType</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;fullRow&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="na">stopEditingWhenCellsLoseFocus</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="na">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">/&gt;</span>
+</span></span></code></pre></div><ul>
+<li><strong>singleClickEdit</strong> - a single click brings out the edit mode instead of double-clicking</li>
+<li><strong>editType &ldquo;fullRow&rdquo;</strong>- this will cause the entire row inputs to light up</li>
+<li><strong>stopEditingWhenCellsLoseFocus</strong> - the inputs are saved straight away when the user stops editing</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>That&rsquo;s it! This was just something that frustrated me as it took me a couple of hours to implement this feature in AgGrid. Hence, I wanted to document the implementation &amp; issues I faced. Hopefully, it will be useful to you as well. You can find the code references here on <a href="https://github.com/bkjam/aggrid-multiselect-celleditor">GitHub</a> or <a href="https://codesandbox.io/s/aggrid-multiselect-celleditor-ypdj4s">CodeSandBox</a>.</p>
+<hr>
+<p><strong>Thank you for reading till the end! ☕</strong><br>
+If you enjoyed this article and would like to support my work, feel free to buy me a coffee on Ko-fi. Your support helps me keep creating, and I truly appreciate it! 🙏</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+        <span><a class="tag" href="/tags/medium/">medium</a><a class="tag" href="/tags/react/">react</a></span>
+
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</body>
+</html>

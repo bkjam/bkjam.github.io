@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring-Cloud on Bkjam</title>
+    <link>https://bkjam.github.io/tags/spring-cloud/</link>
+    <description>Recent content in Spring-Cloud on Bkjam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 05 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/tags/spring-cloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3 Useful Tips for Developers when using Spring Cloud Config</title>
+      <link>https://bkjam.github.io/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/</guid>
+      
+        <description>Sharing what I found useful in understanding Spring Cloud Config with Spring Boot</description>
+      
+    </item>
+    
+    <item>
+      <title>5 Observations on Spring Boot&#39;s Loading Precedence for Properties Files With Spring Cloud Config</title>
+      <link>https://bkjam.github.io/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/</link>
+      <pubDate>Tue, 21 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/</guid>
+      
+        <description>Sharing my experience on the order of precedence for properties files in Spring Boot applications when using Spring Cloud Config and Spring Profiles</description>
+      
+    </item>
+    
+  </channel>
+</rss>

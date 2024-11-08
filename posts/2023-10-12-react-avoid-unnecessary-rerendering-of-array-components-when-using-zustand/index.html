@@ -1,0 +1,758 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Bryan
+        |
+        React - Avoid Unnecessary Re-Rendering of Array Components When Using Zustand
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.136.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Bryan" />
+  <meta
+    name="description"
+    content="Software Engineer
+Indie Game Developer 
+"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1f4526598994b776237b2b6eb48a4a9d442c1943c7d18dc0acf2c87507d30c7d.css"
+      integrity="sha256-H0UmWYmUt3YjeytutIpKnUQsGUPH0Y3ArPLIdQfTDH0="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.6b2546bcd98560543dbad1638565a4e6f70a12afeb7d68c387313f1eaa9f7327.css"
+      integrity="sha256-ayVGvNmFYFQ9utFjhWWk5vcKEq/rfWjDhzE/Hqqfcyc="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://bkjam.github.io/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="React - Avoid Unnecessary Re-Rendering of Array Components When Using Zustand">
+  <meta name="twitter:description" content="How to avoid re-rendering all array components when only one component’s state is updated when using Zustand and React">
+
+
+
+  
+  <meta property="og:url" content="https://bkjam.github.io/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/">
+  <meta property="og:site_name" content="Bkjam">
+  <meta property="og:title" content="React - Avoid Unnecessary Re-Rendering of Array Components When Using Zustand">
+  <meta property="og:description" content="How to avoid re-rendering all array components when only one component’s state is updated when using Zustand and React">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-10-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-10-12T00:00:00+00:00">
+    <meta property="article:tag" content="Medium">
+    <meta property="article:tag" content="React">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "posts",
+        "name": "React - Avoid Unnecessary Re-Rendering of Array Components When Using Zustand",
+        "headline": "React - Avoid Unnecessary Re-Rendering of Array Components When Using Zustand",
+        "alternativeHeadline": "",
+        "description": "
+      
+        How to avoid re-rendering all array components when only one component’s state is updated when using Zustand and React
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bkjam.github.io\/posts\/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightYear" : "2023",
+        "dateCreated": "2023-10-12T00:00:00.00Z",
+        "datePublished": "2023-10-12T00:00:00.00Z",
+        "dateModified": "2023-10-12T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Bryan",
+            "url": "https://bkjam.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/bkjam.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/bkjam.github.io\/posts\/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand\/",
+        "wordCount" : "1166",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "medium"
+
+    
+      
+        ,
+
+      
+      "react"
+
+    ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">I&#39;m Bryan</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Software Engineer<br />Indie Game Developer <br /></p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://medium.com/@kbryan1008"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Medium"
+            title="Medium"
+          >
+            <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/bkjam"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Github"
+            title="Github"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://rustycruiselabs.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Game Dev"
+            title="Game Dev"
+          >
+            <i class="fas fa-gamepad fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+    <div class="sidebar__introduction">
+      <a href="https://ko-fi.com/supportbkjam">
+        <img src="/images/kofi-supportme_small.png" alt="Support Me on Ko-fi" />
+      </a>
+    </div>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/posts/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tags/"
+              
+              title=""
+              >Tags</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/medium/"
+              
+              title=""
+              >Medium Articles</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/bookmarks/"
+              
+              title=""
+              >Bookmarks</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tools/"
+              
+              title=""
+              >Toolkit</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>React - Avoid Unnecessary Re-Rendering of Array Components When Using Zustand</h1>
+      
+      <div
+  class="notice
+    notice--update
+  "
+><div class="notice__content">
+    Medium Link: <a href="https://javascript.plainenglish.io/react-avoid-unnecessary-re-rendering-of-array-components-when-using-zustand-f00cf1e8b6a2">React - Avoid Unnecessary Re-Rendering of Array Components When Using Zustand</a><br>
+<strong>If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀</strong>
+  </div>
+</div>
+
+<figure><a class="lightgallery" href="/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/images/intro.gif" title="images/intro.gif" data-thumbnail="/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/images/intro.gif">
+        <img
+            
+            loading="lazy"
+            src="/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/images/intro.gif"
+            srcset="/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/images/intro.gif 1280w,
+                /posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/images/intro.gif 1280w,
+                /posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/images/intro.gif 1280w"
+            alt="images/intro.gif" height="720"  width="1280" >
+    </a></figure>
+<h2 id="intro">Intro</h2>
+<p>This article is mainly a recap for myself as well as to share how to re-render an array of components efficiently with React and Zustand. It will cover a simple optimization that you can make to avoid re-rendering all your array components when only 1 of the component is updated.</p>
+<p><em>Note: This article is based on using Zustand as my state management library.</em></p>
+<h2 id="context">Context</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">defaultFlags</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Flag A&#34;</span><span class="p">,</span> <span class="nx">enabled</span>: <span class="kt">false</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Flag B&#34;</span><span class="p">,</span> <span class="nx">enabled</span>: <span class="kt">false</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Flag C&#34;</span><span class="p">,</span> <span class="nx">enabled</span>: <span class="kt">false</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="kr">const</span> <span class="p">[</span><span class="nx">flags</span><span class="p">,</span> <span class="nx">setFlags</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">defaultFlags</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="nx">flags</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">flag</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">key</span><span class="o">=</span><span class="p">{</span><span class="nx">idx</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">&lt;</span><span class="nt">input</span>
+</span></span><span class="line"><span class="cl">    <span class="na">type</span><span class="o">=</span><span class="s">&#39;checkbox&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">checked</span><span class="o">=</span><span class="p">{</span><span class="nx">flag</span><span class="p">.</span><span class="nx">enabled</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="kr">const</span> <span class="nx">tempFlags</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">flags</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">     <span class="nx">tempFlags</span><span class="p">[</span><span class="nx">idx</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="p">...</span><span class="nx">tempFlags</span><span class="p">[</span><span class="nx">idx</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">enabled</span>: <span class="kt">event.currentTarget.checked</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">     <span class="p">};</span>
+</span></span><span class="line"><span class="cl">     <span class="nx">setFlags</span><span class="p">(</span><span class="nx">tempFlags</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">flag</span><span class="p">.</span><span class="nx">name</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><figure><a class="lightgallery" href="/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/images/preview.png" title="images/preview.png" data-thumbnail="/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/images/preview.png" data-sub-html="<h2>Preview of the code above</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/images/preview.png"
+            srcset="/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/images/preview.png 561w,
+                /posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/images/preview.png 561w,
+                /posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/images/preview.png 561w"
+            alt="images/preview.png" height="273"  width="561" >
+    </a><figcaption class="image-caption">Preview of the code above</figcaption>
+    </figure>
+<p>This is a very common use case in React where you are rendering components from an array of objects. In my example, I am rendering an array of feature flags that can be checked on and off using the checkbox. If we were to use Zustand to manage the feature flag state instead, the implementation will be as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// initial flag state
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">defaultFlags</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Flag A&#34;</span><span class="p">,</span> <span class="nx">enabled</span>: <span class="kt">false</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Flag B&#34;</span><span class="p">,</span> <span class="nx">enabled</span>: <span class="kt">false</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Flag C&#34;</span><span class="p">,</span> <span class="nx">enabled</span>: <span class="kt">false</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// zustand store
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">useFeatureFlagStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">((</span><span class="kr">set</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">flags</span><span class="o">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">toggleFlag</span><span class="o">:</span> <span class="p">(</span><span class="nx">flagIdx</span><span class="p">,</span> <span class="nx">enabled</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">set</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kr">const</span> <span class="nx">tempFlags</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span><span class="nx">state</span><span class="p">.</span><span class="nx">flags</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">tempFlags</span><span class="p">[</span><span class="nx">flagIdx</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span><span class="nx">tempFlags</span><span class="p">[</span><span class="nx">flagIdx</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enabled</span>: <span class="kt">enabled</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="p">};</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="p">{</span> <span class="nx">flags</span>: <span class="kt">tempFlags</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">initFlags</span><span class="o">:</span> <span class="p">(</span><span class="nx">flags</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">set</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="nx">flags</span>: <span class="kt">flags</span> <span class="p">}));</span>
+</span></span><span class="line"><span class="cl"> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// feature flag switch component
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">FeatureFlagSwitch</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">flag</span><span class="p">,</span> <span class="nx">idx</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="kr">const</span> <span class="nx">toggleFlag</span> <span class="o">=</span> <span class="nx">useFeatureFlagStore</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">toggleFlag</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Rendering Switch: Flag = </span><span class="si">${</span><span class="nx">flag</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb"> Enabled = </span><span class="si">${</span><span class="nx">flag</span><span class="p">.</span><span class="nx">enabled</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">&lt;</span><span class="nt">input</span>
+</span></span><span class="line"><span class="cl">    <span class="na">type</span><span class="o">=</span><span class="s">&#39;checkbox&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">checked</span><span class="o">=</span><span class="p">{</span><span class="nx">flag</span><span class="p">.</span><span class="nx">enabled</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">toggleFlag</span><span class="p">(</span><span class="nx">idx</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">checked</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">flag</span><span class="p">.</span><span class="nx">name</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// feature flag parent component
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">FeatureFlagsContainer</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="kr">const</span> <span class="nx">flags</span> <span class="o">=</span> <span class="nx">useFeatureFlagStore</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">flags</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">flags</span><span class="p">).</span><span class="nx">map</span><span class="p">((</span><span class="nx">flag</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">featureFlag</span> <span class="o">=</span> <span class="nx">flags</span><span class="p">[</span><span class="nx">flag</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">FeatureFlagSwitch</span> <span class="na">key</span><span class="o">=</span><span class="p">{</span><span class="nx">idx</span><span class="p">}</span> <span class="na">flag</span><span class="o">=</span><span class="p">{</span><span class="nx">featureFlag</span><span class="p">}</span> <span class="na">idx</span><span class="o">=</span><span class="p">{</span><span class="nx">idx</span><span class="p">}</span> <span class="p">/&gt;;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// main app
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="kr">const</span> <span class="nx">initFlags</span> <span class="o">=</span> <span class="nx">useFeatureFlagStore</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">initFlags</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">initFlags</span><span class="p">(</span><span class="nx">defaultFlags</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="p">&lt;</span><span class="nt">FeatureFlagsContainer</span> <span class="p">/&gt;;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>TLDR: We have a Zustand store which we initialize on the first start-up <em>(Note: this is just a demo, the <code>initFlag</code> function will be called whenever <code>App</code> components re-renders, but you get the idea)</em>. The store contains the feature flag states and allows us to toggle the feature flag status globally.</p>
+<p>The issue here is that all <code>FeatureFlagSwitch</code> components are updated whenever any checkbox is checked or unchecked. Hence, let&rsquo;s take a look at how we can optimize it with some simple changes in the codes.</p>
+<h2 id="time-for-optimization">Time for Optimization</h2>
+<p>Instead of re-rendering all components in the array, we will only re-render the relevant component in the array. In our example, that component will be the <code>FeatureFlagSwitch</code>. Here are some of the key changes to make.</p>
+<h3 id="1-using-zustand-shallowdiff">#1 Using Zustand Shallow Diff</h3>
+<p>If we refer to <a href="https://github.com/pmndrs/zustand#selecting-multiple-state-slices">Zustand documentation</a>, instead of comparing the entire object, we can compare the keys to determine the need for re-rendering. This is as simple as passing the <code>shallow</code> equality function. Here&rsquo;s what it looks like in codes:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">FeatureFlagsContainer</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="kr">const</span> <span class="nx">flags</span> <span class="o">=</span> <span class="nx">useFeatureFlagStore</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">flags</span><span class="p">),</span> <span class="nx">shallow</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="nx">flags</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">flag</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">FeatureFlagSwitch</span> <span class="na">key</span><span class="o">=</span><span class="p">{</span><span class="nx">idx</span><span class="p">}</span> <span class="na">flag</span><span class="o">=</span><span class="p">{</span><span class="nx">flag</span><span class="p">}</span> <span class="p">/&gt;;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>With this, the variable <code>flags</code> will not trigger a re-render to the parent component <code>FeatureFlagsContainer</code> unless there is a change to the order, count, or keys.</p>
+<h3 id="2-using-zustand-state-instead-of-propsdrilling">#2 Using Zustand State Instead of Props Drilling</h3>
+<p>Instead of passing the <code>FeatureFlag</code> props from the <code>FeatureFlagsContainer</code> component (parent) to each <code>FeatureFlagSwitch</code> component (child). Zustand provides an easy way for us to read our states as shown below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">FeatureFlagSwitch</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">flag</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="kr">const</span> <span class="nx">featureFlag</span> <span class="o">=</span> <span class="nx">useFeatureFlagStore</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">flags</span><span class="p">[</span><span class="nx">flag</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"> <span class="kr">const</span> <span class="nx">toggleFlag</span> <span class="o">=</span> <span class="nx">useFeatureFlagStore</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">toggleFlag</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">&lt;</span><span class="nt">input</span>
+</span></span><span class="line"><span class="cl">    <span class="na">type</span><span class="o">=</span><span class="s">&#39;checkbox&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">checked</span><span class="o">=</span><span class="p">{</span><span class="nx">featureFlag</span><span class="p">.</span><span class="nx">enabled</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">toggleFlag</span><span class="p">(</span><span class="nx">featureFlag</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">checked</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">featureFlag</span><span class="p">.</span><span class="nx">name</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="3-using-immer-for-nestedobjects">#3 Using Immer for Nested Objects</h3>
+<p>I find Immer to be a really handy tool when it comes to modifying objects. Let&rsquo;s compare the following codes:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// BEFORE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">useFeatureFlagStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">((</span><span class="kr">set</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">flags</span><span class="o">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">toggleFlag</span><span class="o">:</span> <span class="p">(</span><span class="nx">flagIdx</span><span class="p">,</span> <span class="nx">enabled</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">set</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kr">const</span> <span class="nx">tempFlags</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span><span class="nx">state</span><span class="p">.</span><span class="nx">flags</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">tempFlags</span><span class="p">[</span><span class="nx">flagIdx</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span><span class="nx">tempFlags</span><span class="p">[</span><span class="nx">flagIdx</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enabled</span>: <span class="kt">enabled</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="p">};</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="p">{</span> <span class="nx">flags</span>: <span class="kt">tempFlags</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// AFTER
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">useFeatureFlagStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">immer</span><span class="p">((</span><span class="kr">set</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">flags</span><span class="o">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">toggleFlag</span><span class="o">:</span> <span class="p">(</span><span class="nx">flagIdx</span><span class="p">,</span> <span class="nx">enabled</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kr">set</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">state</span><span class="p">.</span><span class="nx">flags</span><span class="p">[</span><span class="nx">flagIdx</span><span class="p">].</span><span class="nx">enabled</span> <span class="o">=</span> <span class="nx">enabled</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}))</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span></code></pre></div><p>In React, we have to update the state immutably. This means that we have to create a copy of the whole state (Eg. <code>tempFlags</code>) and update the values we want to change. With Immer, it simplifies the handling of immutable data structures as shown in the codes above. For more information, check out <a href="https://immerjs.github.io/immer/">Immer documentation</a>.</p>
+<h2 id="here-are-the-fullcodes">Here are the full codes</h2>
+<p>Lastly, these are the code snippets for javascript. If you need the typescript version, refer to the repository below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// initial flag state
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">defaultFlags</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Flag A&#34;</span><span class="p">,</span> <span class="nx">enabled</span>: <span class="kt">false</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Flag B&#34;</span><span class="p">,</span> <span class="nx">enabled</span>: <span class="kt">false</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Flag C&#34;</span><span class="p">,</span> <span class="nx">enabled</span>: <span class="kt">false</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// zustand store
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">useFeatureFlagStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">immer</span><span class="p">((</span><span class="kr">set</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">flags</span><span class="o">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">toggleFlag</span><span class="o">:</span> <span class="p">(</span><span class="nx">flagIdx</span><span class="p">,</span> <span class="nx">enabled</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kr">set</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">state</span><span class="p">.</span><span class="nx">flags</span><span class="p">[</span><span class="nx">flagIdx</span><span class="p">].</span><span class="nx">enabled</span> <span class="o">=</span> <span class="nx">enabled</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">initFlags</span><span class="o">:</span> <span class="p">(</span><span class="nx">flags</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kr">set</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">state</span><span class="p">.</span><span class="nx">flags</span> <span class="o">=</span> <span class="nx">flags</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}))</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// feature flag switch component
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">FeatureFlagSwitch</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">flag</span><span class="p">,</span> <span class="nx">idx</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="kr">const</span> <span class="nx">featureFlag</span> <span class="o">=</span> <span class="nx">useFeatureFlagStore</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">flags</span><span class="p">[</span><span class="nx">flag</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"> <span class="kr">const</span> <span class="nx">toggleFlag</span> <span class="o">=</span> <span class="nx">useFeatureFlagStore</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">toggleFlag</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Rendering Switch: Flag = </span><span class="si">${</span><span class="nx">featureFlag</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb"> Enabled = </span><span class="si">${</span><span class="nx">featureFlag</span><span class="p">.</span><span class="nx">enabled</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">&lt;</span><span class="nt">input</span>
+</span></span><span class="line"><span class="cl">    <span class="na">type</span><span class="o">=</span><span class="s">&#39;checkbox&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">checked</span><span class="o">=</span><span class="p">{</span><span class="nx">featureFlag</span><span class="p">.</span><span class="nx">enabled</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">toggleFlag</span><span class="p">(</span><span class="nx">idx</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">checked</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;{</span><span class="nx">featureFlag</span><span class="p">.</span><span class="nx">name</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// feature flag parent component
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">FeatureFlagsContainer</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="kr">const</span> <span class="nx">flags</span> <span class="o">=</span> <span class="nx">useFeatureFlagStore</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">flags</span><span class="p">),</span> <span class="nx">shallow</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="nx">flags</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">flag</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">FeatureFlagSwitch</span> <span class="na">key</span><span class="o">=</span><span class="p">{</span><span class="nx">idx</span><span class="p">}</span> <span class="na">flag</span><span class="o">=</span><span class="p">{</span><span class="nx">flag</span><span class="p">}</span> <span class="na">idx</span><span class="o">=</span><span class="p">{</span><span class="nx">idx</span><span class="p">}</span> <span class="p">/&gt;;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// main app
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="kr">const</span> <span class="nx">initFlags</span> <span class="o">=</span> <span class="nx">useFeatureFlagStore</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">initFlags</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">initFlags</span><span class="p">(</span><span class="nx">defaultFlags</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="p">&lt;</span><span class="nt">FeatureFlagsContainer</span> <span class="p">/&gt;;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h2 id="summary">Summary</h2>
+<p>That&rsquo;s it! This isn&rsquo;t something very complicated or revolutionary. It is mainly a refresher for beginners working with React and Zustand, so I hope it&rsquo;s as useful to you as much as it was to me.</p>
+<p>Also, if you are new to Zustand, do check out this article &ldquo;<a href="https://tkdodo.eu/blog/working-with-zustand">Working with Zustand</a>&rdquo; written by Dominik Dorfmeister. I find that it was really useful in helping me to understand Zustand.</p>
+<p>Refer to the Git Repo below for the code reference</p>
+<ul>
+<li><a href="https://github.com/bkjam/zustand-object-store">https://github.com/bkjam/zustand-object-store</a></li>
+</ul>
+<hr>
+<p><strong>Thank you for reading till the end! ☕</strong><br>
+If you enjoyed this article and would like to support my work, feel free to buy me a coffee on Ko-fi. Your support helps me keep creating, and I truly appreciate it! 🙏</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+        <span><a class="tag" href="/tags/medium/">medium</a><a class="tag" href="/tags/react/">react</a></span>
+
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</body>
+</html>

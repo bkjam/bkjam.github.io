@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 31 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blender - How to create a Smoke Cloud</title>
-      <link>https://bkjam.github.io/post/2024-10-31-blender-smoke-cloud/</link>
+      <link>https://bkjam.github.io/posts/2024-10-31-blender-smoke-cloud/</link>
       <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-10-31-blender-smoke-cloud/</guid>
+      <guid>https://bkjam.github.io/posts/2024-10-31-blender-smoke-cloud/</guid>
       
         <description>Simple guide to create a smoke cloud mesh in blender for vfx</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Unity VFX References</title>
-      <link>https://bkjam.github.io/post/2024-10-30-unity-vfx-references/</link>
+      <link>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</link>
       <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-10-30-unity-vfx-references/</guid>
+      <guid>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</guid>
       
         <description>&lt;p&gt;Quick Reference Guides for creating VFX in Unity.&lt;/p&gt;
 &lt;h1 id=&#34;vfx-tips&#34;&gt;VFX Tips&lt;/h1&gt;
@@ -42,10 +42,10 @@
     
     <item>
       <title>Exporting FBX from Blender to Unity</title>
-      <link>https://bkjam.github.io/post/2024-10-19-blender-to-unity-settings/</link>
+      <link>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</link>
       <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-10-19-blender-to-unity-settings/</guid>
+      <guid>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</guid>
       
         <description>&lt;p&gt;Here&amp;rsquo;s a quick guide on how to export FBX from Blender to Unity. You can also refer to these videos that I referenced.&lt;/p&gt;</description>
       
@@ -53,10 +53,10 @@
     
     <item>
       <title>Development VM Setup</title>
-      <link>https://bkjam.github.io/post/2024-09-24-development-vm-setup/</link>
+      <link>https://bkjam.github.io/posts/2024-09-24-development-vm-setup/</link>
       <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-09-24-development-vm-setup/</guid>
+      <guid>https://bkjam.github.io/posts/2024-09-24-development-vm-setup/</guid>
       
         <description>&lt;p&gt;Quick Guide on how I setup my Ubuntu VM (22.04) on VirtualBox&lt;/p&gt;</description>
       
@@ -64,10 +64,10 @@
     
     <item>
       <title>Exploring File Download Reverse Proxy with Nginx &#43; Lua &#43; Redis</title>
-      <link>https://bkjam.github.io/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/</link>
+      <link>https://bkjam.github.io/posts/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/</link>
       <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/</guid>
+      <guid>https://bkjam.github.io/posts/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/</guid>
       
         <description>How to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua</description>
       
@@ -75,10 +75,10 @@
     
     <item>
       <title>Avoid This HTTPS Mistake When Setting up a Custom Domain for Github Pages Website</title>
-      <link>https://bkjam.github.io/post/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/</link>
+      <link>https://bkjam.github.io/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/</link>
       <pubDate>Fri, 07 Jun 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/</guid>
+      <guid>https://bkjam.github.io/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/</guid>
       
         <description>How to set up GitHub Pages with your custom domain without the need to purchase any SSL add-ons from Namecheap</description>
       
@@ -86,10 +86,10 @@
     
     <item>
       <title>Blender - Tips &amp; Hot Keys</title>
-      <link>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/</link>
+      <link>https://bkjam.github.io/posts/2024-05-11-blender-tips-and-hotkeys/</link>
       <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-05-11-blender-tips-and-hotkeys/</guid>
+      <guid>https://bkjam.github.io/posts/2024-05-11-blender-tips-and-hotkeys/</guid>
       
         <description>&lt;p&gt;Things to take note of when using Blender&lt;/p&gt;
 &lt;h2 id=&#34;set-up&#34;&gt;Set up&lt;/h2&gt;
@@ -101,10 +101,10 @@
     
     <item>
       <title>Building a S3 File Download Service using Spring Boot and Minio Client</title>
-      <link>https://bkjam.github.io/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client/</link>
+      <link>https://bkjam.github.io/posts/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client/</link>
       <pubDate>Mon, 29 Apr 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client/</guid>
+      <guid>https://bkjam.github.io/posts/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client/</guid>
       
         <description>Implement a File Download Service that can handle large file downloads and multiple file downloads as zip</description>
       
@@ -112,10 +112,10 @@
     
     <item>
       <title>Why I Use Hugo as an Alternative to WordPress for My Blogging Website</title>
-      <link>https://bkjam.github.io/post/2024-04-08-why-i-use-hugo-as-an-alternative-to-wordpress-for-my-blogging-website/</link>
+      <link>https://bkjam.github.io/posts/2024-04-08-why-i-use-hugo-as-an-alternative-to-wordpress-for-my-blogging-website/</link>
       <pubDate>Mon, 08 Apr 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-04-08-why-i-use-hugo-as-an-alternative-to-wordpress-for-my-blogging-website/</guid>
+      <guid>https://bkjam.github.io/posts/2024-04-08-why-i-use-hugo-as-an-alternative-to-wordpress-for-my-blogging-website/</guid>
       
         <description>Hugo + Github Pages can be a cheaper option for blogging compared to WordPress</description>
       
@@ -123,10 +123,10 @@
     
     <item>
       <title>Updates to AutoConfiguration in Spring Boot 3</title>
-      <link>https://bkjam.github.io/post/2024-03-22-updates-to-auto-configuration-in-spring-boot-3/</link>
+      <link>https://bkjam.github.io/posts/2024-03-22-updates-to-auto-configuration-in-spring-boot-3/</link>
       <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-03-22-updates-to-auto-configuration-in-spring-boot-3/</guid>
+      <guid>https://bkjam.github.io/posts/2024-03-22-updates-to-auto-configuration-in-spring-boot-3/</guid>
       
         <description>If you are working with a custom starter library, take note of this auto-configuration change!</description>
       
@@ -134,10 +134,10 @@
     
     <item>
       <title>Quick Reference to Setup Universal Render Pipeline for Unity Projects</title>
-      <link>https://bkjam.github.io/post/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</link>
+      <link>https://bkjam.github.io/posts/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</link>
       <pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</guid>
+      <guid>https://bkjam.github.io/posts/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</guid>
       
         <description>Step-by-step guide on how to set up URP for Unity Projects</description>
       
@@ -189,10 +189,10 @@
     
     <item>
       <title>React - How to Implement Custom MultiSelect Cell Editor in AgGrid</title>
-      <link>https://bkjam.github.io/post/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/</link>
+      <link>https://bkjam.github.io/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/</link>
       <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/</guid>
+      <guid>https://bkjam.github.io/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/</guid>
       
         <description>Issues Faced and Code References on How to Implement Mantine MultiSelect Dropdown in AgGrid Tables</description>
       
@@ -200,10 +200,10 @@
     
     <item>
       <title>React - Avoid Unnecessary Re-Rendering of Array Components When Using Zustand</title>
-      <link>https://bkjam.github.io/post/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/</link>
+      <link>https://bkjam.github.io/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/</link>
       <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/</guid>
+      <guid>https://bkjam.github.io/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/</guid>
       
         <description>How to avoid re-rendering all array components when only one component’s state is updated when using Zustand and React</description>
       
@@ -211,10 +211,10 @@
     
     <item>
       <title>Database Integration Testing for Custom Spring Boot Data Access Starter Library using Testcontainers</title>
-      <link>https://bkjam.github.io/post/2023-09-11-database-integration-testing-for-custom-spring-boot-data-access-starter-library-using-testcontainers/</link>
+      <link>https://bkjam.github.io/posts/2023-09-11-database-integration-testing-for-custom-spring-boot-data-access-starter-library-using-testcontainers/</link>
       <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2023-09-11-database-integration-testing-for-custom-spring-boot-data-access-starter-library-using-testcontainers/</guid>
+      <guid>https://bkjam.github.io/posts/2023-09-11-database-integration-testing-for-custom-spring-boot-data-access-starter-library-using-testcontainers/</guid>
       
         <description>How to set up a Spring Boot project with database integration testing using Testcontainers for MongoDB</description>
       
@@ -222,10 +222,10 @@
     
     <item>
       <title>What I Love About Data Access Layer (DAL) When Building Small Backend Projects</title>
-      <link>https://bkjam.github.io/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/</link>
+      <link>https://bkjam.github.io/posts/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/</link>
       <pubDate>Thu, 27 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/</guid>
+      <guid>https://bkjam.github.io/posts/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/</guid>
       
         <description>Benefits of using a common data access library to access the database for small projects with multiple microservices</description>
       
@@ -233,12 +233,34 @@
     
     <item>
       <title>How to Query the Active Directory Using Spring Boot LdapTemplate</title>
-      <link>https://bkjam.github.io/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/</link>
+      <link>https://bkjam.github.io/posts/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/</link>
       <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/</guid>
+      <guid>https://bkjam.github.io/posts/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/</guid>
       
         <description>Quick Overview on LDAP queries with Spring Boot LdapTemplate</description>
+      
+    </item>
+    
+    <item>
+      <title>3 Useful Tips for Developers when using Spring Cloud Config</title>
+      <link>https://bkjam.github.io/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/</guid>
+      
+        <description>Sharing what I found useful in understanding Spring Cloud Config with Spring Boot</description>
+      
+    </item>
+    
+    <item>
+      <title>5 Observations on Spring Boot&#39;s Loading Precedence for Properties Files With Spring Cloud Config</title>
+      <link>https://bkjam.github.io/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/</link>
+      <pubDate>Tue, 21 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/</guid>
+      
+        <description>Sharing my experience on the order of precedence for properties files in Spring Boot applications when using Spring Cloud Config and Spring Profiles</description>
       
     </item>
     
@@ -249,7 +271,18 @@
       
       <guid>https://bkjam.github.io/medium/</guid>
       
-        <description>&lt;p&gt;I still post my articles on &lt;strong&gt;&lt;a href=&#34;https://medium.com/@kbryan1008&#34;&gt;Medium.com&lt;/a&gt;&lt;/strong&gt; because it offers great support for code syntax and was where my dev documentation journey began. If you’ve enjoyed any of my articles and would like to support my work, feel free to &lt;strong&gt;&lt;a href=&#34;https://ko-fi.com/supportbkjam&#34;&gt;buy me a coffee on Ko-fi&lt;/a&gt;&lt;/strong&gt; or just read my articles on &lt;strong&gt;&lt;a href=&#34;https://medium.com/@kbryan1008&#34;&gt;Medium.com&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;</description>
+        <description>&lt;p&gt;I still post my articles on &lt;strong&gt;&lt;a href=&#34;https://medium.com/@kbryan1008&#34;&gt;Medium.com&lt;/a&gt;&lt;/strong&gt; because it offers great support for code syntax and was where my dev documentation journey began. If you’ve enjoyed any of my articles and would like to support my work, feel free to &lt;strong&gt;&lt;a href=&#34;https://ko-fi.com/supportbkjam&#34;&gt;buy me a coffee on Ko-fi&lt;/a&gt;&lt;/strong&gt; or just read my articles on &lt;strong&gt;&lt;a href=&#34;https://medium.com/@kbryan1008&#34;&gt;Medium.com&lt;/a&gt;&lt;/strong&gt;. Anyway, check out the links below to read the articles I’ve written!&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>All Tags</title>
+      <link>https://bkjam.github.io/tags/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/tags/</guid>
+      
+        <description>&lt;div class=&#34;tag-cloud-tags&#34;&gt;&lt;a href=&#34;https://bkjam.github.io/tags/medium/&#34;&gt;Medium &lt;sup&gt;13&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-boot/&#34;&gt;Spring-Boot &lt;sup&gt;8&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/blender/&#34;&gt;Blender &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/unity/&#34;&gt;Unity &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/react/&#34;&gt;React &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-cloud/&#34;&gt;Spring-Cloud &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/web/&#34;&gt;Web &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/div&gt;</description>
       
     </item>
     

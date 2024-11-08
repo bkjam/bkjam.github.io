@@ -1,0 +1,691 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Bryan
+        |
+        Avoid This HTTPS Mistake When Setting up a Custom Domain for Github Pages Website
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.136.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Bryan" />
+  <meta
+    name="description"
+    content="Software Engineer
+Indie Game Developer 
+"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1f4526598994b776237b2b6eb48a4a9d442c1943c7d18dc0acf2c87507d30c7d.css"
+      integrity="sha256-H0UmWYmUt3YjeytutIpKnUQsGUPH0Y3ArPLIdQfTDH0="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.6b2546bcd98560543dbad1638565a4e6f70a12afeb7d68c387313f1eaa9f7327.css"
+      integrity="sha256-ayVGvNmFYFQ9utFjhWWk5vcKEq/rfWjDhzE/Hqqfcyc="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://bkjam.github.io/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Avoid This HTTPS Mistake When Setting up a Custom Domain for Github Pages Website">
+  <meta name="twitter:description" content="How to set up GitHub Pages with your custom domain without the need to purchase any SSL add-ons from Namecheap">
+
+
+
+  
+  <meta property="og:url" content="https://bkjam.github.io/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/">
+  <meta property="og:site_name" content="Bkjam">
+  <meta property="og:title" content="Avoid This HTTPS Mistake When Setting up a Custom Domain for Github Pages Website">
+  <meta property="og:description" content="How to set up GitHub Pages with your custom domain without the need to purchase any SSL add-ons from Namecheap">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-06-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-06-07T00:00:00+00:00">
+    <meta property="article:tag" content="Medium">
+    <meta property="article:tag" content="Web">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "posts",
+        "name": "Avoid This HTTPS Mistake When Setting up a Custom Domain for Github Pages Website",
+        "headline": "Avoid This HTTPS Mistake When Setting up a Custom Domain for Github Pages Website",
+        "alternativeHeadline": "",
+        "description": "
+      
+        How to set up GitHub Pages with your custom domain without the need to purchase any SSL add-ons from Namecheap
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bkjam.github.io\/posts\/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightYear" : "2024",
+        "dateCreated": "2024-06-07T00:00:00.00Z",
+        "datePublished": "2024-06-07T00:00:00.00Z",
+        "dateModified": "2024-06-07T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Bryan",
+            "url": "https://bkjam.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/bkjam.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/bkjam.github.io\/posts\/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website\/",
+        "wordCount" : "1019",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "medium"
+
+    
+      
+        ,
+
+      
+      "web"
+
+    ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">I&#39;m Bryan</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Software Engineer<br />Indie Game Developer <br /></p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://medium.com/@kbryan1008"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Medium"
+            title="Medium"
+          >
+            <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/bkjam"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Github"
+            title="Github"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://rustycruiselabs.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Game Dev"
+            title="Game Dev"
+          >
+            <i class="fas fa-gamepad fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+    <div class="sidebar__introduction">
+      <a href="https://ko-fi.com/supportbkjam">
+        <img src="/images/kofi-supportme_small.png" alt="Support Me on Ko-fi" />
+      </a>
+    </div>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/posts/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tags/"
+              
+              title=""
+              >Tags</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/medium/"
+              
+              title=""
+              >Medium Articles</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/bookmarks/"
+              
+              title=""
+              >Bookmarks</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tools/"
+              
+              title=""
+              >Toolkit</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>Avoid This HTTPS Mistake When Setting Up a Custom Domain for Github Pages Website</h1>
+      
+      <div
+  class="notice
+    notice--update
+  "
+><div class="notice__content">
+    Medium Link: <a href="https://medium.com/@kbryan1008/avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website-66f0cc6ca7b2">Avoid This HTTPS Mistake When Setting up a Custom Domain for Github Pages Website</a>
+<strong>If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀</strong>
+  </div>
+</div>
+
+<figure><a class="lightgallery" href="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/unsplash.jpg" title="images/unsplash.jpg" data-thumbnail="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/unsplash.jpg" data-sub-html="<h2>Photo by Franck on Unsplash</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/unsplash.jpg"
+            srcset="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/unsplash.jpg 1200w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/unsplash.jpg 1200w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/unsplash.jpg 1200w"
+            alt="images/unsplash.jpg" height="900"  width="1200" >
+    </a><figcaption class="image-caption">Photo by <a href="https://unsplash.com/@franckinjapan?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Franck</a> on <a href="https://unsplash.com/photos/black-iphone-5-on-yellow-textile-DoWZMPZ-M9s?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+    </figure>
+<h2 id="intro">Intro</h2>
+<p>Apparently, if you are hosting your website on GitHub pages, you <strong>DO NOT</strong> need to purchase any <strong>SSL add-ons</strong> when purchasing your web domains! I think this was a mistake that could have been avoided if only I had researched more… This article is to share how you can use GitHub Pages as your website with your custom website domain and HTTPS setup.</p>
+<p>Before we start, check out my previous article &ldquo;<a href="https://medium.com/@kbryan1008/why-i-use-hugo-as-an-alternative-to-wordpress-for-my-blogging-website-df520e56d777">Why I Use Hugo as an Alternative to WordPress for My Blogging Website</a>&rdquo; if you have yet to :)</p>
+<blockquote>
+<p><em>PS: The great news is that there is a <a href="https://www.namecheap.com/legal/general/refund-policy/">refund policy</a> so you can still get a refund if you manage to meet the criteria! Good Luck!</em></p>
+</blockquote>
+<h2 id="what-happened">What Happened?</h2>
+<figure><a class="lightgallery" href="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_search.png" title="images/namecheap_search.png" data-thumbnail="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_search.png" data-sub-html="<h2>Screenshot by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_search.png"
+            srcset="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_search.png 800w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_search.png 800w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_search.png 800w"
+            alt="images/namecheap_search.png" height="367"  width="800" >
+    </a><figcaption class="image-caption">Screenshot by Author</figcaption>
+    </figure>
+<p>Recently, I was using <a href="https://gohugo.io">Hugo</a> to create my website and host it using <a href="https://pages.github.com">GitHub Pages</a>. I bought a website domain from <a href="https://www.namecheap.com">namecheap</a> and it comes with an optional SSL add-on. If you are not aware, SSL is usually required if you want your website to be <code>https</code> instead of <code>http</code>.</p>
+<p>That being said, there is also <a href="https://letsencrypt.org">Let&rsquo;s Encrypt</a> which is an initiative for giving people free digital certificates to enable <code>HTTPS (SSL/TLS)</code> for websites, to create a secure and privacy-respecting web.</p>
+<p>If you have a web server, you can install your free SSL using Let&rsquo;s Encrypt for <code>HTTPS</code>. But in my case, I only had a web domain. Hence, I thought that Let&rsquo;s Encrypt wouldn&rsquo;t work for me and I had to purchase the SSL add-on.</p>
+<p>It was only until I started setting up my custom domain in GitHub Pages that I realized that GitHub Pages can be set up with <code>HTTPS</code> without the need to purchase the SSL add-on as GitHub Pages will handle <code>HTTPS</code> for you…</p>
+<h2 id="setting-up-github-pages-with-customdomain">Setting up GitHub Pages with Custom Domain</h2>
+<p>These are the rough steps I took to set up my GitHub Pages with the custom domain that I bought from Namecheap.</p>
+<h3 id="step-1-buy-yourdomain">Step 1: Buy your domain</h3>
+<figure><a class="lightgallery" href="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_search.png" title="images/namecheap_search.png" data-thumbnail="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_search.png" data-sub-html="<h2>Screenshot by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_search.png"
+            srcset="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_search.png 800w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_search.png 800w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_search.png 800w"
+            alt="images/namecheap_search.png" height="367"  width="800" >
+    </a><figcaption class="image-caption">Screenshot by Author</figcaption>
+    </figure>
+<p>Go to <a href="https://www.namecheap.com/domains/domain-name-search/">Namecheap</a> and find your domain. Purchase it and <strong>DO NOT buy the SSL add-on</strong>.</p>
+<blockquote>
+<p><em>PS: Remember to apply your <strong>newcomer promo code</strong> when checking out</em></p>
+</blockquote>
+<p>After purchasing, you should receive an email that requires you to validate your account. Wait for your domain to be <strong>Active</strong> (can be minutes or hours) before proceeding to step 5.</p>
+<h2 id="step-2-create-your-githubpages">Step 2: Create your GitHub Pages</h2>
+<p>]Referencing the guide in GitHub Pages](<a href="https://pages.github.com">https://pages.github.com</a>), you will need to create a repository <code>&lt;username&gt;.github.io</code> or <code>&lt;organization&gt;.github.io</code> where username and organization is the name of your account. Below is an example using my setup.</p>
+<figure><a class="lightgallery" href="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/github_repo.png" title="images/github_repo.png" data-thumbnail="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/github_repo.png" data-sub-html="<h2>Screenshot by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/github_repo.png"
+            srcset="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/github_repo.png 1013w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/github_repo.png 1013w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/github_repo.png 1013w"
+            alt="images/github_repo.png" height="224"  width="1013" >
+    </a><figcaption class="image-caption">Screenshot by Author</figcaption>
+    </figure>
+<h2 id="step-3-configuring-dns">Step 3: Configuring DNS</h2>
+<h3 id="step-3a-configuring-dns-apex-domainrecord">Step 3a: Configuring DNS (Apex Domain Record)</h3>
+<figure><a class="lightgallery" href="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_domains.png" title="images/namecheap_domains.png" data-thumbnail="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_domains.png" data-sub-html="<h2>Screenshot by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_domains.png"
+            srcset="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_domains.png 1200w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_domains.png 1200w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_domains.png 1200w"
+            alt="images/namecheap_domains.png" height="320"  width="1200" >
+    </a><figcaption class="image-caption">Screenshot by Author</figcaption>
+    </figure>
+<p>In the Namecheap website, go to <strong>Accounts → Dashboard → Domain List → Click on Manage → Advanced DNS</strong> and add the <code>A records</code> below. This tells the DNS to route any request to your domain (eg. <code>testinghugo.com</code>) to your GitHub Pages physical IP addresses.</p>
+<blockquote>
+<p><em>Note: please refer to <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site">GitHub documentation for the most updated IP Addresses</a>.</em></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">185.199.108.153
+</span></span><span class="line"><span class="cl">185.199.109.153
+</span></span><span class="line"><span class="cl">185.199.110.153
+</span></span><span class="line"><span class="cl">185.199.111.153
+</span></span></code></pre></div><figure><a class="lightgallery" href="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns.png" title="images/namecheap_dns.png" data-thumbnail="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns.png" data-sub-html="<h2>Screenshot by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns.png"
+            srcset="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns.png 951w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns.png 951w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns.png 951w"
+            alt="images/namecheap_dns.png" height="514"  width="951" >
+    </a><figcaption class="image-caption">Screenshot by Author</figcaption>
+    </figure>
+<h3 id="step-3b-configuring-dns-cnamerecord">Step 3b: Configuring DNS (CName Record)</h3>
+<figure><a class="lightgallery" href="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns_cname.png" title="images/namecheap_dns_cname.png" data-thumbnail="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns_cname.png" data-sub-html="<h2>Screenshot by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns_cname.png"
+            srcset="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns_cname.png 962w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns_cname.png 962w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns_cname.png 962w"
+            alt="images/namecheap_dns_cname.png" height="61"  width="962" >
+    </a><figcaption class="image-caption">Screenshot by Author</figcaption>
+    </figure>
+<p>Additionally, add a <code>CNAME</code> record in your DNS to tell your DNS to map your GitHub Pages (Eg. <code>testinghugo.github.io</code>) to your web domain (Eg. <code>www.testinghugo.com</code>).</p>
+<h3 id="step-3c-configuring-dns-txtrecord">Step 3c: Configuring DNS (Txt Record)</h3>
+<p>In your GitHub account, go to your <strong>Account → Settings → Pages</strong> → and click on <strong>Add a Domain</strong>. You should see the following. Enter your domain name (without the &ldquo;www&rdquo;).</p>
+<figure><a class="lightgallery" href="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/github_add_domain.png" title="images/github_add_domain.png" data-thumbnail="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/github_add_domain.png" data-sub-html="<h2>Screenshot by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/github_add_domain.png"
+            srcset="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/github_add_domain.png 808w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/github_add_domain.png 808w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/github_add_domain.png 808w"
+            alt="images/github_add_domain.png" height="325"  width="808" >
+    </a><figcaption class="image-caption">Screenshot by Author</figcaption>
+    </figure>
+<p>After clicking on &ldquo;<strong>Add domain</strong>&rdquo;, head over to Namecheap&rsquo;s advanced DNS settings and create a TXT record as per the instructions. An example is shown below.</p>
+<figure><a class="lightgallery" href="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns_github.png" title="images/namecheap_dns_github.png" data-thumbnail="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns_github.png" data-sub-html="<h2>Screenshot by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns_github.png"
+            srcset="/posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns_github.png 1200w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns_github.png 1200w,
+                /posts/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/images/namecheap_dns_github.png 1200w"
+            alt="images/namecheap_dns_github.png" height="148"  width="1200" >
+    </a><figcaption class="image-caption">Screenshot by Author</figcaption>
+    </figure>
+<h2 id="step-4-verify-if-your-dns-configuration-has-beenapplied">Step 4: Verify if your DNS configuration has been applied</h2>
+<p>Use the <code>dig</code> command to check if your DNS configuration has been applied. Note that you might want to wait for at least an hour as it takes time for the changes to be applied globally. If you see the output below, it means you are ready for the next step!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">C:<span class="se">\U</span>ser&gt; dig www.testinghugo.com +noall +answer
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt; www.testinghugo.com.     <span class="m">1756</span> IN CNAME testinghugo.github.io.
+</span></span><span class="line"><span class="cl">&gt; testinghugo.github.io.   <span class="m">3557</span> IN A 185.199.110.153
+</span></span><span class="line"><span class="cl">&gt; testinghugo.github.io.   <span class="m">3557</span> IN A 185.199.111.153
+</span></span><span class="line"><span class="cl">&gt; testinghugo.github.io.   <span class="m">3557</span> IN A 185.199.109.153
+</span></span><span class="line"><span class="cl">&gt; testinghugo.github.io.   <span class="m">3557</span> IN A 185.199.108.153
+</span></span></code></pre></div><h2 id="step-5-add-your-custom-domain-to-your-github-page-and-enablehttps">Step 5: Add your Custom Domain to your GitHub Page and Enable HTTPS</h2>
+<figure><a class="lightgallery" href="images/github_domain_check.png" title="images/github_domain_check.png" data-thumbnail="images/github_domain_check.png" data-sub-html="<h2>Screenshot by Author</h2>">
+        <img
+            
+            loading="lazy"
+            src="images/github_domain_check.png"
+            srcset="images/github_domain_check.png, images/github_domain_check.png 1.5x, images/github_domain_check.png 2x"
+            alt="images/github_domain_check.png">
+    </a><figcaption class="image-caption">Screenshot by Author</figcaption>
+    </figure>
+<p>Lastly, head over to the GitHub repository that you created in Step 2. Go to <strong>Settings → Pages → Custom Domain</strong> → and add your domain and click on <strong>Save</strong>. This will create a <code>CNAME</code> file directly to the root of your source branch.</p>
+<p>GitHub Pages will detect the presence of the <code>CNAME</code> file and use the domain specified in the <code>CNAME</code> file as the primary address for your GitHub Pages site. This means that any visitors who access your GitHub Pages site (Eg. <code>testinghugo.github.io</code>) will be redirected to your custom web domain (Eg. <code>www.testinghugo.com</code>).</p>
+<p>Lastly, to enable HTTPS, simply check the <strong>Enforce HTTPS</strong> field and that&rsquo;s it!</p>
+<h2 id="summary">Summary</h2>
+<p>This post covers how to set up GitHub Pages with a custom domain purchased from Namecheap. GitHub Pages is an affordable way to publish a website and it is very easy to get started with.</p>
+<p>The greatest takeaway from this article is that you should not purchase the SSL add-on provided by Namecheap if you are using GitHub Pages as your website hosting platform. Please do not make the same mistake as me!</p>
+<p>Anyway, that&rsquo;s all for this article! I hope the content is useful to you. Check out the link below if you want a TLDR guide (Credits to <a href="https://gist.github.com/plembo">Phil Lembo</a>):</p>
+<ul>
+<li><a href="https://gist.github.com/plembo/84f80c920bb5ac6f19e53fe6f8db1ff7">https://gist.github.com/plembo/84f80c920bb5ac6f19e53fe6f8db1ff7</a></li>
+</ul>
+<hr>
+<p><strong>Thank you for reading till the end! ☕</strong><br>
+If you enjoyed this article and would like to support my work, feel free to buy me a coffee on Ko-fi. Your support helps me keep creating, and I truly appreciate it! 🙏</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+        <span><a class="tag" href="/tags/medium/">medium</a><a class="tag" href="/tags/web/">web</a></span>
+
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</body>
+</html>

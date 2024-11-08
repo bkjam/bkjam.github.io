@@ -1,0 +1,691 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Bryan
+        |
+        3 Useful Tips for Developers when using Spring Cloud Config
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.136.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Bryan" />
+  <meta
+    name="description"
+    content="Software Engineer
+Indie Game Developer 
+"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1f4526598994b776237b2b6eb48a4a9d442c1943c7d18dc0acf2c87507d30c7d.css"
+      integrity="sha256-H0UmWYmUt3YjeytutIpKnUQsGUPH0Y3ArPLIdQfTDH0="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.6b2546bcd98560543dbad1638565a4e6f70a12afeb7d68c387313f1eaa9f7327.css"
+      integrity="sha256-ayVGvNmFYFQ9utFjhWWk5vcKEq/rfWjDhzE/Hqqfcyc="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://bkjam.github.io/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="3 Useful Tips for Developers when using Spring Cloud Config">
+  <meta name="twitter:description" content="Sharing what I found useful in understanding Spring Cloud Config with Spring Boot">
+
+
+
+  
+  <meta property="og:url" content="https://bkjam.github.io/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/">
+  <meta property="og:site_name" content="Bkjam">
+  <meta property="og:title" content="3 Useful Tips for Developers when using Spring Cloud Config">
+  <meta property="og:description" content="Sharing what I found useful in understanding Spring Cloud Config with Spring Boot">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-07-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-07-05T00:00:00+00:00">
+    <meta property="article:tag" content="Medium">
+    <meta property="article:tag" content="Spring-Boot">
+    <meta property="article:tag" content="Spring-Cloud">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "posts",
+        "name": "3 Useful Tips for Developers when using Spring Cloud Config",
+        "headline": "3 Useful Tips for Developers when using Spring Cloud Config",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Sharing what I found useful in understanding Spring Cloud Config with Spring Boot
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bkjam.github.io\/posts\/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightYear" : "2022",
+        "dateCreated": "2022-07-05T00:00:00.00Z",
+        "datePublished": "2022-07-05T00:00:00.00Z",
+        "dateModified": "2022-07-05T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Bryan",
+            "url": "https://bkjam.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/bkjam.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/bkjam.github.io\/posts\/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config\/",
+        "wordCount" : "1352",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "medium"
+
+    
+      
+        ,
+
+      
+      "spring-boot"
+
+    
+      
+        ,
+
+      
+      "spring-cloud"
+
+    ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">I&#39;m Bryan</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Software Engineer<br />Indie Game Developer <br /></p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://medium.com/@kbryan1008"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Medium"
+            title="Medium"
+          >
+            <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/bkjam"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Github"
+            title="Github"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://rustycruiselabs.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Game Dev"
+            title="Game Dev"
+          >
+            <i class="fas fa-gamepad fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+    <div class="sidebar__introduction">
+      <a href="https://ko-fi.com/supportbkjam">
+        <img src="/images/kofi-supportme_small.png" alt="Support Me on Ko-fi" />
+      </a>
+    </div>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/posts/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tags/"
+              
+              title=""
+              >Tags</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/medium/"
+              
+              title=""
+              >Medium Articles</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/bookmarks/"
+              
+              title=""
+              >Bookmarks</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tools/"
+              
+              title=""
+              >Toolkit</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>3 Useful Tips for Developers When Using Spring Cloud Config</h1>
+      
+      <div
+  class="notice
+    notice--update
+  "
+><div class="notice__content">
+    Medium Link: <a href="https://medium.com/gitconnected/3-useful-tips-for-developers-when-using-spring-cloud-config-de7b874f9911">3 Useful Tips for Developers when using Spring Cloud Config</a><br>
+<strong>If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀</strong>
+  </div>
+</div>
+
+<figure><a class="lightgallery" href="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/intro.png" title="images/intro.png" data-thumbnail="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/intro.png">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/intro.png"
+            srcset="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/intro.png 1200w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/intro.png 1200w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/intro.png 1200w"
+            alt="images/intro.png" height="630"  width="1200" >
+    </a></figure>
+<h2 id="intro">Intro</h2>
+<p><a href="https://betterprogramming.pub/5-observations-on-spring-boots-loading-precedence-for-properties-files-with-spring-cloud-config-331d1af9052e">Previously, I wrote about the order of precedence for properties files when developing with Spring Boot and Spring Cloud Config</a>. Do check it out if you have yet to do so. In this article, I will share some tips that I found useful in helping me understand the order of precedence for properties files as well as ways to develop efficiently with Spring Cloud Config. Without further ado, let&rsquo;s begin!</p>
+<h2 id="tip-1-debugging-property-sources-loading-precedence-order">Tip #1: Debugging Property Sources Loading Precedence Order</h2>
+<p>T
+he easiest way to debug the Spring Boot application&rsquo;s property source loading precedence is by enabling the <code>env</code> endpoint in the <a href="https://docs.spring.io/spring-boot/docs/current/actuator-api/htmlsingle/">Spring Boot Actuator API</a>.</p>
+<figure><a class="lightgallery" href="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/gradle-build.png" title="images/gradle-build.png" data-thumbnail="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/gradle-build.png" data-sub-html="<h2>Adding actuator dependencies to build.gradle.kts</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/gradle-build.png"
+            srcset="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/gradle-build.png 1095w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/gradle-build.png 1095w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/gradle-build.png 1095w"
+            alt="images/gradle-build.png" height="159"  width="1095" >
+    </a><figcaption class="image-caption">Adding actuator dependencies to build.gradle.kts</figcaption>
+    </figure>
+<p>Add the actuator dependency above and set the configurations below in the application&rsquo;s <code>application.yaml</code> to enable to <code>env</code> endpoint.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">management.endpoints.web.exposure.include: env
+</span></span></code></pre></div><p>Then, browse to <code>http://localhost:8080/actuator/env</code> to view the property sources&rsquo; information. You should get something like this.</p>
+<figure><a class="lightgallery" href="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/actuator-env.png" title="images/actuator-env.png" data-thumbnail="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/actuator-env.png" data-sub-html="<h2>Screenshot of an example for /actuator/env endpoint</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/actuator-env.png"
+            srcset="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/actuator-env.png 1081w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/actuator-env.png 1081w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/actuator-env.png 1081w"
+            alt="images/actuator-env.png" height="927"  width="1081" >
+    </a><figcaption class="image-caption">Screenshot of an example for <code>/actuator/env</code> endpoint</figcaption>
+    </figure>
+<p>The order of precedence is from top-down where index 0 has the highest priority. Besides properties files, you can also find properties that are set via command-line arguments, system properties, or environment variables. This can be useful in ensuring that the right properties are loaded for all of your deployment environments.</p>
+<h2 id="tip-2-localhost-development-with-spring-cloudconfig">Tip #2: Localhost Development with Spring Cloud Config</h2>
+<p>When your Spring Boot application is loading properties from external sources (Eg. Spring Cloud Config Server), it can be frustrating and tedious to test your configurations when developing. This is because to update the properties, you will have to update the properties files, commit the change and push it to the remote git repository.</p>
+<figure><a class="lightgallery" href="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/demo.png" title="images/demo.png" data-thumbnail="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/demo.png" data-sub-html="<h2>Overview of Demonstration Setup</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/demo.png"
+            srcset="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/demo.png 501w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/demo.png 501w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/demo.png 501w"
+            alt="images/demo.png" height="301"  width="501" >
+    </a><figcaption class="image-caption">Overview of Demonstration Setup</figcaption>
+    </figure>
+<p>Using the above setup as an example, we will have a Spring Boot application (config-client) that loads properties from the Spring Cloud Config Server. To facilitate localhost development, we want to be able to update the properties and reflect the changes immediately. To do that, here are a couple of approaches we can use:</p>
+<h3 id="1-using-property-springcloudconfigallow-override">1 - Using Property &ldquo;spring.cloud.config.allow-override&rdquo;</h3>
+<p>If you refer to the <a href="https://cloud.spring.io/spring-cloud-static/spring-cloud.html#overriding-bootstrap-properties">Override the Values of Remote Properties</a> section in the Spring Cloud documentation, you will find that it is possible to override remote properties with local properties by setting the following configurations in the <code>application.yaml</code> in the remote git repository.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># application.yaml
+</span></span><span class="line"><span class="cl">spring.cloud.config:
+</span></span><span class="line"><span class="cl">    allow-override: true
+</span></span><span class="line"><span class="cl">    override-none: true
+</span></span><span class="line"><span class="cl">    override-system-properties: false
+</span></span></code></pre></div><p>However, this only works if you are importing the properties from Spring Cloud Config Server using the bootstrap configurations (<code>spring-cloud-starter-bootstrap</code>). Eg.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># bootstrap.properties
+</span></span><span class="line"><span class="cl">spring.application.name=config-client
+</span></span><span class="line"><span class="cl">spring.cloud.config.fail-fast=true
+</span></span><span class="line"><span class="cl">spring.cloud.config.uri=http://localhost:8888 # Config Server URL
+</span></span></code></pre></div><p>With Spring Boot 2.4 updates, the recommended way to import properties from Spring Cloud Config Server is to use the <code>spring.config.import</code> property in the <code>application.yaml</code> file instead of the <code>spring.cloud.config.uri</code> property in the <code>bootstrap.properties</code> file.</p>
+<p>Because of this, the <code>override-none</code> property no longer works as intended since it is processed within the bootstrap configuration which is no longer the recommended approach. This issue is also highlighted in Spring Cloud Config&rsquo;s <a href="https://github.com/spring-cloud/spring-cloud-config/issues/1856">Github Issues</a>.</p>
+<p>Hence, if you are not using the bootstrap configuration to import the properties from the Spring Cloud Config Server, the property <code>spring.cloud.config.allow-override</code> might not work for you.</p>
+<h3 id="2-using-local-springprofiles">2 - Using &ldquo;local&rdquo; Spring Profiles</h3>
+<p>As mentioned in my <a href="https://betterprogramming.pub/5-observations-on-spring-boots-loading-precedence-for-properties-files-with-spring-cloud-config-331d1af9052e">previous article</a>, external properties files always override packaged files (profile-specific or not). Hence, we can exploit Spring Profiles to load environment-specific properties files. To do that, we will use a <code>local</code> Spring Profiles with a corresponding profile-specific properties file (<code>application-local.yaml</code>) in the project&rsquo;s root.</p>
+<figure><a class="lightgallery" href="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/project-structure.png" title="images/project-structure.png" data-thumbnail="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/project-structure.png" data-sub-html="<h2>The folder structure of a typical Spring Boot application project</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/project-structure.png"
+            srcset="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/project-structure.png 433w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/project-structure.png 433w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/project-structure.png 433w"
+            alt="images/project-structure.png" height="191"  width="433" >
+    </a><figcaption class="image-caption">The folder structure of a typical Spring Boot application project</figcaption>
+    </figure>
+<p>Essentially, we are importing the remote properties files from Spring Cloud Config Server in the <code>src/main/resource/application.yaml</code>. Then we will create an <code>application-local.yaml</code> properties file in a config folder in the project&rsquo;s root. With this folder structure set up, we can now run the Spring Boot application on the localhost machine:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gradle config-client:bootRun \
+</span></span><span class="line"><span class="cl">    -Pargs=--spring.profiles.active=dev,local
+</span></span></code></pre></div><p>The Spring Boot application will be executed with active Spring Profiles <code>dev</code> and <code>local</code> with the latter taking a higher priority. Hence, it will load the properties files in the following order (highest to lowest):</p>
+<ul>
+<li><code>application-local.yaml</code> (Config Folder) - external (local)</li>
+<li><code>config-client-dev.yaml</code> (Config Server) - external (remote)</li>
+<li><code>config-client.yaml</code> (Config Server) - external (remote)</li>
+<li><code>application.yaml</code> (Classpath) - internal (local)</li>
+</ul>
+<p>As you can see, the <code>application-local.yaml</code> will have the highest priority which is useful when you are developing on the localhost machine.</p>
+<p>Additionally, the config folder will not be included when we dockerize or build the Spring Boot application. Hence, it is safe to include the config folder in the git repository to facilitate localhost development for other developers.</p>
+<h3 id="3-connecting-to-a-localhost-spring-cloud-configserver">3 - Connecting to a Localhost Spring Cloud Config Server</h3>
+<p>The last approach is to run a localhost Spring Cloud Config Server instance. Instead of loading the properties files from a remote git repository, we can locate the properties files locally in the file system. Thankfully, Spring Cloud Config Server provides us with the <code>native</code> profile mode which simplifies this configuration.</p>
+<figure><a class="lightgallery" href="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/spring-cloud-config.png" title="images/spring-cloud-config.png" data-thumbnail="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/spring-cloud-config.png" data-sub-html="<h2>Example of &rsquo;native&rsquo; profile configurations in Spring Cloud Config Server</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/spring-cloud-config.png"
+            srcset="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/spring-cloud-config.png 714w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/spring-cloud-config.png 714w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/spring-cloud-config.png 714w"
+            alt="images/spring-cloud-config.png" height="166"  width="714" >
+    </a><figcaption class="image-caption">Example of &rsquo;native&rsquo; profile configurations in Spring Cloud Config Server</figcaption>
+    </figure>
+<p>There are a couple of caveats to using a localhost Spring Cloud Config Server.</p>
+<ul>
+<li>Firstly, we will have to configure the Spring Boot application to point to the local Spring Cloud Config Server instance instead of the remote instance when we are developing locally. This can be achieved easily using different Spring Profiles.</li>
+<li>Secondly, we will have to manually update the configurations in the local file system to pull the latest from the remote git repository. This is exceptionally important when we are working in teams where the remote properties files can be updated anytime.</li>
+<li>Lastly, if the Spring Cloud Config Server is configured to load from multiple remote git repositories, this approach can be painful to manage.</li>
+</ul>
+<p>Overall, this is an &ldquo;okay&rdquo; approach but I would recommend approach #2 instead as this approach requires lots of manual intervention from developers.</p>
+<h2 id="tip-3-refreshing-properties-atrun-time">Tip #3: Refreshing Properties at Run-Time</h2>
+<p>The final tip is that Spring Cloud provides methods to allow Spring Cloud Config Clients to refresh their properties without restarting the client. To do that, simply enable the <code>refresh</code> endpoint of the <a href="https://docs.spring.io/spring-boot/docs/current/actuator-api/htmlsingle/">Spring Boot Actuator API</a> in the Spring Boot application (config-client).</p>
+<figure><a class="lightgallery" href="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/gradle-build.png" title="images/gradle-build.png" data-thumbnail="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/gradle-build.png" data-sub-html="<h2>Adding actuator dependencies to build.gradle.kts</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/gradle-build.png"
+            srcset="/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/gradle-build.png 1095w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/gradle-build.png 1095w,
+                /posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/images/gradle-build.png 1095w"
+            alt="images/gradle-build.png" height="159"  width="1095" >
+    </a><figcaption class="image-caption">Adding actuator dependencies to build.gradle.kts</figcaption>
+    </figure>
+<p>Add the actuator dependencies above and set the configuration below in the <code>application.yaml</code> to enable the <code>refresh</code> endpoint.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">management.endpoints.web.exposure.include: refresh
+</span></span></code></pre></div><p>The <code>/actuator/refresh</code> endpoint only refreshes properties that are annotated by the <code>@ConfigurationProperties</code>. If we want to refresh properties that are annotated with the <code>@Value</code>, we will have to include the <code>@RefreshScope</code> annotation. Below is an example using a Restful API use case.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@RefreshScope
+</span></span><span class="line"><span class="cl">@RestController
+</span></span><span class="line"><span class="cl">@RequestMapping(&#34;/api&#34;)
+</span></span><span class="line"><span class="cl">class PropertyController(
+</span></span><span class="line"><span class="cl">        @Value(&#34;\${my.custom.property}&#34;) private val customProperty: String
+</span></span><span class="line"><span class="cl">) {
+</span></span><span class="line"><span class="cl">    companion object {
+</span></span><span class="line"><span class="cl">        private val logger = LoggerFactory.getLogger(PropertyController::class.java)
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    @GetMapping(&#34;/print&#34;)
+</span></span><span class="line"><span class="cl">    fun printProperties() {
+</span></span><span class="line"><span class="cl">        logger.info(&#34;Custom Property = $customProperty&#34;)
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><hr>
+<p>With the above example, whenever we update the property <code>my.custom.property</code>, we can trigger a refresh in the config-client using the actuator endpoint <code>/actuator/refresh</code>. To verify that the property has been updated, simply hit the API endpoint that we created <code>/api/print</code>. This is a simple use case and the purpose is to introduce you to the <code>/refresh</code> feature of Spring Cloud Config.</p>
+<p>However, in a typical cloud environment, there will be multiple client instances, and refreshing each client&rsquo;s configuration using the <code>/actuator/refresh</code> endpoint will be very tedious. Thankfully, there is Spring Cloud Bus which helps to automate the properties refresh through a lightweight message broker (Eg. Kafka / RabbitMQ). I will not be covering that in this article, but do check that out on your own :)</p>
+<hr>
+<p>Conclusion
+These are the 3 tips that I have learned when developing with Spring Cloud Config. Thank you for reading until the end. I hope you learned something new from this article.</p>
+<p>Refer to the Git Repo below for the code reference</p>
+<ul>
+<li><a href="https://github.com/bkjam/config-server-order">https://github.com/bkjam/config-server-order</a></li>
+</ul>
+<hr>
+<p><strong>Thank you for reading till the end! ☕</strong><br>
+If you enjoyed this article and would like to support my work, feel free to buy me a coffee on Ko-fi. Your support helps me keep creating, and I truly appreciate it! 🙏</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+        <span><a class="tag" href="/tags/medium/">medium</a><a class="tag" href="/tags/spring-boot/">spring-boot</a><a class="tag" href="/tags/spring-cloud/">spring-cloud</a></span>
+
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</body>
+</html>
