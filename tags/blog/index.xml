@@ -14,7 +14,7 @@
       
       <guid>https://bkjam.github.io/post/2024-10-31-blender-smoke-cloud/</guid>
       
-        <description>&lt;p&gt;This is a simple guide on creating a smoke cloud mesh in blender which I picked up from a course&lt;/p&gt;</description>
+        <description>Simple guide to create a smoke cloud mesh in blender for vfx</description>
       
     </item>
     
@@ -69,7 +69,7 @@
       
       <guid>https://bkjam.github.io/post/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/</guid>
       
-        <description>&lt;p&gt;How to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua&lt;/p&gt;</description>
+        <description>How to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua</description>
       
     </item>
     
@@ -80,7 +80,7 @@
       
       <guid>https://bkjam.github.io/post/2024-06-07-avoid-this-https-mistake-when-setting-up-a-custom-domain-for-github-pages-website/</guid>
       
-        <description>&lt;p&gt;How to set up GitHub Pages with your custom domain without the need to purchase any SSL add-ons from Namecheap&lt;/p&gt;</description>
+        <description>How to set up GitHub Pages with your custom domain without the need to purchase any SSL add-ons from Namecheap</description>
       
     </item>
     
@@ -106,7 +106,7 @@
       
       <guid>https://bkjam.github.io/post/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client/</guid>
       
-        <description>&lt;p&gt;Implement a File Download Service that can handle large file downloads and multiple file downloads as zip&lt;/p&gt;</description>
+        <description>Implement a File Download Service that can handle large file downloads and multiple file downloads as zip</description>
       
     </item>
     
@@ -117,7 +117,7 @@
       
       <guid>https://bkjam.github.io/post/2024-04-08-why-i-use-hugo-as-an-alternative-to-wordpress-for-my-blogging-website/</guid>
       
-        <description>&lt;p&gt;Hugo + Github Pages can be a cheaper option for blogging compared to WordPress&lt;/p&gt;</description>
+        <description>Hugo + Github Pages can be a cheaper option for blogging compared to WordPress</description>
       
     </item>
     
@@ -128,7 +128,7 @@
       
       <guid>https://bkjam.github.io/post/2024-03-22-updates-to-auto-configuration-in-spring-boot-3/</guid>
       
-        <description>&lt;p&gt;If you are working with a custom starter library, take note of this auto-configuration change!&lt;/p&gt;</description>
+        <description>If you are working with a custom starter library, take note of this auto-configuration change!</description>
       
     </item>
     
@@ -139,7 +139,7 @@
       
       <guid>https://bkjam.github.io/post/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</guid>
       
-        <description>&lt;p&gt;Step-by-step guide on how to set up URP for Unity Projects&lt;/p&gt;</description>
+        <description>Step-by-step guide on how to set up URP for Unity Projects</description>
       
     </item>
     
@@ -150,7 +150,7 @@
       
       <guid>https://bkjam.github.io/post/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/</guid>
       
-        <description>&lt;p&gt;Issues Faced and Code References on How to Implement Mantine MultiSelect Dropdown in AgGrid Tables&lt;/p&gt;</description>
+        <description>Issues Faced and Code References on How to Implement Mantine MultiSelect Dropdown in AgGrid Tables</description>
       
     </item>
     
@@ -161,7 +161,40 @@
       
       <guid>https://bkjam.github.io/post/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/</guid>
       
-        <description>&lt;p&gt;How to avoid re-rendering all array components when only one component’s state is updated when using Zustand and React&lt;/p&gt;</description>
+        <description>How to avoid re-rendering all array components when only one component’s state is updated when using Zustand and React</description>
+      
+    </item>
+    
+    <item>
+      <title>Database Integration Testing for Custom Spring Boot Data Access Starter Library using Testcontainers</title>
+      <link>https://bkjam.github.io/post/2023-09-11-database-integration-testing-for-custom-spring-boot-data-access-starter-library-using-testcontainers/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2023-09-11-database-integration-testing-for-custom-spring-boot-data-access-starter-library-using-testcontainers/</guid>
+      
+        <description>How to set up a Spring Boot project with database integration testing using Testcontainers for MongoDB</description>
+      
+    </item>
+    
+    <item>
+      <title>What I Love About Data Access Layer (DAL) When Building Small Backend Projects</title>
+      <link>https://bkjam.github.io/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/</link>
+      <pubDate>Thu, 27 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/</guid>
+      
+        <description>Benefits of using a common data access library to access the database for small projects with multiple microservices</description>
+      
+    </item>
+    
+    <item>
+      <title>How to Query the Active Directory Using Spring Boot LdapTemplate</title>
+      <link>https://bkjam.github.io/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/</link>
+      <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/</guid>
+      
+        <description>Quick Overview on LDAP queries with Spring Boot LdapTemplate</description>
       
     </item>
     

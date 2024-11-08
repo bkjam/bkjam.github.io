@@ -1,0 +1,672 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Bryan
+        |
+        What I Love About Data Access Layer (DAL) When Building Small Backend Projects
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.136.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Bryan" />
+  <meta
+    name="description"
+    content="Software Engineer
+Indie Game Developer 
+"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1f4526598994b776237b2b6eb48a4a9d442c1943c7d18dc0acf2c87507d30c7d.css"
+      integrity="sha256-H0UmWYmUt3YjeytutIpKnUQsGUPH0Y3ArPLIdQfTDH0="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.14100b31d2f4d82dbee022e50594c0fdde415b954cd53322700b7c163b6b9988.css"
+      integrity="sha256-FBALMdL02C2&#43;4CLlBZTA/d5BW5VM1TMicAt8FjtrmYg="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://bkjam.github.io/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="What I Love About Data Access Layer (DAL) When Building Small Backend Projects">
+  <meta name="twitter:description" content="Benefits of using a common data access library to access the database for small projects with multiple microservices">
+
+
+
+  
+  <meta property="og:url" content="https://bkjam.github.io/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/">
+  <meta property="og:site_name" content="Bkjam">
+  <meta property="og:title" content="What I Love About Data Access Layer (DAL) When Building Small Backend Projects">
+  <meta property="og:description" content="Benefits of using a common data access library to access the database for small projects with multiple microservices">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2023-04-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-04-27T00:00:00+00:00">
+    <meta property="article:tag" content="Blog">
+    <meta property="article:tag" content="Medium">
+    <meta property="article:tag" content="Spring-Boot">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "What I Love About Data Access Layer (DAL) When Building Small Backend Projects",
+        "headline": "What I Love About Data Access Layer (DAL) When Building Small Backend Projects",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Benefits of using a common data access library to access the database for small projects with multiple microservices
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bkjam.github.io\/post\/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightYear" : "2023",
+        "dateCreated": "2023-04-27T00:00:00.00Z",
+        "datePublished": "2023-04-27T00:00:00.00Z",
+        "dateModified": "2023-04-27T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Bryan",
+            "url": "https://bkjam.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/bkjam.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/bkjam.github.io\/post\/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects\/",
+        "wordCount" : "1384",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "blog"
+
+    
+      
+        ,
+
+      
+      "medium"
+
+    
+      
+        ,
+
+      
+      "spring-boot"
+
+    ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">I&#39;m Bryan</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Software Engineer<br />Indie Game Developer <br /></p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://medium.com/@kbryan1008"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Medium"
+            title="Medium"
+          >
+            <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/bkjam"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Github"
+            title="Github"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://rustycruiselabs.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Game Dev"
+            title="Game Dev"
+          >
+            <i class="fas fa-gamepad fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+    <div class="sidebar__introduction">
+      <a href="https://ko-fi.com/supportbkjam">
+        <img src="/images/kofi-supportme_small.png" alt="Support Me on Ko-fi" />
+      </a>
+    </div>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tags/blog/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/medium/"
+              
+              title=""
+              >Medium Articles</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/bookmarks/"
+              
+              title=""
+              >Bookmarks</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tools/"
+              
+              title=""
+              >Toolkit</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>What I Love About Data Access Layer (DAL) When Building Small Backend Projects</h1>
+      
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                
+                  Thu, Apr 27, 2023
+                
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">7-minute read</span>
+          </li>
+        </ul>
+      <div
+  class="notice
+    notice--update
+  "
+><div class="notice__content">
+    Medium Link: <a href="https://medium.com/gitconnected/what-i-love-about-data-access-layer-dal-when-building-small-backend-projects-8ad694baee3a">What I Love About Data Access Layer (DAL) When Building Small Backend Projects</a><br>
+<strong>If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀</strong>
+  </div>
+</div>
+
+<figure><a class="lightgallery" href="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/unsplash.jpg" title="images/unsplash.jpg" data-thumbnail="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/unsplash.jpg" data-sub-html="<h2>Photo by Ugne Vasyliute on Unsplash</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/unsplash.jpg"
+            srcset="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/unsplash.jpg 1200w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/unsplash.jpg 1200w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/unsplash.jpg 1200w"
+            alt="images/unsplash.jpg" height="800"  width="1200" >
+    </a><figcaption class="image-caption">Photo by <a href="https://unsplash.com/@ugnehenriko?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ugne Vasyliute</a> on <a href="https://unsplash.com/photos/Dag9cv89jb4?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></figcaption>
+    </figure>
+<h2 id="intro">Intro</h2>
+<p>The data access layer (DAL) is a concept that has been around for ages. After playing around with the concept for several months, I thought this would be a perfect time to share my thoughts as well as how I abstracted the <code>DAL</code> for my small projects (with multiple backend microservices) using a common data access library :)</p>
+<p><em>Note that my backend microservices were developed using Spring Boot.</em></p>
+<h2 id="whats-the-data-access-layer-dalfor">What&rsquo;s the Data Access Layer (DAL) for?</h2>
+<figure><a class="lightgallery" href="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/microservice-layers.png" title="images/microservice-layers.png" data-thumbnail="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/microservice-layers.png" data-sub-html="<h2>Simplified layers of a typical microservice</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/microservice-layers.png"
+            srcset="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/microservice-layers.png 353w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/microservice-layers.png 353w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/microservice-layers.png 353w"
+            alt="images/microservice-layers.png" height="339"  width="353" >
+    </a><figcaption class="image-caption">Simplified layers of a typical microservice</figcaption>
+    </figure>
+<p>The primary idea of the DAL is for abstraction. It is a layer that is responsible for managing data storage (Eg. create, read, update, delete). Some of the reasons to implement a DAL include:</p>
+<ul>
+<li>Provide the flexibility to replace the underlying database/data source. Eg. changing from MySQL to MongoDB.</li>
+<li>Abstract and separate the data access logic from the business logic allowing for both layers to evolve independently.</li>
+<li>Encapsulate data to allow any microservice to interact with the data</li>
+</ul>
+<p>Every developer/engineer implements the DAL concept to some extent. This could be in the form of using a data access object (DAO), data transfer object (DTO) or simply separating the logic for accessing the database.</p>
+<h2 id="introducing-the-data-accesslibrary">Introducing the Data Access Library</h2>
+<p>It is possible to implement the <code>DAL</code> concepts within your microservice&rsquo;s codebase. However, if you are working with multiple microservices, you might want to abstract your <code>DAL</code> further by implementing a common external data access library.</p>
+<figure><a class="lightgallery" href="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/data-access-library.png" title="images/data-access-library.png" data-thumbnail="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/data-access-library.png" data-sub-html="<h2>Implement a Data Access Layer using a custom Data Access Library</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/data-access-library.png"
+            srcset="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/data-access-library.png 727w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/data-access-library.png 727w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/data-access-library.png 727w"
+            alt="images/data-access-library.png" height="339"  width="727" >
+    </a><figcaption class="image-caption">Implement a Data Access Layer using a custom Data Access Library</figcaption>
+    </figure>
+<p>A data access library is a custom external library that contains all the data access logic (AKA CRUD operations).</p>
+<blockquote>
+<p><strong>Disclaimer</strong>: <em>This is an anti-pattern for microservice architecture. Following the microservice architecture pattern (single responsibility &amp; loose coupling), each microservice should have its own database and hence, no shared data access library.</em></p>
+<p><em>However, not everyone has the luxury to have a database-per-microservice due to the cost &amp; maintenance effort. This is especially true when you are in the midst of migrating from monolithic to microservice architecture or when you have a very small project.</em></p>
+</blockquote>
+<p>In this article, I am mainly focusing on small projects. Hence, I will be using a single shared database for all my microservice persistent data. For projects with a shared database, you can either have a common shared data access library or group the data access library by features.</p>
+<h2 id="option-a-shared-data-accesslibrary">Option A: Shared Data Access Library</h2>
+<figure><a class="lightgallery" href="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/shared-library.png" title="images/shared-library.png" data-thumbnail="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/shared-library.png" data-sub-html="<h2>Having a common shared data access library for all microservices</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/shared-library.png"
+            srcset="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/shared-library.png 528w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/shared-library.png 528w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/shared-library.png 528w"
+            alt="images/shared-library.png" height="190"  width="528" >
+    </a><figcaption class="image-caption">Having a common shared data access library for all microservices</figcaption>
+    </figure>
+<p>Having a shared external data access library is particularly useful when you have a small project as it allows you to centralize all your data access logic in a single library. The key advantage is that you will only have to maintain and modify a single library while the disadvantage is that the shared library will have redundant logic for all your microservices.</p>
+<p>Additionally, one thing you have to consider is library versioning.</p>
+<ul>
+<li>If you publish your library, then you will need a way to check all your microservices that are using the library whenever you update the library.</li>
+<li>If you pair it with Monorepo, then you wouldn&rsquo;t need to worry about versioning as your test cases will tell you which microservices are affected by the library&rsquo;s modifications.</li>
+</ul>
+<h2 id="option-b-grouping-data-access-library-byfeatures">Option B: Grouping Data Access Library by Features</h2>
+<figure><a class="lightgallery" href="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/feature-library.png" title="images/feature-library.png" data-thumbnail="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/feature-library.png" data-sub-html="<h2>Grouping Data Access Library by features</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/feature-library.png"
+            srcset="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/feature-library.png 527w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/feature-library.png 527w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/feature-library.png 527w"
+            alt="images/feature-library.png" height="264"  width="527" >
+    </a><figcaption class="image-caption">Grouping Data Access Library by features</figcaption>
+    </figure>
+<p>To prevent too much redundant logic within the data access library, instead of having 1 single shared data access library for all your microservices, you could create multiple data access libraries and group them by features. This largely depends on the size of your project as well as how many people are working on the project.</p>
+<p>However, do note that having too many data access libraries can also introduce difficulties in maintaining them. When this occurs, you should re-think your entire microservice architecture.</p>
+<h2 id="how-to-implement-the-data-accesslibrary">How to implement the Data Access Library</h2>
+<p>Whether you are using a shared common data access library or multiple data access library, the steps to implement an external library are the same. To implement the data access library, we will need to create a library with the following components.</p>
+<h3 id="1-data-transfer-object-dto-entity">#1 - Data Transfer Object (DTO) &amp; Entity</h3>
+<p>The Data Transfer Object (DTO) pattern is a design pattern that allows us to de-couple the data access layer (DAL) and the business service layer as illustrated below.</p>
+<figure><a class="lightgallery" href="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/dto-pattern.png" title="images/dto-pattern.png" data-thumbnail="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/dto-pattern.png">
+        <img
+            
+            loading="lazy"
+            src="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/dto-pattern.png"
+            srcset="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/dto-pattern.png 878w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/dto-pattern.png 878w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/dto-pattern.png 878w"
+            alt="images/dto-pattern.png" height="328"  width="878" >
+    </a></figure>
+<p>The <code>DTO</code> acts like a contract for transferring data between the client (business layer) and the library (data access layer), but not the internals of the library. As the client only interacts using the <code>DTO</code>, this allows us to have greater flexibility to modify the internals of the library without affecting the client as long as the <code>DTO</code> doesn&rsquo;t change.</p>
+<blockquote>
+<p><strong>Note</strong>: <em>You can think of the <code>DTO</code> as an object that transfers data between the business layer and the data layer while the <code>Entity</code> is an object that represents the database schema/table. The <code>mapper</code> acts as a bridge to convert between <code>DTO</code> and <code>Entity</code> and vice versa.</em></p>
+</blockquote>
+<h3 id="2-data-access-objectdao">#2 - Data Access Object (DAO)</h3>
+<p>The Data Access Object (DAO) pattern is a design pattern that provides an abstract interface for interacting with the database. The <code>DTO</code> pattern handles the transfer of data while the <code>DAO</code> pattern handles the CRUD logic.</p>
+<figure><a class="lightgallery" href="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/dao-pattern.png" title="images/dao-pattern.png" data-thumbnail="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/dao-pattern.png">
+        <img
+            
+            loading="lazy"
+            src="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/dao-pattern.png"
+            srcset="/post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/dao-pattern.png 690w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/dao-pattern.png 690w,
+                /post/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/images/dao-pattern.png 690w"
+            alt="images/dao-pattern.png" height="252"  width="690" >
+    </a></figure>
+<p>The <code>DAO</code> encapsulates the data access logic for the microservice&rsquo;s business requirements. This allows us to switch the underlying data access logic easily without affecting the business logic (Eg. database/schema/logic changes).</p>
+<blockquote>
+<p><em>Note: You can think of the <code>DAO</code> as an interface with CRUD logic. Eg. create a new user, update user information, delete a user, etc…</em></p>
+</blockquote>
+<p>However, it is important to not complicate the <code>DAO</code> with complex business logic as that is best left at the business layer.</p>
+<h3 id="3-integration-testing">#3 - Integration Testing</h3>
+<p>There are 2 types of integration testing that should be written here.</p>
+<ol>
+<li><strong>Integration testing with the database</strong> - This is to test if all DAO logic works with the database. Eg. Increasing database version.</li>
+<li><strong>Integration testing between microservice and the data access library</strong> - This allows us to quickly identify any affected changes when the data access library is updated.</li>
+</ol>
+<p>That&rsquo;s it! These are the 3 main components you will need to implement the data access library.</p>
+<h2 id="conclusion-is-data-access-library-a-goodidea">Conclusion - Is Data Access Library a good idea?</h2>
+<p>It really depends! I would recommend it if you are working on small projects. More often than so, you wouldn&rsquo;t be spinning up one database per microservice from the get-go. Instead, you will probably have a single shared database due to the cost &amp; simplicity.</p>
+<p>In such cases, having a common data access library (with <code>DAL</code> concepts applied) that can be used across multiple microservices is very useful as it provides a good abstraction layer for code maintenance. It is also very convenient as you only need to manage a single shared data access library for all database-related operations. Moreover, it improves code readability and encourages developers/engineers to write integration tests. However, do note that as it is a common data access library, the data access library will be inflated with lots of redundant codes.</p>
+<blockquote>
+<p><strong>Note</strong>: <em>Even if you are not using a shared database, you can still apply the data access layer concepts or even abstract the logic into a data access library.</em></p>
+</blockquote>
+<p>That&rsquo;s it! This is a summary of what I have learned and applied which I have written in the context of small projects with shared databases. It is definitely not something that can be applied to everything, especially when the shared database &amp; shared data access library introduces coupling to your architecture. That being said, I hope that this article is useful for all new developers/engineers to learn more about the <code>DAL</code> concepts.</p>
+<p>Hope you enjoy this article! I will be following up on this article with an example of how to implement and test the data access library in Spring Boot.</p>
+<hr>
+<p><strong>Thank you for reading till the end! ☕</strong><br>
+If you enjoyed this article and would like to support my work, feel free to buy me a coffee on Ko-fi. Your support helps me keep creating, and I truly appreciate it! 🙏</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+        <span><a class="tag" href="/tags/blog/">blog</a><a class="tag" href="/tags/medium/">medium</a><a class="tag" href="/tags/spring-boot/">spring-boot</a></span>
+
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</body>
+</html>

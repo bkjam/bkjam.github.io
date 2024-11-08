@@ -1,0 +1,800 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Bryan
+        |
+        How to Query the Active Directory Using Spring Boot LdapTemplate
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.136.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Bryan" />
+  <meta
+    name="description"
+    content="Software Engineer
+Indie Game Developer 
+"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1f4526598994b776237b2b6eb48a4a9d442c1943c7d18dc0acf2c87507d30c7d.css"
+      integrity="sha256-H0UmWYmUt3YjeytutIpKnUQsGUPH0Y3ArPLIdQfTDH0="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.14100b31d2f4d82dbee022e50594c0fdde415b954cd53322700b7c163b6b9988.css"
+      integrity="sha256-FBALMdL02C2&#43;4CLlBZTA/d5BW5VM1TMicAt8FjtrmYg="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://bkjam.github.io/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How to Query the Active Directory Using Spring Boot LdapTemplate">
+  <meta name="twitter:description" content="Quick Overview on LDAP queries with Spring Boot LdapTemplate">
+
+
+
+  
+  <meta property="og:url" content="https://bkjam.github.io/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/">
+  <meta property="og:site_name" content="Bkjam">
+  <meta property="og:title" content="How to Query the Active Directory Using Spring Boot LdapTemplate">
+  <meta property="og:description" content="Quick Overview on LDAP queries with Spring Boot LdapTemplate">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2023-01-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-01-18T00:00:00+00:00">
+    <meta property="article:tag" content="Blog">
+    <meta property="article:tag" content="Medium">
+    <meta property="article:tag" content="Spring-Boot">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "How to Query the Active Directory Using Spring Boot LdapTemplate",
+        "headline": "How to Query the Active Directory Using Spring Boot LdapTemplate",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Quick Overview on LDAP queries with Spring Boot LdapTemplate
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bkjam.github.io\/post\/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightYear" : "2023",
+        "dateCreated": "2023-01-18T00:00:00.00Z",
+        "datePublished": "2023-01-18T00:00:00.00Z",
+        "dateModified": "2023-01-18T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Bryan",
+            "url": "https://bkjam.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/bkjam.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/bkjam.github.io\/post\/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate\/",
+        "wordCount" : "1563",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "blog"
+
+    
+      
+        ,
+
+      
+      "medium"
+
+    
+      
+        ,
+
+      
+      "spring-boot"
+
+    ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">I&#39;m Bryan</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Software Engineer<br />Indie Game Developer <br /></p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://medium.com/@kbryan1008"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Medium"
+            title="Medium"
+          >
+            <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/bkjam"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Github"
+            title="Github"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://rustycruiselabs.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Game Dev"
+            title="Game Dev"
+          >
+            <i class="fas fa-gamepad fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+    <div class="sidebar__introduction">
+      <a href="https://ko-fi.com/supportbkjam">
+        <img src="/images/kofi-supportme_small.png" alt="Support Me on Ko-fi" />
+      </a>
+    </div>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tags/blog/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/medium/"
+              
+              title=""
+              >Medium Articles</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/bookmarks/"
+              
+              title=""
+              >Bookmarks</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tools/"
+              
+              title=""
+              >Toolkit</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>How to Query the Active Directory Using Spring Boot LdapTemplate</h1>
+      
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                
+                  Wed, Jan 18, 2023
+                
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">8-minute read</span>
+          </li>
+        </ul>
+      <div
+  class="notice
+    notice--update
+  "
+><div class="notice__content">
+    Medium Link: <a href="https://betterprogramming.pub/how-to-query-the-active-directory-using-spring-boot-ldaptemplate-fe50fc84b446">How to Query the Active Directory Using Spring Boot LdapTemplate</a><br>
+<strong>If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀</strong>
+  </div>
+</div>
+
+<figure><a class="lightgallery" href="/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/images/intro.png" title="images/intro.png" data-thumbnail="/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/images/intro.png">
+        <img
+            
+            loading="lazy"
+            src="/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/images/intro.png"
+            srcset="/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/images/intro.png 1200w,
+                /post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/images/intro.png 1200w,
+                /post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/images/intro.png 1200w"
+            alt="images/intro.png" height="630"  width="1200" >
+    </a></figure>
+<h2 id="intro">Intro</h2>
+<p>Recently, I was playing around with the Active Directory (AD) and tried to retrieve user information via LDAP Queries. It was definitely a frustrating experience as I wasn’t very familiar with LDAP. Hence, I decided to write about what I have learned.</p>
+<p><em>Note: at the point of writing, I am working with Spring Boot v2.7.7, Gradle v7.6, Docker-Compose v2.14.0, Docker v20.10.3, and Java v11.</em></p>
+<h2 id="overview">Overview</h2>
+<p>Let’s start with a bit of background context. An Active Directory (AD) is a commonly used directory service by many companies for user &amp; group management, policy administration, authentication, and etc… LDAP (Lightweight Directory Access Protocol) is a protocol that we can use to communicate with the LDAP servers (eg. the AD).</p>
+<p>When developing services, we can authenticate users with LDAP or retrieve user information from the LDAP server. In this article, I will focus mainly on some of the methods I used to query the LDAP server using <code>LdapTemplate</code>. The <code>LdapTemplate</code> is a set of ready-to-use APIs for executing core LDAP operations such as creation, modification, retrieval, etc…</p>
+<h2 id="setting-up-a-ldap-server">Setting up a LDAP Server</h2>
+<p>Before we start, we will need to have an LDAP server to query. In this demo, instead of setting up an entire Active Directory, we will set up an LDAP server using <a href="https://github.com/osixia/docker-openldap">osixia/docker-openldap</a>. This is an OpenLDAP docker image that allows us to easily populate the LDAP database using an LDIF file.</p>
+<p>To get started, we will prepare a bootstrap LDIF file that contains all the data that we want to seed the LDAP database with. For demonstration purposes, we will only be populating the LDAP database with some user information as shown below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Sample Bootstrap LDIF file
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># ------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">#   Create Organizational Units
+</span></span><span class="line"><span class="cl"># ------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">dn: ou=Users,dc=example,dc=org
+</span></span><span class="line"><span class="cl">changetype: add
+</span></span><span class="line"><span class="cl">objectclass: organizationalUnit
+</span></span><span class="line"><span class="cl">ou: Users
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># ------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">#   Create Users
+</span></span><span class="line"><span class="cl"># ------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">dn: cn=Amanda,ou=Users,dc=example,dc=org
+</span></span><span class="line"><span class="cl">changetype: add
+</span></span><span class="line"><span class="cl">objectclass: inetOrgPerson
+</span></span><span class="line"><span class="cl">uid: U0
+</span></span><span class="line"><span class="cl">cn: Amanda
+</span></span><span class="line"><span class="cl">sn: Amanda
+</span></span><span class="line"><span class="cl">givenname: Amanda
+</span></span><span class="line"><span class="cl">displayname: Amanda
+</span></span><span class="line"><span class="cl">mail: amanda@example.org
+</span></span><span class="line"><span class="cl">mail: amanda@test.org
+</span></span><span class="line"><span class="cl">userpassword: amanda
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">dn: cn=Becca,ou=Users,dc=example,dc=org
+</span></span><span class="line"><span class="cl">changetype: add
+</span></span><span class="line"><span class="cl">objectclass: inetOrgPerson
+</span></span><span class="line"><span class="cl">uid: U1
+</span></span><span class="line"><span class="cl">cn: Becca
+</span></span><span class="line"><span class="cl">sn: Becca
+</span></span><span class="line"><span class="cl">givenname: Becca
+</span></span><span class="line"><span class="cl">displayname: Becca
+</span></span><span class="line"><span class="cl">mail: becca@example.org
+</span></span><span class="line"><span class="cl">mail: becca@test.org
+</span></span><span class="line"><span class="cl">userpassword: becca
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">dn: cn=Charmaine,ou=Users,dc=example,dc=org
+</span></span><span class="line"><span class="cl">changetype: add
+</span></span><span class="line"><span class="cl">objectclass: inetOrgPerson
+</span></span><span class="line"><span class="cl">uid: U2
+</span></span><span class="line"><span class="cl">cn: Charmaine
+</span></span><span class="line"><span class="cl">sn: Charmaine
+</span></span><span class="line"><span class="cl">givenname: Charmaine
+</span></span><span class="line"><span class="cl">displayname: Charmaine
+</span></span><span class="line"><span class="cl">mail: charmaine@example.org
+</span></span><span class="line"><span class="cl">mail: charmaine@test.org
+</span></span><span class="line"><span class="cl">userpassword: charmaine
+</span></span></code></pre></div><p>There are 3 users (also known as an entry) populated in the LDAP database with 3 attributes that we will be retrieving in our demo:</p>
+<ul>
+<li><strong>uid</strong> : stores the user’s Id</li>
+<li><strong>displayname</strong> : stores the user’s name</li>
+<li><strong>mail</strong> : stores all the user’s email addresses</li>
+</ul>
+<blockquote>
+<p><em>Note: An LDAP entry is a collection of information about an entity. Each entry consists of three primary components: a distinguished name, a collection of attributes, and a collection of object classes</em></p>
+</blockquote>
+<p>To start the OpenLdap server, I have created the following docker-compose YAML file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Sample Docker Compose for OpenLdap Server</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.9&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">openldap</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l">openldap</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">domainname</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;example.org&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">osixia/openldap:1.5.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">openldap</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;389:389&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>--<span class="l">copy-service, --loglevel, debug]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">LDAP_LOG_LEVEL</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;256&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">LDAP_ORGANISATION</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Example Org.&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">LDAP_DOMAIN</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;example.org&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">LDAP_BASE_DN</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;dc=example,dc=org&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">LDAP_ADMIN_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;admin&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">LDAP_REMOVE_CONFIG_AFTER_SETUP</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;false&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./bootstrap.ldif:/container/service/slapd/assets/config/bootstrap/ldif/50-bootstrap.ldif:z</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./storage/ldap_data:/var/lib/ldap</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./storage/ldap_config:/etc/ldap/slapd.d</span><span class="w">
+</span></span></span></code></pre></div><p>Note that the domain is <code>example.org</code> and LDAP directory has the following tree structure after bootstrapping with the <code>LDIF</code> file defined above.</p>
+<figure><a class="lightgallery" href="/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/images/openldap.png" title="images/openldap.png" data-thumbnail="/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/images/openldap.png" data-sub-html="<h2>LDAP Directory Tree Structure</h2>">
+        <img
+            
+            loading="lazy"
+            src="/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/images/openldap.png"
+            srcset="/post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/images/openldap.png 426w,
+                /post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/images/openldap.png 426w,
+                /post/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/images/openldap.png 426w"
+            alt="images/openldap.png" height="313"  width="426" >
+    </a><figcaption class="image-caption">LDAP Directory Tree Structure</figcaption>
+    </figure>
+<h2 id="querying-with-ldapsearch">Querying with ldapsearch</h2>
+<p>With the OpenLdap server running, we can try to craft some LDAP queries using <code>ldapsearch</code> as shown below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Step into the OpenLdap Docker Container Instance
+</span></span><span class="line"><span class="cl">docker exec -it openldap /bin/bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Execute LDAP query
+</span></span><span class="line"><span class="cl">ldapsearch -x \
+</span></span><span class="line"><span class="cl">    -H ldap://localhost:389 \
+</span></span><span class="line"><span class="cl">    -b &#34;dc=example,dc=org&#34; \
+</span></span><span class="line"><span class="cl">    -D &#34;cn=admin,dc=example,dc=org&#34; \
+</span></span><span class="line"><span class="cl">    -w admin
+</span></span></code></pre></div><p>The <code>-b</code> option indicates the search base for the query and in our case, we can use either <code>dc=example,dc=org</code> or <code>ou=Users,dc=example,dc=org</code> as referenced from our LDAP directory tree structure above.</p>
+<p>The <code>-D</code> and <code>-w</code> option indicates which distinguished name to bind to which is required for authentication and by default, docker-openldap creates an administrator account with password <code>admin</code>.</p>
+<blockquote>
+<p><em>Note: A distinguished name (DN) is the name that uniquely identifies and describes an entry in a LDAP server.</em></p>
+</blockquote>
+<p>Now that we know how to query using <code>ldapsearch</code>, let&rsquo;s try to do the same thing in Spring Boot with <code>LdapTemplate</code>.</p>
+<h2 id="create-spring-bootproject">Create Spring Boot Project</h2>
+<p>Spring Boot provides <a href="https://spring.io/projects/spring-data-ldap">Spring Data LDAP</a> which is a library for simple LDAP programming. It allows us to easily configure a Spring Boot project to connect and communicate with an LDAP server. We can do that by importing the dependency <code>spring-boot-starter-data-ldap</code> to our project.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Gradle
+</span></span><span class="line"><span class="cl">dependencies {
+</span></span><span class="line"><span class="cl"> implementation(&#34;org.springframework.boot:spring-boot-starter-data-ldap&#34;)
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Maven
+</span></span><span class="line"><span class="cl">&lt;dependency&gt;
+</span></span><span class="line"><span class="cl">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">    &lt;artifactId&gt;spring-boot-starter-data-ldap&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">&lt;/dependency&gt;
+</span></span></code></pre></div><p>Next, to connect to the OpenLdap server, we will provide the following connection settings in our
+<code>application.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">spring.ldap:
+</span></span><span class="line"><span class="cl">  urls: ldap://localhost:389
+</span></span><span class="line"><span class="cl">  base: dc=example,dc=org
+</span></span><span class="line"><span class="cl">  username: cn=admin,dc=example,dc=org
+</span></span><span class="line"><span class="cl">  password: admin
+</span></span></code></pre></div><p>With that, we are now ready to use <code>LdapTemplate</code> to query the OpenLdap server.</p>
+<h2 id="querying-with-ldaptemplate">Querying with LdapTemplate</h2>
+<p>Firstly, let&rsquo;s inspect each user entry. Below is an example of a user entry.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dn: cn=Amanda,ou=Users,dc=example,dc=org
+</span></span><span class="line"><span class="cl">objectclass: inetOrgPerson
+</span></span><span class="line"><span class="cl">uid: U0
+</span></span><span class="line"><span class="cl">cn: Amanda
+</span></span><span class="line"><span class="cl">sn: Amanda
+</span></span><span class="line"><span class="cl">givenname: Amanda
+</span></span><span class="line"><span class="cl">displayname: Amanda
+</span></span><span class="line"><span class="cl">mail: amanda@example.org
+</span></span><span class="line"><span class="cl">mail: amanda@test.org
+</span></span><span class="line"><span class="cl">userpassword: amanda
+</span></span></code></pre></div><p>We are interested to retrieve the attributes <code>uid</code>, <code>displayname</code>, and <code>mail</code>. As you may have noticed, there is more than 1 value for the attribute <code>mail</code>. So let&rsquo;s see how we can retrieve all these attributes using <code>LdapTemplate</code>.</p>
+<h3 id="1-using-attributesmapper">#1 Using AttributesMapper</h3>
+<p>When searching with <code>LdapTemplate</code>, we can use the <code>AttributesMapper</code> to map the attribute values. According to the <a href="https://docs.spring.io/spring-ldap/site/reference/html/basic.html">documentations</a>,</p>
+<blockquote>
+<p><em>Internally, <code>LdapTemplate</code> iterates over all entries found, calling the given <code>AttributesMapper</code> for each entry, and collects the results in a list. The list is then returned by the search method.</em></p>
+</blockquote>
+<p>Here&rsquo;s an example on how we can retrieve the user&rsquo;s attributes using <code>AttributesMapper</code>. Notice that we are searching from the directory <code>ou=Users</code> within the base directory <code>dc=example,dc=org</code> which we have defined above. A filter <code>uid=$userId</code> is also applied to find the specific user entry.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@Service
+</span></span><span class="line"><span class="cl">class LdapQueryService(
+</span></span><span class="line"><span class="cl">    private val ldapTemplate: LdapTemplate
+</span></span><span class="line"><span class="cl">) {
+</span></span><span class="line"><span class="cl">    fun queryWithAttributeMapper(userId: String): List&lt;User&gt; {
+</span></span><span class="line"><span class="cl">        return ldapTemplate.search(&#34;ou=Users&#34;, &#34;uid=$userId&#34;, AttributesMapper { attributes -&gt;
+</span></span><span class="line"><span class="cl">            val id = attributes.get(&#34;uid&#34;).get().toString()
+</span></span><span class="line"><span class="cl">            val name = attributes.get(&#34;displayname&#34;).get().toString()
+</span></span><span class="line"><span class="cl">            val emails = attributes.get(&#34;mail&#34;).all.toList() as List&lt;String&gt;
+</span></span><span class="line"><span class="cl">            User(userId = id, name = name, emails = emails)
+</span></span><span class="line"><span class="cl">        })
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>Expected output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[{
+</span></span><span class="line"><span class="cl">  &#34;userId&#34;:&#34;U0&#34;,
+</span></span><span class="line"><span class="cl">  &#34;name&#34;:&#34;Amanda&#34;,
+</span></span><span class="line"><span class="cl">  &#34;emails&#34;:[&#34;amanda@example.org&#34;,&#34;amanda@test.org&#34;]
+</span></span><span class="line"><span class="cl">}]
+</span></span></code></pre></div><p>However, please be aware that there is a slight limitation where if you are trying to retrieve attributes that do not exist, you will get an <code>NullPointerException</code>. Moreover, you will not be able to retrieve the distinguished name (<code>dn</code>) or schemas using the <code>AttributesMapper</code>.</p>
+<h3 id="2-using-contextmapper">#2 Using ContextMapper</h3>
+<p>Similarly, we can use the <code>AbstractContextMapper</code> to map the attributes of an entry. According to the <a href="https://docs.spring.io/spring-ldap/docs/2.3.0.BUILD-SNAPSHOT/reference/html/dirobjectfactory.html">documentations</a>,</p>
+<blockquote>
+<p><em>Whenever an entry is found in the LDAP tree, its attributes and Distinguished Name (DN) will be used by Spring LDAP to construct a <code>DirContextAdapter</code>. This enables us to use a <code>ContextMapper</code> to transform the found values.</em></p>
+</blockquote>
+<p>Here&rsquo;s an example on how we can retrieve the user&rsquo;s attributes using the <code>AbstractContextMapper</code>. The search operation is the same as the <code>AttributesMapper</code> except that the mapper is replaced with the <code>AbstractContextmapper</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@Service
+</span></span><span class="line"><span class="cl">class LdapQueryService(
+</span></span><span class="line"><span class="cl">    private val ldapTemplate: LdapTemplate
+</span></span><span class="line"><span class="cl">) {
+</span></span><span class="line"><span class="cl">    fun queryWithContextMapper(userId: String): List&lt;User&gt; {
+</span></span><span class="line"><span class="cl">        return ldapTemplate.search(&#34;ou=Users&#34;, &#34;uid=$userId&#34;, object: AbstractContextMapper&lt;User&gt;() {
+</span></span><span class="line"><span class="cl">            override fun doMapFromContext(ctx: DirContextOperations): AdUser {
+</span></span><span class="line"><span class="cl">                val dn = ctx.dn
+</span></span><span class="line"><span class="cl">                val id = ctx.getStringAttribute(&#34;uid&#34;)
+</span></span><span class="line"><span class="cl">                val name = ctx.getStringAttribute(&#34;displayname&#34;)
+</span></span><span class="line"><span class="cl">                val emails = ctx.getStringAttributes(&#34;mail&#34;).toList()
+</span></span><span class="line"><span class="cl">                return User(id, name, emails)
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">        })
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>Expected output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[{
+</span></span><span class="line"><span class="cl">  &#34;userId&#34;:&#34;U0&#34;,
+</span></span><span class="line"><span class="cl">  &#34;name&#34;:&#34;Amanda&#34;,
+</span></span><span class="line"><span class="cl">  &#34;emails&#34;:[&#34;amanda@example.org&#34;,&#34;amanda@test.org&#34;]
+</span></span><span class="line"><span class="cl">}]
+</span></span></code></pre></div><p>The advantage of the <code>ContextMapper</code> is that</p>
+<ul>
+<li>it handles <code>NullPointerException</code> by returning null instead of throwing exceptions.</li>
+<li>it simplifies attributes retrieval operations (especially for multi-value attributes) with <code>getStringAttribute()</code> and <code>getStringAttributes()</code> methods.</li>
+<li>it allows you to retrieve distinguished name (dn), schemas and object classes.</li>
+</ul>
+<h3 id="3-extra-tips-defaultincrementattributesmapper">#3 Extra Tips - DefaultIncrementAttributesMapper</h3>
+<p>If you know the distinguished name (dn), you can use the <code>DefaultIncrementAttributesMapper</code> to look up for multi-valued attributes (eg. the <code>mail</code> attribute). Here&rsquo;s an example of how you can use it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@Service
+</span></span><span class="line"><span class="cl">class LdapQueryService(
+</span></span><span class="line"><span class="cl">    private val ldapTemplate: LdapTemplate
+</span></span><span class="line"><span class="cl">) {
+</span></span><span class="line"><span class="cl">    private fun getMultiValuedAttributesWithDefaultIncrementAttributesMapper(dn: String, attr: String): List&lt;String&gt; {
+</span></span><span class="line"><span class="cl">        val attributes = DefaultIncrementalAttributesMapper.lookupAttributes(ldapTemplate, dn, attr)
+</span></span><span class="line"><span class="cl">        val results = ArrayList&lt;String&gt;()
+</span></span><span class="line"><span class="cl">        for (i in 0 until attributes.get(attr).size()) {
+</span></span><span class="line"><span class="cl">            results.add(attributes.get(attr)[i].toString())
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">        return results
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    fun query(): List&lt;String&gt; {
+</span></span><span class="line"><span class="cl">        val dn = &#34;cn=Amanda,ou=Users&#34;
+</span></span><span class="line"><span class="cl">        val attr = &#34;mail&#34;
+</span></span><span class="line"><span class="cl">        val emails = getMultiValuedAttributesWithDefaultIncrementAttributesMapper(dn, attr)
+</span></span><span class="line"><span class="cl">        return emails
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>Expected Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[&#34;amanda@example.org&#34;,&#34;amanda@test.org&#34;]
+</span></span></code></pre></div><p>Note that the user’s dn is <code>cn=Amanda,ou=Users,dc=example,dc=org</code>. As we have already defined the base directory to be <code>dc=example,dc=org</code>, there is no need to include <code>dc=example,dc=org</code> in the dn when searching. It will result in error code 32 if it is included.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">javax.naming.NameNotFoundException: [LDAP: error code 32 - No Such Object]; remaining name &#39;cn=Amanda,ou=Users,dc=example,dc=org&#39;
+</span></span></code></pre></div><h2 id="summary">Summary</h2>
+<p>That’s it! If you are familiar with LDAP and Spring Boot, most of this information can be easily found in the respective documentation. This article is mainly to give a general idea of how you can perform a search for attributes using <code>LdapTemplate</code>. I hope you enjoy this article as much as I enjoyed writing it :)</p>
+<p>For more information, check out these useful links:</p>
+<ul>
+<li><a href="https://ldap.com/basic-ldap-concepts/">Basic LDAP concepts</a></li>
+<li><a href="https://www.baeldung.com/spring-ldap">Spring LDAP overview</a></li>
+<li><a href="https://docs.spring.io/spring-ldap/site/reference/html/introduction.html">Spring Framework LDAP</a></li>
+<li><a href="https://betterprogramming.pub/ldap-docker-image-with-populated-users-3a5b4d090aa4">Build an OpenLdap Docker Image That’s Populated With Users</a></li>
+</ul>
+<p>Refer to the Git Repo below for the code reference</p>
+<ul>
+<li><a href="https://github.com/bkjam/spring-ldap-queries">https://github.com/bkjam/spring-ldap-queries</a></li>
+</ul>
+<hr>
+<p><strong>Thank you for reading till the end! ☕</strong><br>
+If you enjoyed this article and would like to support my work, feel free to buy me a coffee on Ko-fi. Your support helps me keep creating, and I truly appreciate it! 🙏</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+        <span><a class="tag" href="/tags/blog/">blog</a><a class="tag" href="/tags/medium/">medium</a><a class="tag" href="/tags/spring-boot/">spring-boot</a></span>
+
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</body>
+</html>
