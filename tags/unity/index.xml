@@ -51,5 +51,16 @@
       
     </item>
     
+    <item>
+      <title>How to Build WebGL Unity Games and Publish to Itch.io</title>
+      <link>https://bkjam.github.io/posts/2024-09-04-how-to-build-webgl-unity-games-and-publish-to-itchio/</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-09-04-how-to-build-webgl-unity-games-and-publish-to-itchio/</guid>
+      
+        <description>Publishing demo to Itch.io to gather feedback for Rolling Mind Prototype on Itch.io</description>
+      
+    </item>
+    
   </channel>
 </rss>

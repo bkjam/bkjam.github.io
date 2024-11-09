@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Websocket on Bkjam</title>
+    <link>https://bkjam.github.io/tags/websocket/</link>
+    <description>Recent content in Websocket on Bkjam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 02 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/tags/websocket/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implement a Scalable WebSocket Server With Spring Boot, Redis Pub/Sub, and Redis Streams</title>
+      <link>https://bkjam.github.io/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/</link>
+      <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/</guid>
+      
+        <description>Scaling WebSocket server horizontally using Spring Boot, Redis Pub/Sub, and Redis Streams</description>
+      
+    </item>
+    
+    <item>
+      <title>Design Considerations for Scaling WebSocket Server Horizontally With a Publish-Subscribe Pattern</title>
+      <link>https://bkjam.github.io/posts/2022-05-18-design-considerations-for-scaling-websocket-server-horizontally-with-a-publish-subsribe-pattern/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-05-18-design-considerations-for-scaling-websocket-server-horizontally-with-a-publish-subsribe-pattern/</guid>
+      
+        <description>Understanding the challenges in scaling WebSocket servers</description>
+      
+    </item>
+    
+    <item>
+      <title>Building a WebSocket Server in a Microservice Architecture</title>
+      <link>https://bkjam.github.io/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/</link>
+      <pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/</guid>
+      
+        <description>Designing a WebSocket server in a microservice architecture for real-time communications</description>
+      
+    </item>
+    
+  </channel>
+</rss>

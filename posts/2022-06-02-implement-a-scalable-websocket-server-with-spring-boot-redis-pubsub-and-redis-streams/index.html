@@ -1,0 +1,907 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Bryan
+        |
+        Implement a Scalable WebSocket Server With Spring Boot, Redis Pub/Sub, and Redis Streams
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.136.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Bryan" />
+  <meta
+    name="description"
+    content="Software Engineer
+Indie Game Developer 
+"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1f4526598994b776237b2b6eb48a4a9d442c1943c7d18dc0acf2c87507d30c7d.css"
+      integrity="sha256-H0UmWYmUt3YjeytutIpKnUQsGUPH0Y3ArPLIdQfTDH0="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.3a3e60acb0d372de94dc7ac44cad7d7dff63bb803f171c4d6d10b02de4e61d3f.css"
+      integrity="sha256-Oj5grLDTct6U3HrETK19ff9ju4A/FxxNbRCwLeTmHT8="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://bkjam.github.io/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Implement a Scalable WebSocket Server With Spring Boot, Redis Pub/Sub, and Redis Streams">
+  <meta name="twitter:description" content="Scaling WebSocket server horizontally using Spring Boot, Redis Pub/Sub, and Redis Streams">
+
+
+
+  
+  <meta property="og:url" content="https://bkjam.github.io/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/">
+  <meta property="og:site_name" content="Bkjam">
+  <meta property="og:title" content="Implement a Scalable WebSocket Server With Spring Boot, Redis Pub/Sub, and Redis Streams">
+  <meta property="og:description" content="Scaling WebSocket server horizontally using Spring Boot, Redis Pub/Sub, and Redis Streams">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-06-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-06-02T00:00:00+00:00">
+    <meta property="article:tag" content="Medium">
+    <meta property="article:tag" content="Spring-Boot">
+    <meta property="article:tag" content="Websocket">
+    <meta property="article:tag" content="Redis">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "posts",
+        "name": "Implement a Scalable WebSocket Server With Spring Boot, Redis Pub\/Sub, and Redis Streams",
+        "headline": "Implement a Scalable WebSocket Server With Spring Boot, Redis Pub\/Sub, and Redis Streams",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Scaling WebSocket server horizontally using Spring Boot, Redis Pub\/Sub, and Redis Streams
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bkjam.github.io\/posts\/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightYear" : "2022",
+        "dateCreated": "2022-06-02T00:00:00.00Z",
+        "datePublished": "2022-06-02T00:00:00.00Z",
+        "dateModified": "2022-06-02T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Bryan",
+            "url": "https://bkjam.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/bkjam.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/bkjam.github.io\/posts\/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams\/",
+        "wordCount" : "1989",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "medium"
+
+    
+      
+        ,
+
+      
+      "spring-boot"
+
+    
+      
+        ,
+
+      
+      "websocket"
+
+    
+      
+        ,
+
+      
+      "redis"
+
+    ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">I&#39;m Bryan</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Software Engineer<br />Indie Game Developer <br /></p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://medium.com/@kbryan1008"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Medium"
+            title="Medium"
+          >
+            <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/bkjam"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Github"
+            title="Github"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://rustycruiselabs.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Game Dev"
+            title="Game Dev"
+          >
+            <i class="fas fa-gamepad fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+    <div class="sidebar__introduction">
+      <a href="https://ko-fi.com/supportbkjam">
+        <img src="/images/kofi-supportme_small.png" alt="Support Me on Ko-fi" />
+      </a>
+    </div>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/posts/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tags/"
+              
+              title=""
+              >Tags</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/medium/"
+              
+              title=""
+              >Medium Articles</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/bookmarks/"
+              
+              title=""
+              >Bookmarks</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tools/"
+              
+              title=""
+              >Toolkit</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>Implement a Scalable WebSocket Server With Spring Boot, Redis Pub/Sub, and Redis Streams</h1>
+      
+      <div
+  class="notice
+    notice--update
+  "
+><div class="notice__content">
+    Medium Link: <a href="https://betterprogramming.pub/implement-a-scalable-websocket-server-with-spring-boot-redis-pub-sub-and-redis-streams-b6b8cc08767f">Implement a Scalable WebSocket Server With Spring Boot, Redis Pub/Sub, and Redis Streams</a><br>
+<strong>If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀</strong>
+  </div>
+</div>
+
+<figure><a class="lightgallery" href="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/unsplash.jpg" title="images/unsplash.jpg" data-thumbnail="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/unsplash.jpg" data-sub-html="<h2>Photo by Andreas Wagner on Unsplash</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/unsplash.jpg"
+            srcset="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/unsplash.jpg 1200w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/unsplash.jpg 1200w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/unsplash.jpg 1200w"
+            alt="images/unsplash.jpg" height="800"  width="1200" >
+    </a><figcaption class="image-caption">Photo by <a href="https://unsplash.com/@waguluz_?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Andreas Wagner</a> on <a href="https://unsplash.com/@waguluz_?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></figcaption>
+    </figure>
+<h2 id="intro">Intro</h2>
+<p>This is a follow-up to my <a href="https://betterprogramming.pub/design-considerations-for-scaling-websocket-server-horizontally-with-a-publish-subscribe-pattern-fe6de9988400">previous article on the design considerations for scaling the WebSocket server horizontally</a>.</p>
+<p>In this article, I will go into detail on how we can implement that using Redis Pub/Sub and Redis Streams.</p>
+<h2 id="my-websocket-serverseries">My WebSocket Server Series</h2>
+<ul>
+<li>01: <a href="https://betterprogramming.pub/building-a-websocket-server-in-a-microservice-architecture-50c6c6432e2b">Building WebSocket server in a microservice architecture</a></li>
+<li>02: <a href="https://betterprogramming.pub/design-considerations-for-scaling-websocket-server-horizontally-with-a-publish-subscribe-pattern-fe6de9988400">Design considerations for scaling WebSocket server horizontally with publish-subscribe pattern</a></li>
+<li>03: Implement a scalable WebSocket server with Spring Boot, Redis Pub/Sub, and Redis Streams</li>
+<li>04: TBA</li>
+</ul>
+<h2 id="quick-recap">Quick Recap</h2>
+<figure><a class="lightgallery" href="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/recap.png" title="images/recap.png" data-thumbnail="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/recap.png" data-sub-html="<h2>Full design for scaling WebSocket servers in a microservice architecture using publish-subscribe pattern</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/recap.png"
+            srcset="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/recap.png 700w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/recap.png 700w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/recap.png 700w"
+            alt="images/recap.png" height="423"  width="700" >
+    </a><figcaption class="image-caption">Full design for scaling WebSocket servers in a microservice architecture using publish-subscribe pattern</figcaption>
+    </figure>
+<p>In the last article, we identified two issues that will occur when horizontally scaling the WebSocket server and backend microservices:</p>
+<ul>
+<li>Issue #1: Message Loss due to Load Balancer</li>
+<li>Issue #2: Duplicated Message Processing due to Multiple Subscribers</li>
+</ul>
+<p>The solutions were to apply publish-subscribe messaging patterns with consumer groups&rsquo; concepts to the architecture design. For more information, refer to the <a href="https://betterprogramming.pub/design-considerations-for-scaling-websocket-server-horizontally-with-a-publish-subscribe-pattern-fe6de9988400">previous article</a>.</p>
+<h2 id="lets-getstarted">Let&rsquo;s Get Started</h2>
+<p>Follow along to build a scalable WebSocket server using Spring Boot, Stomp, Redis Pub/Sub, and Redis Streams.</p>
+<h3 id="step-1-building-a-websocket-server">Step 1: Building a WebSocket server</h3>
+<p>Follow <a href="https://medium.com/@kbryan1008/building-a-websocket-server-in-a-microservice-architecture-50c6c6432e2b">Steps 1 and 2 of my previous article</a> to initialize a WebSocket server using Spring Boot and STOMP messaging protocol.</p>
+<h3 id="step-2-start-the-redisserver">Step 2: Start the Redis server</h3>
+<p>For a quick setup, run the Redis server locally using docker.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --name redis -p 6379:6379 -d redis
+</span></span></code></pre></div><h3 id="step-3-configure-the-connection-to-redisserver">Step 3: Configure the connection to Redis Server</h3>
+<p>Add the following configuration to the <code>application.yml</code> file of the WebSocket server to connect to the Redis server.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># application.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring.redis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l">localhost</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">6379</span><span class="w">
+</span></span></span></code></pre></div><h3 id="step-4-implement-pubsub-broadcast-channel-for-unidirectional-real-time-communication">Step 4: Implement Pub/Sub (Broadcast Channel) for Unidirectional Real-Time Communication</h3>
+<figure><a class="lightgallery" href="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/design.png" title="images/design.png" data-thumbnail="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/design.png" data-sub-html="<h2>Design for Unidirectional Real-Time Communication using APIs and Pub/Sub (Broadcast)</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/design.png"
+            srcset="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/design.png 761w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/design.png 761w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/design.png 761w"
+            alt="images/design.png" height="231"  width="761" >
+    </a><figcaption class="image-caption">Design for Unidirectional Real-Time Communication using APIs and Pub/Sub (Broadcast)</figcaption>
+    </figure>
+<p>In step 4, we will create APIs for unidirectional real-time communication between backend microservices and web applications (frontend). The WebSocket server receives messages from backend microservices via APIs and broadcasts the messages to all WebSocket server instances using Redis Pub/Sub. The messages are then forwarded to the web applications via the established WebSocket connections.</p>
+<h4 id="step-41-create-broadcastevent-class">Step 4.1: Create BroadcastEvent class</h4>
+<p><code>BroadcastEvent</code> is a custom object for broadcasting the message from one instance of the WebSocket server to all instances of the WebSocket server.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">data</span><span class="w"> </span><span class="kd">class</span> <span class="nf">BroadcastEvent</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&#34;topic&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">topic</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&#34;message&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">):</span><span class="w"> </span><span class="n">Serializable</span><span class="w">
+</span></span></span></code></pre></div><h4 id="step-42-configure-redis-pubsub-reactiveredistemplate">Step 4.2: Configure Redis Pub/Sub - ReactiveRedisTemplate</h4>
+<p><code>ReactiveRedisTemplate</code> is a helper class that simplifies Redis data access code. In our configuration, we are publishing/subscribing the value <code>BroadcastEvent</code> and using <code>Jackson2JsonRedisSerializer</code> to perform automatic serialization/deserialization of the value.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">RedisConfig</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">reactiveRedisTemplate</span><span class="p">(</span><span class="n">factory</span><span class="p">:</span><span class="w"> </span><span class="n">LettuceConnectionFactory</span><span class="p">):</span><span class="w"> </span><span class="n">ReactiveRedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">BroadcastEvent</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">serializer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jackson2JsonRedisSerializer</span><span class="p">(</span><span class="n">BroadcastEvent</span><span class="p">::</span><span class="kd">class</span><span class="err">.</span><span class="nc">java</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">builder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RedisSerializationContext</span><span class="p">.</span><span class="na">newSerializationContext</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">BroadcastEvent</span><span class="o">&gt;</span><span class="p">(</span><span class="n">StringRedisSerializer</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">builder</span><span class="p">.</span><span class="na">value</span><span class="p">(</span><span class="n">serializer</span><span class="p">).</span><span class="na">build</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ReactiveRedisTemplate</span><span class="p">(</span><span class="n">factory</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h4 id="step-43-configure-redis-pubsub--broadcast-service">Step 4.3: Configure Redis Pub/Sub — Broadcast Service</h4>
+<p><code>RedisBroadcastService</code> contains logic for publishing and subscribing to a custom channel (<code>BROADCAST-CHANNEL</code>). This is the channel for broadcasting messages from one instance of the WebSocket server to all instances of the WebSocket server.</p>
+<p>Whenever the WebSocket servers receive a message from the <code>BROADCAST-CHANNEL</code>, the message is forwarded to the web applications (frontend) that have established a WebSocket connection with it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nf">RedisBroadcastService</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">reactiveRedisTemplate</span><span class="p">:</span><span class="w"> </span><span class="n">ReactiveRedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">BroadcastEvent</span><span class="o">&gt;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">websocketTemplate</span><span class="p">:</span><span class="w"> </span><span class="n">SimpMessagingTemplate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">BroadcastEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">reactiveRedisTemplate</span><span class="p">.</span><span class="na">convertAndSend</span><span class="p">(</span><span class="s">&#34;BROADCAST-CHANNEL&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">).</span><span class="na">subscribe</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostConstruct</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">subscribe</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">reactiveRedisTemplate</span><span class="p">.</span><span class="na">listenTo</span><span class="p">(</span><span class="n">ChannelTopic</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&#34;BROADCAST-CHANNEL&#34;</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">ReactiveSubscription</span><span class="p">.</span><span class="na">Message</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">BroadcastEvent</span><span class="o">&gt;</span><span class="p">::</span><span class="n">getMessage</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">subscribe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">websocketTemplate</span><span class="p">.</span><span class="na">convertAndSend</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="na">topic</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="na">message</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><em>Note: <code>@PostConstruct</code> is a Spring annotation that allows us to attach custom actions to bean creation and the methods are only run once. In our case, we are subscribing to the <code>BROADCAST-CHANNEL</code> on bean creation.</em></p>
+<h4 id="step-44-creating-apis-endpoints">Step 4.4: Creating APIs endpoints</h4>
+<p>The code below creates a REST controller with a POST request endpoint that takes in a request body <code>NewMessageRequest</code>. The <code>topic</code> is the STOMP destination that the client (frontend) subscribes to and the <code>message</code> is the actual message in String format.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/api/notification&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nf">NotificationController</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">redisBroadcastService</span><span class="p">:</span><span class="w"> </span><span class="n">RedisBroadcastService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">newMessage</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">request</span><span class="p">:</span><span class="w"> </span><span class="n">NewMessageRequest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BroadcastEvent</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">topic</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">message</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">redisBroadcastService</span><span class="p">.</span><span class="na">publish</span><span class="p">(</span><span class="n">event</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>The API requests will be broadcasted to all instances of the WebSocket servers as configured in Step 4.3 above.</p>
+<h4 id="step-45-testing-unidirectional-real-time-communication-via-apis">Step 4.5: Testing Unidirectional real-Time communication via APIs</h4>
+<p>Spin up the WebSocket server, and connect to the WebSocket server <code>ws://localhost:8080/stomp</code> over STOMP protocol using the <a href="https://bkjam.github.io/websocket-debug-tool/">WebSocket debugger tool</a> developed by <a href="https://github.com/jiangxy/websocket-debug-tool">jiangxy</a>. Once connected, configure the WebSocket debugger tool to subscribe to the topic <code>/topic/frontend</code>.</p>
+<p>Next, send an HTTP POST request to the WebSocket server using the curl command below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST -d <span class="s1">&#39;{&#34;topic&#34;: &#34;/topic/frontend&#34;, &#34;message&#34;: &#34;testing API endpoint&#34; }&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> localhost:8080/api/notification
+</span></span></code></pre></div><p>The WebSocket debugger tool should have the output shown below:</p>
+<figure><a class="lightgallery" href="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/websocket-debug-output.png" title="images/websocket-debug-output.png" data-thumbnail="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/websocket-debug-output.png" data-sub-html="<h2>Screenshot of the output for WebSocket Debugger Tool</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/websocket-debug-output.png"
+            srcset="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/websocket-debug-output.png 775w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/websocket-debug-output.png 775w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/websocket-debug-output.png 775w"
+            alt="images/websocket-debug-output.png" height="298"  width="775" >
+    </a><figcaption class="image-caption">Screenshot of the output for WebSocket Debugger Tool</figcaption>
+    </figure>
+<p>This shows that we have successfully configured the WebSocket server with Redis Pub/Sub for scalable unidirectional real-time communication between backend microservices and web applications (frontend).</p>
+<h3 id="step-5-implement-pubsub-with-consumer-groups-for-bi-direction-real-time-communication">Step 5: Implement Pub/Sub with Consumer Groups for Bi-direction Real-Time Communication</h3>
+<figure><a class="lightgallery" href="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/design-message-flow.png" title="images/design-message-flow.png" data-thumbnail="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/design-message-flow.png" data-sub-html="<h2>Design for Bi-directional Real-Time Communication using Pub/Sub and Consumer Groups</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/design-message-flow.png"
+            srcset="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/design-message-flow.png 781w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/design-message-flow.png 781w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/design-message-flow.png 781w"
+            alt="images/design-message-flow.png" height="431"  width="781" >
+    </a><figcaption class="image-caption">Design for Bi-directional Real-Time Communication using Pub/Sub and Consumer Groups</figcaption>
+    </figure>
+<p>In step 5, we will use Redis Streams as our Pub/Sub System for bidirectional real-time communication between backend microservices and web applications (frontend). We are not using Redis Pub/Sub as it does not support the consumer groups concept.</p>
+<h4 id="step-51-create-streamdataevent-class">Step 5.1: Create StreamDataEvent class</h4>
+<p><code>StreamDataEvent</code> is a custom object for data exchange between subscribers and publishers. The <code>message</code> is the actual message in String format and the topic is a required field for the WebSocket server to know which STOMP destination to send the message to.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">data</span><span class="w"> </span><span class="kd">class</span> <span class="nf">StreamDataEvent</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&#34;message&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&#34;topic&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">topic</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="o">?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><h4 id="step-52-websocket-server--implement-redis-stream-consumer">Step 5.2: WebSocket server — Implement Redis stream consumer</h4>
+<p>The consumer consumes the message from Redis streams and forwards the message to all web applications (frontend) via the established WebSocket connection.</p>
+<p>Note: There isn’t a need to broadcast the message as all WebSocket server instances will receive the message from the Redis Streams.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nf">RedisStreamConsumer</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">websocketTemplate</span><span class="p">:</span><span class="w"> </span><span class="n">SimpMessagingTemplate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">):</span><span class="w"> </span><span class="n">StreamListener</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">ObjectRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">StreamDataEvent</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">companion</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">RedisStreamConsumer</span><span class="p">::</span><span class="kd">class</span><span class="err">.</span><span class="nc">java</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">override</span><span class="w"> </span><span class="n">fun</span><span class="w"> </span><span class="nf">onMessage</span><span class="p">(</span><span class="n">record</span><span class="p">:</span><span class="w"> </span><span class="n">ObjectRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">StreamDataEvent</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;[NEW] --&gt; received message: ${record.value} from stream: ${record.stream}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">record</span><span class="err">.</span><span class="nc">value</span><span class="p">.</span><span class="na">topic</span><span class="o">?</span><span class="p">.</span><span class="na">let</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">destination</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">websocketTemplate</span><span class="p">.</span><span class="na">convertAndSend</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">value</span><span class="p">.</span><span class="na">message</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> 
+</span></span></span></code></pre></div><h4 id="step-53-websocket-server--implement-redis-stream-config">Step 5.3: WebSocket server — Implement Redis stream config</h4>
+<p>The following code contains configurations for subscribing to Redis streams where the messages will be processed by the <code>RedisStreamConsumer</code> which we configured in Step 5.2.</p>
+<p>Here, we are configuring the WebSocket server to listen to the stream identified by the key <code>TEST_EVENT_TO_WEBSOCKET_SERVER</code>. You can create more subscriptions depending on your use cases.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nf">RedisStreamConfig</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">streamListener</span><span class="p">:</span><span class="w"> </span><span class="n">StreamListener</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">ObjectRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">StreamDataEvent</span><span class="o">&gt;&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">fun</span><span class="w"> </span><span class="nf">initListenerContainer</span><span class="p">(</span><span class="n">redisConnectionFactory</span><span class="p">:</span><span class="w"> </span><span class="n">RedisConnectionFactory</span><span class="p">):</span><span class="w"> </span><span class="n">StreamMessageListenerContainer</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">ObjectRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">StreamDataEvent</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StreamMessageListenerContainer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">StreamMessageListenerContainerOptions</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">pollTimeout</span><span class="p">(</span><span class="n">Duration</span><span class="p">.</span><span class="na">ofSeconds</span><span class="p">(</span><span class="n">1</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">targetType</span><span class="p">(</span><span class="n">StreamDataEvent</span><span class="p">::</span><span class="kd">class</span><span class="err">.</span><span class="nc">java</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">StreamMessageListenerContainer</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">redisConnectionFactory</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="p">(</span><span class="s">&#34;TestEventSubscription&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">subscription</span><span class="p">(</span><span class="n">redisConnectionFactory</span><span class="p">:</span><span class="w"> </span><span class="n">RedisConnectionFactory</span><span class="p">):</span><span class="w"> </span><span class="n">Subscription</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">listenerContainer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initListenerContainer</span><span class="p">(</span><span class="n">redisConnectionFactory</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">subscription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listenerContainer</span><span class="p">.</span><span class="na">receive</span><span class="p">(</span><span class="n">StreamOffset</span><span class="p">.</span><span class="na">latest</span><span class="p">(</span><span class="s">&#34;TEST_EVENT_TO_WEBSOCKET_SERVER&#34;</span><span class="p">),</span><span class="w"> </span><span class="n">streamListener</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">listenerContainer</span><span class="p">.</span><span class="na">start</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">subscription</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h4 id="step-54-websocket-server--implement-redis-stream-producer">Step 5.4: WebSocket server — Implement Redis stream producer</h4>
+<p>The producer provides a method <code>publishEvent</code> for publishing data to the Redis streams. In our example, there is a scheduled job that is publishing periodically (every five seconds, ten seconds after the WebSocket server starts) to Redis streams using the key <code>TEST_EVENT_TO_BACKEND</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nf">RedisStreamProducer</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">reactiveRedisTemplate</span><span class="p">:</span><span class="w"> </span><span class="n">ReactiveRedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;\${spring.application.name}&#34;</span><span class="p">)</span><span class="w"> </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">applicationName</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">companion</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">atomicInteger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="n">0</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">RedisStreamProducer</span><span class="p">::</span><span class="kd">class</span><span class="err">.</span><span class="nc">java</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">publishEvent</span><span class="p">(</span><span class="n">streamTopic</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">:</span><span class="w"> </span><span class="n">StreamDataEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StreamRecords</span><span class="p">.</span><span class="na">newRecord</span><span class="p">().</span><span class="na">ofObject</span><span class="p">(</span><span class="n">data</span><span class="p">).</span><span class="na">withStreamKey</span><span class="p">(</span><span class="n">streamTopic</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">reactiveRedisTemplate</span><span class="p">.</span><span class="na">opsForStream</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">record</span><span class="p">).</span><span class="na">subscribe</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Scheduled</span><span class="p">(</span><span class="n">initialDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10000</span><span class="p">,</span><span class="w"> </span><span class="n">fixedRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">5000</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">publishTestMessageToBackend</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StreamDataEvent</span><span class="p">(</span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;New Message from $applicationName -- ID = ${atomicInteger.incrementAndGet()}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;Publishing Message: $data to Stream: TEST_EVENT_TO_BACKEND&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">publishEvent</span><span class="p">(</span><span class="s">&#34;TEST_EVENT_TO_BACKEND&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h4 id="step-55-websocket-server--implement-websocket-configuration">Step 5.5: WebSocket Server — Implement WebSocket Configuration</h4>
+<p>Create a <code>Controller</code> that processes the messages from the web application (frontend) which are sent to the WebSocket server with the prefix <code>/app</code>. In the example below, messages sent to <code>/app/test</code> will be forwarded (published) to the Redis streams at key <code>TEST_EVENT_TO_BACKEND</code>.</p>
+<p><em>Note: There isn’t a need to broadcast the message to all WebSocket instances as publishing to Redis Streams already ensures all backend microservices receive the message. Refer to the diagram in Step 5 for more details.</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Controller</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nf">WebsocketController</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">redisStreamProducer</span><span class="p">:</span><span class="w"> </span><span class="n">RedisStreamProducer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@MessageMapping</span><span class="p">(</span><span class="s">&#34;/test&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">greetMessage</span><span class="p">(</span><span class="nd">@Payload</span><span class="w"> </span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StreamDataEvent</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">redisStreamProducer</span><span class="p">.</span><span class="na">publishEvent</span><span class="p">(</span><span class="s">&#34;TEST_EVENT_TO_BACKEND&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h4 id="step-56-backend-microservice-implement-redis-stream-consumer">Step 5.6: Backend microservice— Implement Redis stream consumer</h4>
+<p>Similarly, in the sample backend microservice, implement the Redis stream consumer.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">RedisStreamConsumer</span><span class="p">:</span><span class="w"> </span><span class="n">StreamListener</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">ObjectRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">StreamDataEvent</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">companion</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">RedisStreamConsumer</span><span class="p">::</span><span class="kd">class</span><span class="err">.</span><span class="nc">java</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">override</span><span class="w"> </span><span class="n">fun</span><span class="w"> </span><span class="nf">onMessage</span><span class="p">(</span><span class="n">record</span><span class="p">:</span><span class="w"> </span><span class="n">ObjectRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">StreamDataEvent</span><span class="o">&gt;?</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;[NEW] --&gt; received message: ${record?.value} from stream: ${record?.stream}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h4 id="step-57-backend-microservice-implement-redis-streamconfig">Step 5.7: Backend microservice - Implement Redis stream config</h4>
+<p>The configuration here is similar to the WebSocket server&rsquo;s configuration. The only difference is that we added the consumer group (<code>CONSUMER_GROUP</code>) which ensures that only one instance of the backend microservice will consume the data from Redis streams.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nf">RedisStreamConfig</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">streamListener</span><span class="p">:</span><span class="w"> </span><span class="n">StreamListener</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">ObjectRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">StreamDataEvent</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;\${spring.application.name}&#34;</span><span class="p">)</span><span class="w"> </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">applicationName</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">subscription</span><span class="p">(</span><span class="n">redisConnectionFactory</span><span class="p">:</span><span class="w"> </span><span class="n">RedisConnectionFactory</span><span class="p">):</span><span class="w"> </span><span class="n">Subscription</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StreamMessageListenerContainer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">StreamMessageListenerContainerOptions</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">pollTimeout</span><span class="p">(</span><span class="n">Duration</span><span class="p">.</span><span class="na">ofSeconds</span><span class="p">(</span><span class="n">1</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">targetType</span><span class="p">(</span><span class="n">StreamDataEvent</span><span class="p">::</span><span class="kd">class</span><span class="err">.</span><span class="nc">java</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">listenerContainer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StreamMessageListenerContainer</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">redisConnectionFactory</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">subscription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listenerContainer</span><span class="p">.</span><span class="na">receiveAutoAck</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">Consumer</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="s">&#34;CONSUMER_GROUP&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">applicationName</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">StreamOffset</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&#34;TEST_EVENT_TO_BACKEND&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">ReadOffset</span><span class="p">.</span><span class="na">lastConsumed</span><span class="p">()),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">streamListener</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">listenerContainer</span><span class="p">.</span><span class="na">start</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">subscription</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>In order for the configuration to work, we will have to manually create the consumer group for the stream <code>TEST_EVENT_TO_BACKEND</code> in Redis first using the command below.</p>
+<p><em>Note: It is possible to implement this using codes as well, but I will keep it simple by using the Redis CLI command instead.</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">exec</span> redis redis-cli XGROUP CREATE TEST_EVENT_TO_BACKEND CONSUMER_GROUP $ MKSTREAM
+</span></span></code></pre></div><h4 id="step-58-backend-microservice-implement-redis-streamproducer">Step 5.8: Backend microservice - Implement Redis stream producer</h4>
+<p>The producer configuration is similar to the WebSocket server configuration.</p>
+<p><em>Note that the microservice has a scheduled job that periodically publishes to the Redis streams and the message is crafted to be sent to the web application (frontend) at the destination topic <code>/topic/to-frontend</code> as part of our example.</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nf">RedisStreamProducer</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">reactiveRedisTemplate</span><span class="p">:</span><span class="w"> </span><span class="n">ReactiveRedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;\${spring.application.name}&#34;</span><span class="p">)</span><span class="w"> </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">applicationName</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">companion</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">atomicInteger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="n">0</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">RedisStreamProducer</span><span class="p">::</span><span class="kd">class</span><span class="err">.</span><span class="nc">java</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">publishEvent</span><span class="p">(</span><span class="n">streamTopic</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">:</span><span class="w"> </span><span class="n">StreamDataEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StreamRecords</span><span class="p">.</span><span class="na">newRecord</span><span class="p">().</span><span class="na">ofObject</span><span class="p">(</span><span class="n">data</span><span class="p">).</span><span class="na">withStreamKey</span><span class="p">(</span><span class="n">streamTopic</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">reactiveRedisTemplate</span><span class="p">.</span><span class="na">opsForStream</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">record</span><span class="p">).</span><span class="na">subscribe</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Scheduled</span><span class="p">(</span><span class="n">initialDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10000</span><span class="p">,</span><span class="w"> </span><span class="n">fixedRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">5000</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">publishTestMessageToBackend</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StreamDataEvent</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;/topic/to-frontend&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;New Message from $applicationName -- ID = ${atomicInteger.incrementAndGet()}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;Publishing Message: $data to Stream: TEST_EVENT_TO_WEBSOCKET_SERVER&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">publishEvent</span><span class="p">(</span><span class="s">&#34;TEST_EVENT_TO_WEBSOCKET_SERVER&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h4 id="step-59-testing-bidirectional-real-time-communication-viapubsub">Step 5.9: Testing bidirectional real-time communication via Pub/Sub</h4>
+<p>We have configured both the WebSocket server and the sample backend microservice. Let&rsquo;s test the publishing and subscribing of data from Redis streams using the scheduled data publishing configuration we made in both <code>RedisStreamProducer</code>.</p>
+<p>Spin up the two instances of the WebSocket server and two instances of the sample backend microservices. You should notice that the output logs are similar to the ones below.</p>
+<figure><a class="lightgallery" href="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-backend-a.png" title="images/output-logs-backend-a.png" data-thumbnail="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-backend-a.png" data-sub-html="<h2>Output Logs for Backend Microservice (instance A)</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-backend-a.png"
+            srcset="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-backend-a.png 1200w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-backend-a.png 1200w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-backend-a.png 1200w"
+            alt="images/output-logs-backend-a.png" height="363"  width="1200" >
+    </a><figcaption class="image-caption">Output Logs for Backend Microservice (instance A)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-backend-b.png" title="images/output-logs-backend-b.png" data-thumbnail="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-backend-b.png" data-sub-html="<h2>Output Logs for Backend Microservice (instance B)</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-backend-b.png"
+            srcset="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-backend-b.png 1200w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-backend-b.png 1200w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-backend-b.png 1200w"
+            alt="images/output-logs-backend-b.png" height="298"  width="1200" >
+    </a><figcaption class="image-caption">Output Logs for Backend Microservice (instance B)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-websocket-a.png" title="images/output-logs-websocket-a.png" data-thumbnail="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-websocket-a.png" data-sub-html="<h2>Output Logs for WebSocket Server (instance A)</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-websocket-a.png"
+            srcset="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-websocket-a.png 1200w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-websocket-a.png 1200w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-websocket-a.png 1200w"
+            alt="images/output-logs-websocket-a.png" height="288"  width="1200" >
+    </a><figcaption class="image-caption">Output Logs for WebSocket Server (instance A)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-websocket-b.png" title="images/output-logs-websocket-b.png" data-thumbnail="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-websocket-b.png" data-sub-html="<h2>Output Logs for WebSocket Server (instance B)</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-websocket-b.png"
+            srcset="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-websocket-b.png 1200w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-websocket-b.png 1200w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/output-logs-websocket-b.png 1200w"
+            alt="images/output-logs-websocket-b.png" height="288"  width="1200" >
+    </a><figcaption class="image-caption">Output Logs for WebSocket Server (instance B)</figcaption>
+    </figure>
+<p>If you are to connect to the WebSocket server using the <a href="https://bkjam.github.io/websocket-debug-tool/">WebSocket debugger tool</a> and subscribe to the topic <code>/topic/to-frontend</code>, you should see the following logs:</p>
+<figure><a class="lightgallery" href="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/websocket-debug-output2.png" title="images/websocket-debug-output2.png" data-thumbnail="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/websocket-debug-output2.png" data-sub-html="<h2>Output Logs for WebSocket Debugger Tool (Frontend)</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/websocket-debug-output2.png"
+            srcset="/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/websocket-debug-output2.png 796w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/websocket-debug-output2.png 796w,
+                /posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/images/websocket-debug-output2.png 796w"
+            alt="images/websocket-debug-output2.png" height="475"  width="796" >
+    </a><figcaption class="image-caption">Output Logs for WebSocket Debugger Tool (Frontend)</figcaption>
+    </figure>
+<p>This shows that we have successfully configured the WebSocket server with Redis Streams for scalable bidirectional real-time communication between backend microservices and web applications (frontend).</p>
+<h2 id="summary">Summary</h2>
+<p>That&rsquo;s it! You can find the <a href="https://github.com/bkjam/websocket-microservice/tree/main/02-scaling-websocket-server">sample code here</a> on GitHub. My implementation is not perfect but the purpose is to give you an idea of how you can scale WebSocket servers in a microservice architecture easily with publish-subscribe messaging patterns.</p>
+<p>Git Repo Link below if you need the code reference :)</p>
+<ul>
+<li><a href="https://github.com/bkjam/websocket-microservice">https://github.com/bkjam/websocket-microservice</a></li>
+</ul>
+<hr>
+<p><strong>Thank you for reading till the end! ☕</strong><br>
+If you enjoyed this article and would like to support my work, feel free to buy me a coffee on Ko-fi. Your support helps me keep creating, and I truly appreciate it! 🙏</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+        <span><a class="tag" href="/tags/medium/">medium</a><a class="tag" href="/tags/spring-boot/">spring-boot</a><a class="tag" href="/tags/websocket/">websocket</a><a class="tag" href="/tags/redis/">redis</a></span>
+
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</body>
+</html>

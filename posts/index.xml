@@ -177,6 +177,17 @@
     </item>
     
     <item>
+      <title>How to Build WebGL Unity Games and Publish to Itch.io</title>
+      <link>https://bkjam.github.io/posts/2024-09-04-how-to-build-webgl-unity-games-and-publish-to-itchio/</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-09-04-how-to-build-webgl-unity-games-and-publish-to-itchio/</guid>
+      
+        <description>Publishing demo to Itch.io to gather feedback for Rolling Mind Prototype on Itch.io</description>
+      
+    </item>
+    
+    <item>
       <title>What I Love About Data Access Layer (DAL) When Building Small Backend Projects</title>
       <link>https://bkjam.github.io/posts/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/</link>
       <pubDate>Thu, 27 Apr 2023 00:00:00 +0000</pubDate>
@@ -217,6 +228,39 @@
       <guid>https://bkjam.github.io/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/</guid>
       
         <description>Sharing my experience on the order of precedence for properties files in Spring Boot applications when using Spring Cloud Config and Spring Profiles</description>
+      
+    </item>
+    
+    <item>
+      <title>Implement a Scalable WebSocket Server With Spring Boot, Redis Pub/Sub, and Redis Streams</title>
+      <link>https://bkjam.github.io/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/</link>
+      <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/</guid>
+      
+        <description>Scaling WebSocket server horizontally using Spring Boot, Redis Pub/Sub, and Redis Streams</description>
+      
+    </item>
+    
+    <item>
+      <title>Design Considerations for Scaling WebSocket Server Horizontally With a Publish-Subscribe Pattern</title>
+      <link>https://bkjam.github.io/posts/2022-05-18-design-considerations-for-scaling-websocket-server-horizontally-with-a-publish-subsribe-pattern/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-05-18-design-considerations-for-scaling-websocket-server-horizontally-with-a-publish-subsribe-pattern/</guid>
+      
+        <description>Understanding the challenges in scaling WebSocket servers</description>
+      
+    </item>
+    
+    <item>
+      <title>Building a WebSocket Server in a Microservice Architecture</title>
+      <link>https://bkjam.github.io/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/</link>
+      <pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/</guid>
+      
+        <description>Designing a WebSocket server in a microservice architecture for real-time communications</description>
       
     </item>
     

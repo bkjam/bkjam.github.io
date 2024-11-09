@@ -74,6 +74,9 @@
     <loc>https://bkjam.github.io/posts/2023-09-11-database-integration-testing-for-custom-spring-boot-data-access-starter-library-using-testcontainers/</loc>
     <lastmod>2023-09-11T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://bkjam.github.io/posts/2024-09-04-how-to-build-webgl-unity-games-and-publish-to-itchio/</loc>
+    <lastmod>2023-09-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://bkjam.github.io/posts/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/</loc>
     <lastmod>2023-04-27T00:00:00+00:00</lastmod>
   </url><url>
@@ -88,6 +91,21 @@
   </url><url>
     <loc>https://bkjam.github.io/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/</loc>
     <lastmod>2022-06-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/</loc>
+    <lastmod>2022-06-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/tags/redis/</loc>
+    <lastmod>2022-06-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/tags/websocket/</loc>
+    <lastmod>2022-06-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/posts/2022-05-18-design-considerations-for-scaling-websocket-server-horizontally-with-a-publish-subsribe-pattern/</loc>
+    <lastmod>2022-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://bkjam.github.io/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/</loc>
+    <lastmod>2022-05-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://bkjam.github.io/medium/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>

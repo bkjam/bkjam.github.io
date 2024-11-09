@@ -1,0 +1,751 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Bryan
+        |
+        Building a WebSocket Server in a Microservice Architecture
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.136.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Bryan" />
+  <meta
+    name="description"
+    content="Software Engineer
+Indie Game Developer 
+"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1f4526598994b776237b2b6eb48a4a9d442c1943c7d18dc0acf2c87507d30c7d.css"
+      integrity="sha256-H0UmWYmUt3YjeytutIpKnUQsGUPH0Y3ArPLIdQfTDH0="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.3a3e60acb0d372de94dc7ac44cad7d7dff63bb803f171c4d6d10b02de4e61d3f.css"
+      integrity="sha256-Oj5grLDTct6U3HrETK19ff9ju4A/FxxNbRCwLeTmHT8="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://bkjam.github.io/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Building a WebSocket Server in a Microservice Architecture">
+  <meta name="twitter:description" content="Designing a WebSocket server in a microservice architecture for real-time communications">
+
+
+
+  
+  <meta property="og:url" content="https://bkjam.github.io/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/">
+  <meta property="og:site_name" content="Bkjam">
+  <meta property="og:title" content="Building a WebSocket Server in a Microservice Architecture">
+  <meta property="og:description" content="Designing a WebSocket server in a microservice architecture for real-time communications">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-05-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-05-04T00:00:00+00:00">
+    <meta property="article:tag" content="Medium">
+    <meta property="article:tag" content="Spring-Boot">
+    <meta property="article:tag" content="Websocket">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "posts",
+        "name": "Building a WebSocket Server in a Microservice Architecture",
+        "headline": "Building a WebSocket Server in a Microservice Architecture",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Designing a WebSocket server in a microservice architecture for real-time communications
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bkjam.github.io\/posts\/2022-05-04-building-a-websocket-server-in-a-microservice-architecture\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Bryan"
+        },
+        "copyrightYear" : "2022",
+        "dateCreated": "2022-05-04T00:00:00.00Z",
+        "datePublished": "2022-05-04T00:00:00.00Z",
+        "dateModified": "2022-05-04T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Bryan",
+            "url": "https://bkjam.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/bkjam.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/bkjam.github.io\/posts\/2022-05-04-building-a-websocket-server-in-a-microservice-architecture\/",
+        "wordCount" : "1684",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "medium"
+
+    
+      
+        ,
+
+      
+      "spring-boot"
+
+    
+      
+        ,
+
+      
+      "websocket"
+
+    ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">I&#39;m Bryan</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Software Engineer<br />Indie Game Developer <br /></p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://medium.com/@kbryan1008"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Medium"
+            title="Medium"
+          >
+            <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/bkjam"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Github"
+            title="Github"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://rustycruiselabs.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Game Dev"
+            title="Game Dev"
+          >
+            <i class="fas fa-gamepad fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+    <div class="sidebar__introduction">
+      <a href="https://ko-fi.com/supportbkjam">
+        <img src="/images/kofi-supportme_small.png" alt="Support Me on Ko-fi" />
+      </a>
+    </div>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/posts/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tags/"
+              
+              title=""
+              >Tags</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/medium/"
+              
+              title=""
+              >Medium Articles</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/bookmarks/"
+              
+              title=""
+              >Bookmarks</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/tools/"
+              
+              title=""
+              >Toolkit</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>Building a WebSocket Server in a Microservice Architecture</h1>
+      
+      <div
+  class="notice
+    notice--update
+  "
+><div class="notice__content">
+    Medium Link: <a href="https://betterprogramming.pub/building-a-websocket-server-in-a-microservice-architecture-50c6c6432e2b">Building a WebSocket Server in a Microservice Architecture</a><br>
+<strong>If you have a medium.com membership, I would appreciate it if you read this article on medium.com instead to support me~ Thank You! 🚀</strong>
+  </div>
+</div>
+
+<figure><a class="lightgallery" href="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/unsplash.jpg" title="images/unsplash.jpg" data-thumbnail="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/unsplash.jpg" data-sub-html="<h2>Photo by Taylor Vick on Unsplash</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/unsplash.jpg"
+            srcset="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/unsplash.jpg 1200w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/unsplash.jpg 1200w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/unsplash.jpg 1200w"
+            alt="images/unsplash.jpg" height="675"  width="1200" >
+    </a><figcaption class="image-caption">Photo by <a href="https://unsplash.com/@tvick?utm_source=medium&amp;utm_medium=referral">Taylor Vick</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></figcaption>
+    </figure>
+<h2 id="intro">Intro</h2>
+<p>This article is written to share my exploration of real-time communication between frontend and backend using WebSocket. In recent years, microservice is an architectural approach that many developers have adopted, and one of the key principles of microservice architecture is the &ldquo;Single Responsibility Principle.&rdquo;</p>
+<p>In this exploration, we will look into designing and implementing a WebSocket server that is responsible for establishing a WebSocket connection with the frontend (web application) and also acting as a middleware (or proxy) for real-time communications between the frontend and backend.</p>
+<p><em>Note: This article will not go into detail on how WebSocket or publish-subscribe messaging pattern works. Also, the GitHub link to the project can be found below!</em></p>
+<h2 id="my-websocket-serverseries">My WebSocket Server Series</h2>
+<ul>
+<li>01: Building WebSocket server in a microservice architecture</li>
+<li>02: <a href="https://betterprogramming.pub/design-considerations-for-scaling-websocket-server-horizontally-with-a-publish-subscribe-pattern-fe6de9988400">Design considerations for scaling WebSocket server horizontally with publish-subscribe pattern</a></li>
+<li>03: <a href="https://betterprogramming.pub/implement-a-scalable-websocket-server-with-spring-boot-redis-pub-sub-and-redis-streams-b6b8cc08767f">Implement a scalable WebSocket server with Spring Boot, Redis Pub/Sub, and Redis Streams</a></li>
+<li>04: TBA</li>
+</ul>
+<h2 id="background-context">Background Context</h2>
+<p>There are many instances where a web application (frontend) requires real-time communication between the client (browser) and the server (backend). Some examples of such use cases are real-time feeds, real-time collaborative editing, real-time data visualization, real-time chats, notifications, event updates, etc.</p>
+<figure><a class="lightgallery" href="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/overview.png" title="images/overview.png" data-thumbnail="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/overview.png" data-sub-html="<h2>Example of WebSocket connections between the client (frontend) and individual microservices (backend)</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/overview.png"
+            srcset="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/overview.png 401w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/overview.png 401w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/overview.png 401w"
+            alt="images/overview.png" height="321"  width="401" >
+    </a><figcaption class="image-caption">Example of WebSocket connections between the client (frontend) and individual microservices (backend)</figcaption>
+    </figure>
+<p>Suppose there is a microservice for each use case; the diagram above will then illustrate how WebSocket connections are established between the client (frontend) and each of the individual microservices (backend).</p>
+<p>As you can see, this is not an optimal design, as when the number of microservices increases, more WebSocket connections will be created. Hence, let&rsquo;s look into how a WebSocket server can help to resolve this issue.</p>
+<h2 id="websocket-serverdesign">WebSocket Server Design</h2>
+<figure><a class="lightgallery" href="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/high-level.png" title="images/high-level.png" data-thumbnail="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/high-level.png" data-sub-html="<h2>A high-level diagram of a WebSocket server in a microservice architecture</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/high-level.png"
+            srcset="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/high-level.png 691w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/high-level.png 691w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/high-level.png 691w"
+            alt="images/high-level.png" height="321"  width="691" >
+    </a><figcaption class="image-caption">A high-level diagram of a WebSocket server in a microservice architecture</figcaption>
+    </figure>
+<p>In the design above, the WebSocket server is the only microservice that establishes a WebSocket connection to the web application (frontend). For other microservices, there are two main ways for real-time communications to the web application (frontend):</p>
+<ol>
+<li>
+<p>Unidirectional (backend to frontend)</p>
+<ul>
+<li>All microservices (backend) can send messages to the WebSocket server via API where the message will then be forwarded to the web application (frontend) via WebSocket.</li>
+</ul>
+</li>
+<li>
+<p>Bidirectional (between frontend and backend)</p>
+<ul>
+<li>Web application (frontend) can send messages to the WebSocket server via WebSocket, where the message will then be forwarded to the microservices (backend) via Pub/Sub.</li>
+<li>Microservices (backend) can send messages to the WebSocket server via Pub/Sub where the message will then be forwarded to the web application (frontend) via WebSocket.</li>
+</ul>
+</li>
+</ol>
+<h2 id="building-a-websocket-server">Building a WebSocket Server</h2>
+<p>We will build a WebSocket server using Spring Boot, Stomp, and Redis Pub/Sub based on the design above. As I won&rsquo;t be going into details, you can refer to these amazing articles by <a href="https://www.toptal.com/java/stomp-spring-boot-websocket">Tomasz Dąbrowski</a> and <a href="https://www.baeldung.com/websockets-spring">Baeldung.com</a> to learn more about WebSocket implementation with Spring Boot.</p>
+<h3 id="step-1-initialize-the-spring-bootproject">Step 1: Initialize the Spring Boot Project</h3>
+<p>Head over to <a href="https://start.spring.io/">https://start.spring.io/</a> and initialize a Spring Boot project. Minimally, you will require Spring Web, Redis, and Websocket dependencies.</p>
+<figure><a class="lightgallery" href="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/spring-initializr.png" title="images/spring-initializr.png" data-thumbnail="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/spring-initializr.png" data-sub-html="<h2>Example of Spring Boot Project</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/spring-initializr.png"
+            srcset="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/spring-initializr.png 1200w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/spring-initializr.png 1200w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/spring-initializr.png 1200w"
+            alt="images/spring-initializr.png" height="574"  width="1200" >
+    </a><figcaption class="image-caption">Example of Spring Boot Project</figcaption>
+    </figure>
+<h3 id="step-2-configure-websocket-and-stomp-messaging">Step 2: Configure WebSocket and STOMP messaging</h3>
+<p>Create a configuration file, <code>WebsocketConfig.kt</code>, and add the configuration below. The configuration enables WebSocket capabilities for the Spring Boot application.</p>
+<p><em>Note that the stomp endpoint allows all origins for demonstration purposes, but this shouldn&rsquo;t be the configuration for production setup.</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// Configurations for enabling Spring Boot Websocket (WebsocketConfig.kt)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@EnableWebSocketMessageBroker</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">WebSocketConfig</span><span class="p">:</span><span class="w"> </span><span class="n">WebSocketMessageBrokerConfigurer</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">override</span><span class="w"> </span><span class="n">fun</span><span class="w"> </span><span class="nf">registerStompEndpoints</span><span class="p">(</span><span class="n">registry</span><span class="p">:</span><span class="w"> </span><span class="n">StompEndpointRegistry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">addEndpoint</span><span class="p">(</span><span class="s">&#34;/stomp&#34;</span><span class="p">).</span><span class="na">setAllowedOrigins</span><span class="p">(</span><span class="s">&#34;*&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">override</span><span class="w"> </span><span class="n">fun</span><span class="w"> </span><span class="nf">configureMessageBroker</span><span class="p">(</span><span class="n">registry</span><span class="p">:</span><span class="w"> </span><span class="n">MessageBrokerRegistry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">enableSimpleBroker</span><span class="p">(</span><span class="s">&#34;/topic&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">setApplicationDestinationPrefixes</span><span class="p">(</span><span class="s">&#34;/app&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="step-3-create-api-endpoint-for-unidirectional-real-time-communication">Step 3: Create API Endpoint for unidirectional real-time communication</h3>
+<p>The API endpoint provides a way for microservices (backend) to send messages to the web application (frontend). As the messages only require a one-way flow (backend → WebSocket Server → frontend), using APIs will be a good communication medium between microservices (backend → Websocket server).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// API Endpoint for sending a message to WebSocket server</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RestController</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/api/notification&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nf">NotificationController</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">template</span><span class="p">:</span><span class="w"> </span><span class="n">SimpMessagingTemplate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">newMessage</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">request</span><span class="p">:</span><span class="w"> </span><span class="n">NewMessageRequest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">template</span><span class="p">.</span><span class="na">convertAndSend</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">topic</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">message</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>The code above creates a REST controller with a POST request endpoint that takes in a request body “<code>NewMessageRequest</code>” where the <code>topic</code> is the STOMP destination that the client (frontend) subscribes to and <code>message</code> is the actual message in String format. With this, you can now send a message via API to the WebSocket server, which will then be forwarded to the web application (frontend) via WebSocket.</p>
+<h3 id="step-4-configure-redis-pubsub-for-bidirectional-real-time-communication-optional">Step 4: Configure Redis Pub/Sub for bidirectional real-time communication (Optional)</h3>
+<p><em>Note: Depending on your use case, you can omit this step if you do not require bidirectional real-time communication between the web application (frontend) and microservices (backend).</em></p>
+<p>Communication via APIs between microservices (backend and Websocket server) will not be optimal for real-time communications as compared to using a publish-subscribe messaging pattern. Hence, for bidirectional communication, we will make use of a publish-subscribe messaging pattern.</p>
+<p>There are many ways to implement a publish-subscribe messaging pattern but for demonstration and simplicity’s sake, we will use Redis Pub/Sub.</p>
+<p>To get started, run a Redis server locally using docker (<code>docker run — name redis-server -p 6379:6379 -d redis</code>) and add the following configuration to the application.yml file for the WebSocket server to connect to the Redis server.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># application.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring.redis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l">localhost</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">6379</span><span class="w">
+</span></span></span></code></pre></div><p>Next, create a configuration file, <code>RedisConfig.kt</code>, and add the configuration below. Essentially, we are configuring a <code>ReactiveRedisTemplate</code> that communicates with the Redis server and is configured to serialize and deserialize messages as String.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// Configuration for ReactiveRedisTemplate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">RedisConfig</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">reactiveRedisTemplate</span><span class="p">(</span><span class="n">factory</span><span class="p">:</span><span class="w"> </span><span class="n">LettuceConnectionFactory</span><span class="p">):</span><span class="w"> </span><span class="n">ReactiveRedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">serializer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jackson2JsonRedisSerializer</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="kd">class</span><span class="err">.</span><span class="nc">java</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">builder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RedisSerializationContext</span><span class="p">.</span><span class="na">newSerializationContext</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="p">(</span><span class="n">StringRedisSerializer</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">builder</span><span class="p">.</span><span class="na">value</span><span class="p">(</span><span class="n">serializer</span><span class="p">).</span><span class="na">build</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ReactiveRedisTemplate</span><span class="p">(</span><span class="n">factory</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Following this, create a <code>RedisService</code> that contains logic for subscribing and publishing to the Redis server. In the example below, we subscribed to an inbound channel topic <code>GREETING_CHANNEL_INBOUND</code> which listens for incoming messages from other microservices (backend) and forwards all messages received to the STOMP destination <code>/topic/greetings</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nf">RedisService</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">reactiveRedisTemplate</span><span class="p">:</span><span class="w"> </span><span class="n">ReactiveRedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">websocketTemplate</span><span class="p">:</span><span class="w"> </span><span class="n">SimpMessagingTemplate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="n">topic</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">reactiveRedisTemplate</span><span class="p">.</span><span class="na">convertAndSend</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">).</span><span class="na">subscribe</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">subscribe</span><span class="p">(</span><span class="n">channelTopic</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">destination</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">reactiveRedisTemplate</span><span class="p">.</span><span class="na">listenTo</span><span class="p">(</span><span class="n">ChannelTopic</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">channelTopic</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">ReactiveSubscription</span><span class="p">.</span><span class="na">Message</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="p">::</span><span class="n">getMessage</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">subscribe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">websocketTemplate</span><span class="p">.</span><span class="na">convertAndSend</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostConstruct</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">subscribe</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">subscribe</span><span class="p">(</span><span class="s">&#34;GREETING_CHANNEL_INBOUND&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;/topic/greetings&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Lastly, create a <code>Controller</code> that processes messages from the web application (frontend) which are sent to the WebSocket server with the prefix <code>/app</code>. In the example below, messages sent to <code>/app/greet</code> will be forwarded (published) to an outbound channel topic <code>GREETING_CHANNEL_OUTBOUND</code> which will then be processed by any microservice (backend) that is listening to that channel.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Controller</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nf">WebsocketController</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">redisService</span><span class="p">:</span><span class="w"> </span><span class="n">RedisService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@MessageMapping</span><span class="p">(</span><span class="s">&#34;/greet&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fun</span><span class="w"> </span><span class="nf">greetMessage</span><span class="p">(</span><span class="nd">@Payload</span><span class="w"> </span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">redisService</span><span class="p">.</span><span class="na">publish</span><span class="p">(</span><span class="s">&#34;GREETING_CHANNEL_OUTBOUND&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>With that, we have set up the WebSocket server to act as a middleware (or proxy) that communicates with the web application (frontend) via WebSocket and communicates with the microservices (backend) via Redis Pub/Sub.</p>
+<h2 id="testing-websocket-connection">Testing WebSocket Connection</h2>
+<p>Using an <a href="https://bkjam.github.io/websocket-debug-tool/">open-source websocket client debugger tool built by jiangxy</a> as a mock web application (frontend), we can test the WebSocket server we built above.</p>
+<h3 id="test-1-send-message-from-backend-to-frontend-via-api">Test #1: Send message from backend to frontend (via API)</h3>
+<p>Spin up the WebSocket server, and connect to the WebSocket server <code>ws://localhost:8080/stomp</code> over STOMP protocol using the WebSocket debugger tool. Once connected, configure the WebSocket debugger tool to subscribe to the topic <code>/topic/toast</code>.</p>
+<p>Next, send an HTTP POST request to the WebSocket server using the command below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">curl -X POST -d &#39;{&#34;topic&#34;: &#34;/topic/toast&#34;, &#34;message&#34;: &#34;testing API endpoint&#34; }&#39; -H &#39;Content-Type: application/json&#39; localhost:8080/api/notification
+</span></span></code></pre></div><p>The WebSocket debugger tool should have the output shown below:</p>
+<figure><a class="lightgallery" href="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/websocket-debug-output1.png" title="images/websocket-debug-output1.png" data-thumbnail="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/websocket-debug-output1.png" data-sub-html="<h2>Screenshot of WebSocket debugger tool&rsquo;s output for sending a message from backend via API</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/websocket-debug-output1.png"
+            srcset="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/websocket-debug-output1.png 1200w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/websocket-debug-output1.png 1200w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/websocket-debug-output1.png 1200w"
+            alt="images/websocket-debug-output1.png" height="456"  width="1200" >
+    </a><figcaption class="image-caption">Screenshot of WebSocket debugger tool&rsquo;s output for sending a message from backend via API</figcaption>
+    </figure>
+<p>This shows that the WebSocket server has successfully received the message via API and forwarded the message to the web application (frontend) via WebSocket.</p>
+<h3 id="test-2-send-message-from-backend-to-frontend-viapubsub">Test #2: Send message from backend to frontend (via Pub/Sub)</h3>
+<p>Spin up the WebSocket server, and connect to the WebSocket server <code>ws://localhost:8080/stomp</code> over STOMP protocol using the WebSocket debugger tool. Once connected, configure the WebSocket debugger tool to subscribe to the topic <code>/topic/greetings</code> (defined above).</p>
+<p>Using Redis CLI, publish a message to the channel topic <code>GREETING_CHANNEL_INBOUND</code> (defined above) using the command <code>PUBLISH GREETING_CHANNEL_INBOUND &quot;\&quot;Test Message from Backend PubSub\&quot;&quot;</code>.</p>
+<p><em>Note that the extra <code>\&quot;</code> is required as the WebSocket server is configured to receive String messages. The WebSocket debugger tool should receive the message as shown below</em></p>
+<figure><a class="lightgallery" href="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/websocket-debug-output2.png" title="images/websocket-debug-output2.png" data-thumbnail="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/websocket-debug-output2.png" data-sub-html="<h2>Screenshot of WebSocket debugger tool&rsquo;s output for sending a message from backend via Redis PubSub</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/websocket-debug-output2.png"
+            srcset="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/websocket-debug-output2.png 1200w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/websocket-debug-output2.png 1200w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/websocket-debug-output2.png 1200w"
+            alt="images/websocket-debug-output2.png" height="444"  width="1200" >
+    </a><figcaption class="image-caption">Screenshot of WebSocket debugger tool&rsquo;s output for sending a message from backend via Redis PubSub</figcaption>
+    </figure>
+<p>This shows that the WebSocket server has successfully received the message via Redis Pub/Sub and forwarded the message to the web application (frontend) via WebSocket.</p>
+<h3 id="test-3-send-message-from-frontend-to-backend-viapubsub">Test #3: Send message from frontend to backend (via Pub/Sub)</h3>
+<p>Spin up the WebSocket server, and connect to the WebSocket server <code>ws://localhost:8080/stomp</code> over STOMP protocol using the WebSocket debugger tool. Once connected, using Redis CLI, subscribe to channel topic <code>GREETING_CHANNEL_OUTBOUND</code> (defined above) using the command <code>SUBSCRIBE GREETING_CHANNEL_OUTBOUND</code>. Send a message to STOMP destination <code>/app/greet</code> using the WebSocket debugger tool, and you should observe the following:</p>
+<figure><a class="lightgallery" href="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/redis-subscribe-output.png" title="images/redis-subscribe-output.png" data-thumbnail="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/redis-subscribe-output.png" data-sub-html="<h2>Output of Redis CLI Subscribe Command</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/redis-subscribe-output.png"
+            srcset="/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/redis-subscribe-output.png 572w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/redis-subscribe-output.png 572w,
+                /posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/images/redis-subscribe-output.png 572w"
+            alt="images/redis-subscribe-output.png" height="229"  width="572" >
+    </a><figcaption class="image-caption">Output of Redis CLI Subscribe Command</figcaption>
+    </figure>
+<p>This shows that the WebSocket server has successfully received the message via WebSocket and forwarded the message to the microservices (backend) via Redis Pub/Sub.</p>
+<h2 id="summary">Summary</h2>
+<p>In summary, we have run through a possible design of a WebSocket server in a microservice architecture. Having a WebSocket server greatly aligns with the &ldquo;Single Responsibility Principle&rdquo; of microservices, where it manages all WebSocket connections to the web application (frontend) as well as handles real-time communications between the web application (frontend) and other microservices (backend).</p>
+<p>That&rsquo;s it! I hope you learned something new from this article. Stay tuned for the next one, where we will look into scaling the WebSocket server. If you need the source code, refer to the github repository below.</p>
+<ul>
+<li><a href="https://github.com/bkjam/websocket-microservice">https://github.com/bkjam/websocket-microservice</a></li>
+</ul>
+<hr>
+<p><strong>Thank you for reading till the end! ☕</strong><br>
+If you enjoyed this article and would like to support my work, feel free to buy me a coffee on Ko-fi. Your support helps me keep creating, and I truly appreciate it! 🙏</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+        <span><a class="tag" href="/tags/medium/">medium</a><a class="tag" href="/tags/spring-boot/">spring-boot</a><a class="tag" href="/tags/websocket/">websocket</a></span>
+
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Bryan
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MG8YLSHXDX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-MG8YLSHXDX');
+</script>
+</body>
+</html>
