@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ldap on Bkjam</title>
+    <link>https://bkjam.github.io/tags/ldap/</link>
+    <description>Recent content in Ldap on Bkjam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 18 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/tags/ldap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Query the Active Directory Using Spring Boot LdapTemplate</title>
+      <link>https://bkjam.github.io/posts/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/</link>
+      <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/</guid>
+      
+        <description>Quick Overview on LDAP queries with Spring Boot LdapTemplate</description>
+      
+    </item>
+    
+  </channel>
+</rss>

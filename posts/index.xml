@@ -26,7 +26,7 @@
       <guid>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</guid>
       
         <description>&lt;p&gt;Quick Reference Guides for creating VFX in Unity.&lt;/p&gt;
-&lt;h1 id=&#34;vfx-tips&#34;&gt;VFX Tips&lt;/h1&gt;
+&lt;h2 id=&#34;vfx-tips&#34;&gt;VFX Tips&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Rule of VFX = &lt;strong&gt;Anticipation, Climax, Aftermath (Dissipation)&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;When animating with shader graph, you will typically use the &lt;strong&gt;Time Node&lt;/strong&gt;&lt;/li&gt;
@@ -35,7 +35,7 @@
 &lt;li&gt;To create a single burst effect, disable &lt;strong&gt;Shape&lt;/strong&gt;, set &lt;strong&gt;Emission&lt;/strong&gt; rate over time = 0 and burst count = 1&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
-&lt;h1 id=&#34;particle-systems&#34;&gt;Particle Systems&lt;/h1&gt;
+&lt;h2 id=&#34;particle-systems&#34;&gt;Particle Systems&lt;/h2&gt;
 &lt;p&gt;Here are some tips on how to use Unity&amp;rsquo;s Particle System.&lt;/p&gt;</description>
       
     </item>
