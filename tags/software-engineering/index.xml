@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software-Engineering on Bkjam</title>
+    <link>https://bkjam.github.io/tags/software-engineering/</link>
+    <description>Recent content in Software-Engineering on Bkjam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 09 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/tags/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exploring File Download Reverse Proxy with Nginx &#43; Lua &#43; Redis</title>
+      <link>https://bkjam.github.io/posts/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/</guid>
+      
+        <description>How to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua</description>
+      
+    </item>
+    
+    <item>
+      <title>Building a S3 File Download Service using Spring Boot and Minio Client</title>
+      <link>https://bkjam.github.io/posts/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client/</link>
+      <pubDate>Mon, 29 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client/</guid>
+      
+        <description>Implement a File Download Service that can handle large file downloads and multiple file downloads as zip</description>
+      
+    </item>
+    
+    <item>
+      <title>Updates to AutoConfiguration in Spring Boot 3</title>
+      <link>https://bkjam.github.io/posts/2024-03-22-updates-to-auto-configuration-in-spring-boot-3/</link>
+      <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-03-22-updates-to-auto-configuration-in-spring-boot-3/</guid>
+      
+        <description>If you are working with a custom starter library, take note of this auto-configuration change!</description>
+      
+    </item>
+    
+    <item>
+      <title>React - How to Implement Custom MultiSelect Cell Editor in AgGrid</title>
+      <link>https://bkjam.github.io/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/</guid>
+      
+        <description>Issues Faced and Code References on How to Implement Mantine MultiSelect Dropdown in AgGrid Tables</description>
+      
+    </item>
+    
+    <item>
+      <title>React - Avoid Unnecessary Re-Rendering of Array Components When Using Zustand</title>
+      <link>https://bkjam.github.io/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/</link>
+      <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/</guid>
+      
+        <description>How to avoid re-rendering all array components when only one component’s state is updated when using Zustand and React</description>
+      
+    </item>
+    
+    <item>
+      <title>Database Integration Testing for Custom Spring Boot Data Access Starter Library using Testcontainers</title>
+      <link>https://bkjam.github.io/posts/2023-09-11-database-integration-testing-for-custom-spring-boot-data-access-starter-library-using-testcontainers/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2023-09-11-database-integration-testing-for-custom-spring-boot-data-access-starter-library-using-testcontainers/</guid>
+      
+        <description>How to set up a Spring Boot project with database integration testing using Testcontainers for MongoDB</description>
+      
+    </item>
+    
+    <item>
+      <title>What I Love About Data Access Layer (DAL) When Building Small Backend Projects</title>
+      <link>https://bkjam.github.io/posts/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/</link>
+      <pubDate>Thu, 27 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2023-04-27-what-i-love-about-data-access-layer-dal-when-building-small-backend-projects/</guid>
+      
+        <description>Benefits of using a common data access library to access the database for small projects with multiple microservices</description>
+      
+    </item>
+    
+    <item>
+      <title>How to Query the Active Directory Using Spring Boot LdapTemplate</title>
+      <link>https://bkjam.github.io/posts/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/</link>
+      <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/</guid>
+      
+        <description>Quick Overview on LDAP queries with Spring Boot LdapTemplate</description>
+      
+    </item>
+    
+    <item>
+      <title>3 Useful Tips for Developers when using Spring Cloud Config</title>
+      <link>https://bkjam.github.io/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-07-05-3-useful-tips-for-developers-when-using-spring-cloud-config/</guid>
+      
+        <description>Sharing what I found useful in understanding Spring Cloud Config with Spring Boot</description>
+      
+    </item>
+    
+    <item>
+      <title>5 Observations on Spring Boot&#39;s Loading Precedence for Properties Files With Spring Cloud Config</title>
+      <link>https://bkjam.github.io/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/</link>
+      <pubDate>Tue, 21 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-06-21-5-observations-on-spring-boot-loading-precedence-for-properties-files-with-spring-cloud-config/</guid>
+      
+        <description>Sharing my experience on the order of precedence for properties files in Spring Boot applications when using Spring Cloud Config and Spring Profiles</description>
+      
+    </item>
+    
+    <item>
+      <title>Implement a Scalable WebSocket Server With Spring Boot, Redis Pub/Sub, and Redis Streams</title>
+      <link>https://bkjam.github.io/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/</link>
+      <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-06-02-implement-a-scalable-websocket-server-with-spring-boot-redis-pubsub-and-redis-streams/</guid>
+      
+        <description>Scaling WebSocket server horizontally using Spring Boot, Redis Pub/Sub, and Redis Streams</description>
+      
+    </item>
+    
+    <item>
+      <title>Design Considerations for Scaling WebSocket Server Horizontally With a Publish-Subscribe Pattern</title>
+      <link>https://bkjam.github.io/posts/2022-05-18-design-considerations-for-scaling-websocket-server-horizontally-with-a-publish-subsribe-pattern/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-05-18-design-considerations-for-scaling-websocket-server-horizontally-with-a-publish-subsribe-pattern/</guid>
+      
+        <description>Understanding the challenges in scaling WebSocket servers</description>
+      
+    </item>
+    
+    <item>
+      <title>Building a WebSocket Server in a Microservice Architecture</title>
+      <link>https://bkjam.github.io/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/</link>
+      <pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/</guid>
+      
+        <description>Designing a WebSocket server in a microservice architecture for real-time communications</description>
+      
+    </item>
+    
+  </channel>
+</rss>

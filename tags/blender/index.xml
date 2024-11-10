@@ -25,7 +25,7 @@
       
       <guid>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</guid>
       
-        <description>&lt;p&gt;Here&amp;rsquo;s a quick guide on how to export FBX from Blender to Unity. You can also refer to these videos that I referenced.&lt;/p&gt;</description>
+        <description>Quick Guide on how to export fbx from Blender and import in Unity</description>
       
     </item>
     
@@ -36,11 +36,7 @@
       
       <guid>https://bkjam.github.io/posts/2024-05-11-blender-tips-and-hotkeys/</guid>
       
-        <description>&lt;p&gt;Things to take note of when using Blender&lt;/p&gt;
-&lt;h2 id=&#34;set-up&#34;&gt;Set up&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Always enable &lt;strong&gt;backface culling&lt;/strong&gt;.&lt;/p&gt;</description>
+        <description>Quick Reference on Hot Keys for Blender</description>
       
     </item>
     

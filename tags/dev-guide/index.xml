@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dev-Guide on Bkjam</title>
+    <link>http://localhost:1313/tags/dev-guide/</link>
+    <description>Recent content in Dev-Guide on Bkjam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 24 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/dev-guide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Development VM Setup</title>
+      <link>http://localhost:1313/posts/2024-09-24-development-vm-setup/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2024-09-24-development-vm-setup/</guid>
+      
+        <description>&lt;p&gt;Quick Guide on how I setup my Ubuntu VM (22.04) on VirtualBox&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

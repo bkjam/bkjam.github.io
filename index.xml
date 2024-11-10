@@ -6,7 +6,29 @@
     <description>Recent content on Bkjam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 31 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating Wrap Around Textures with Krita for VFX</title>
+      <link>https://bkjam.github.io/posts/2024-11-10-creating-wrap-around-textures-with-krita-for-vfx/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-11-10-creating-wrap-around-textures-with-krita-for-vfx/</guid>
+      
+        <description>Quick Guide on how to use Krita and create wrap around textures</description>
+      
+    </item>
+    
+    <item>
+      <title>All Tags</title>
+      <link>https://bkjam.github.io/tags/</link>
+      <pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/tags/</guid>
+      
+        <description>&lt;div class=&#34;tag-cloud-tags&#34;&gt;&lt;a href=&#34;https://bkjam.github.io/tags/medium/&#34;&gt;Medium &lt;sup&gt;17&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/software-engineering/&#34;&gt;Software-Engineering &lt;sup&gt;13&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-boot/&#34;&gt;Spring-Boot &lt;sup&gt;11&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/game-development/&#34;&gt;Game-Development &lt;sup&gt;7&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/dev-ref/&#34;&gt;Dev-Ref &lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/unity/&#34;&gt;Unity &lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/blender/&#34;&gt;Blender &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/vfx/&#34;&gt;Vfx &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/websocket/&#34;&gt;Websocket &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/minio/&#34;&gt;Minio &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/react/&#34;&gt;React &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/redis/&#34;&gt;Redis &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/s3/&#34;&gt;S3 &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-cloud/&#34;&gt;Spring-Cloud &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/typescript/&#34;&gt;Typescript &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/web/&#34;&gt;Web &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ag-grid/&#34;&gt;Ag-Grid &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/database/&#34;&gt;Database &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/krita/&#34;&gt;Krita &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ldap/&#34;&gt;Ldap &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/lua/&#34;&gt;Lua &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/nginx/&#34;&gt;Nginx &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/testing/&#34;&gt;Testing &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/zustand/&#34;&gt;Zustand &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/div&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Blender - How to create a Smoke Cloud</title>
       <link>https://bkjam.github.io/posts/2024-10-31-blender-smoke-cloud/</link>
@@ -25,18 +47,7 @@
       
       <guid>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</guid>
       
-        <description>&lt;p&gt;Quick Reference Guides for creating VFX in Unity.&lt;/p&gt;
-&lt;h2 id=&#34;vfx-tips&#34;&gt;VFX Tips&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Rule of VFX = &lt;strong&gt;Anticipation, Climax, Aftermath (Dissipation)&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;When animating with shader graph, you will typically use the &lt;strong&gt;Time Node&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;To create the effect where particles slow down towards the end of their duration. Use &lt;strong&gt;Limit Velocity over lifetime&lt;/strong&gt; with speed = 3 and dampen = 0.15&lt;/li&gt;
-&lt;li&gt;To create a blinking effect, use &lt;strong&gt;Color over lifetime&lt;/strong&gt;, add 3 keys around 30% mark, and 3 keys around 70% mark and make the middle of each 3 keys with 0 alpha&lt;/li&gt;
-&lt;li&gt;To create a single burst effect, disable &lt;strong&gt;Shape&lt;/strong&gt;, set &lt;strong&gt;Emission&lt;/strong&gt; rate over time = 0 and burst count = 1&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;particle-systems&#34;&gt;Particle Systems&lt;/h2&gt;
-&lt;p&gt;Here are some tips on how to use Unity&amp;rsquo;s Particle System.&lt;/p&gt;</description>
+        <description>Quick Reference Guides for creating VFX in Unity</description>
       
     </item>
     
@@ -47,7 +58,18 @@
       
       <guid>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</guid>
       
-        <description>&lt;p&gt;Here&amp;rsquo;s a quick guide on how to export FBX from Blender to Unity. You can also refer to these videos that I referenced.&lt;/p&gt;</description>
+        <description>Quick Guide on how to export fbx from Blender and import in Unity</description>
+      
+    </item>
+    
+    <item>
+      <title>Tools That I Use</title>
+      <link>https://bkjam.github.io/tools/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/tools/</guid>
+      
+        <description>&lt;p&gt;List of all Tools/Websites/Assets/Tech Stacks that I like to use for my development :)&lt;/p&gt;</description>
       
     </item>
     
@@ -58,7 +80,7 @@
       
       <guid>https://bkjam.github.io/posts/2024-09-24-development-vm-setup/</guid>
       
-        <description>&lt;p&gt;Quick Guide on how I setup my Ubuntu VM (22.04) on VirtualBox&lt;/p&gt;</description>
+        <description>Quick Reference on How I set up my development VM environment</description>
       
     </item>
     
@@ -91,11 +113,7 @@
       
       <guid>https://bkjam.github.io/posts/2024-05-11-blender-tips-and-hotkeys/</guid>
       
-        <description>&lt;p&gt;Things to take note of when using Blender&lt;/p&gt;
-&lt;h2 id=&#34;set-up&#34;&gt;Set up&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Always enable &lt;strong&gt;backface culling&lt;/strong&gt;.&lt;/p&gt;</description>
+        <description>Quick Reference on Hot Keys for Blender</description>
       
     </item>
     
@@ -173,17 +191,6 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Kubernetes&lt;/strong&gt;&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Tools That I Use</title>
-      <link>https://bkjam.github.io/tools/</link>
-      <pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/tools/</guid>
-      
-        <description>&lt;p&gt;List of all Tools/Websites/Assets/Tech Stacks that I like to use for my development :)&lt;/p&gt;</description>
       
     </item>
     
@@ -316,17 +323,6 @@
       <guid>https://bkjam.github.io/medium/</guid>
       
         <description>&lt;p&gt;I still post my articles on &lt;strong&gt;&lt;a href=&#34;https://medium.com/@kbryan1008&#34;&gt;Medium.com&lt;/a&gt;&lt;/strong&gt; because it offers great support for code syntax and was where my dev documentation journey began. If you’ve enjoyed any of my articles and would like to support my work, feel free to &lt;strong&gt;&lt;a href=&#34;https://ko-fi.com/supportbkjam&#34;&gt;buy me a coffee on Ko-fi&lt;/a&gt;&lt;/strong&gt; or just read my articles on &lt;strong&gt;&lt;a href=&#34;https://medium.com/@kbryan1008&#34;&gt;Medium.com&lt;/a&gt;&lt;/strong&gt;. Anyway, check out the links below to read the articles I’ve written!&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>All Tags</title>
-      <link>https://bkjam.github.io/tags/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/tags/</guid>
-      
-        <description>&lt;div class=&#34;tag-cloud-tags&#34;&gt;&lt;a href=&#34;https://bkjam.github.io/tags/medium/&#34;&gt;Medium &lt;sup&gt;17&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-boot/&#34;&gt;Spring-Boot &lt;sup&gt;11&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/unity/&#34;&gt;Unity &lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/blender/&#34;&gt;Blender &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/websocket/&#34;&gt;Websocket &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/minio/&#34;&gt;Minio &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/react/&#34;&gt;React &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/redis/&#34;&gt;Redis &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/s3/&#34;&gt;S3 &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-cloud/&#34;&gt;Spring-Cloud &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/typescript/&#34;&gt;Typescript &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/web/&#34;&gt;Web &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ag-grid/&#34;&gt;Ag-Grid &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ldap/&#34;&gt;Ldap &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/lua/&#34;&gt;Lua &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/nginx/&#34;&gt;Nginx &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/testing/&#34;&gt;Testing &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/zustand/&#34;&gt;Zustand &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/div&gt;</description>
       
     </item>
     

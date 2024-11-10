@@ -14,18 +14,7 @@
       
       <guid>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</guid>
       
-        <description>&lt;p&gt;Quick Reference Guides for creating VFX in Unity.&lt;/p&gt;
-&lt;h2 id=&#34;vfx-tips&#34;&gt;VFX Tips&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Rule of VFX = &lt;strong&gt;Anticipation, Climax, Aftermath (Dissipation)&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;When animating with shader graph, you will typically use the &lt;strong&gt;Time Node&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;To create the effect where particles slow down towards the end of their duration. Use &lt;strong&gt;Limit Velocity over lifetime&lt;/strong&gt; with speed = 3 and dampen = 0.15&lt;/li&gt;
-&lt;li&gt;To create a blinking effect, use &lt;strong&gt;Color over lifetime&lt;/strong&gt;, add 3 keys around 30% mark, and 3 keys around 70% mark and make the middle of each 3 keys with 0 alpha&lt;/li&gt;
-&lt;li&gt;To create a single burst effect, disable &lt;strong&gt;Shape&lt;/strong&gt;, set &lt;strong&gt;Emission&lt;/strong&gt; rate over time = 0 and burst count = 1&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;particle-systems&#34;&gt;Particle Systems&lt;/h2&gt;
-&lt;p&gt;Here are some tips on how to use Unity&amp;rsquo;s Particle System.&lt;/p&gt;</description>
+        <description>Quick Reference Guides for creating VFX in Unity</description>
       
     </item>
     
@@ -36,7 +25,7 @@
       
       <guid>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</guid>
       
-        <description>&lt;p&gt;Here&amp;rsquo;s a quick guide on how to export FBX from Blender to Unity. You can also refer to these videos that I referenced.&lt;/p&gt;</description>
+        <description>Quick Guide on how to export fbx from Blender and import in Unity</description>
       
     </item>
     

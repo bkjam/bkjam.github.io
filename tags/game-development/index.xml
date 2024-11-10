@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Game-Development on Bkjam</title>
+    <link>https://bkjam.github.io/tags/game-development/</link>
+    <description>Recent content in Game-Development on Bkjam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/tags/game-development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating Wrap Around Textures with Krita for VFX</title>
+      <link>https://bkjam.github.io/posts/2024-11-10-creating-wrap-around-textures-with-krita-for-vfx/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-11-10-creating-wrap-around-textures-with-krita-for-vfx/</guid>
+      
+        <description>Quick Guide on how to use Krita and create wrap around textures</description>
+      
+    </item>
+    
+    <item>
+      <title>Blender - How to create a Smoke Cloud</title>
+      <link>https://bkjam.github.io/posts/2024-10-31-blender-smoke-cloud/</link>
+      <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-10-31-blender-smoke-cloud/</guid>
+      
+        <description>Simple guide to create a smoke cloud mesh in blender for vfx</description>
+      
+    </item>
+    
+    <item>
+      <title>Unity VFX References</title>
+      <link>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</link>
+      <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</guid>
+      
+        <description>Quick Reference Guides for creating VFX in Unity</description>
+      
+    </item>
+    
+    <item>
+      <title>Exporting FBX from Blender to Unity</title>
+      <link>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</guid>
+      
+        <description>Quick Guide on how to export fbx from Blender and import in Unity</description>
+      
+    </item>
+    
+    <item>
+      <title>Blender - Tips &amp; Hot Keys</title>
+      <link>https://bkjam.github.io/posts/2024-05-11-blender-tips-and-hotkeys/</link>
+      <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-05-11-blender-tips-and-hotkeys/</guid>
+      
+        <description>Quick Reference on Hot Keys for Blender</description>
+      
+    </item>
+    
+    <item>
+      <title>Quick Reference to Setup Universal Render Pipeline for Unity Projects</title>
+      <link>https://bkjam.github.io/posts/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</link>
+      <pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</guid>
+      
+        <description>Step-by-step guide on how to set up URP for Unity Projects</description>
+      
+    </item>
+    
+    <item>
+      <title>How to Build WebGL Unity Games and Publish to Itch.io</title>
+      <link>https://bkjam.github.io/posts/2024-09-04-how-to-build-webgl-unity-games-and-publish-to-itchio/</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-09-04-how-to-build-webgl-unity-games-and-publish-to-itchio/</guid>
+      
+        <description>Publishing demo to Itch.io to gather feedback for Rolling Mind Prototype on Itch.io</description>
+      
+    </item>
+    
+  </channel>
+</rss>

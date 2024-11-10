@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vfx on Bkjam</title>
+    <link>https://bkjam.github.io/tags/vfx/</link>
+    <description>Recent content in Vfx on Bkjam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/tags/vfx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating Wrap Around Textures with Krita for VFX</title>
+      <link>https://bkjam.github.io/posts/2024-11-10-creating-wrap-around-textures-with-krita-for-vfx/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-11-10-creating-wrap-around-textures-with-krita-for-vfx/</guid>
+      
+        <description>Quick Guide on how to use Krita and create wrap around textures</description>
+      
+    </item>
+    
+    <item>
+      <title>Blender - How to create a Smoke Cloud</title>
+      <link>https://bkjam.github.io/posts/2024-10-31-blender-smoke-cloud/</link>
+      <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-10-31-blender-smoke-cloud/</guid>
+      
+        <description>Simple guide to create a smoke cloud mesh in blender for vfx</description>
+      
+    </item>
+    
+    <item>
+      <title>Unity VFX References</title>
+      <link>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</link>
+      <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</guid>
+      
+        <description>Quick Reference Guides for creating VFX in Unity</description>
+      
+    </item>
+    
+  </channel>
+</rss>
