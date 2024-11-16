@@ -2,65 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dev-Ref on Bkjam</title>
-    <link>https://bkjam.github.io/tags/dev-ref/</link>
+    <link>http://localhost:1313/tags/dev-ref/</link>
     <description>Recent content in Dev-Ref on Bkjam</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 30 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/tags/dev-ref/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Unity VFX References</title>
-      <link>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</link>
-      <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</guid>
-      
-        <description>Quick Reference Guides for creating VFX in Unity</description>
-      
-    </item>
-    
-    <item>
-      <title>Exporting FBX from Blender to Unity</title>
-      <link>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</link>
-      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</guid>
-      
-        <description>Quick Guide on how to export fbx from Blender and import in Unity</description>
-      
-    </item>
-    
-    <item>
-      <title>Development VM Setup</title>
-      <link>https://bkjam.github.io/posts/2024-09-24-development-vm-setup/</link>
-      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-09-24-development-vm-setup/</guid>
-      
-        <description>Quick Reference on How I set up my development VM environment</description>
-      
-    </item>
-    
-    <item>
-      <title>Blender - Tips &amp; Hot Keys</title>
-      <link>https://bkjam.github.io/posts/2024-05-11-blender-tips-and-hotkeys/</link>
-      <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-05-11-blender-tips-and-hotkeys/</guid>
-      
-        <description>Quick Reference on Hot Keys for Blender</description>
-      
-    </item>
-    
-    <item>
-      <title>How to Build WebGL Unity Games and Publish to Itch.io</title>
-      <link>https://bkjam.github.io/posts/2024-09-04-how-to-build-webgl-unity-games-and-publish-to-itchio/</link>
-      <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-09-04-how-to-build-webgl-unity-games-and-publish-to-itchio/</guid>
-      
-        <description>Publishing demo to Itch.io to gather feedback for Rolling Mind Prototype on Itch.io</description>
-      
-    </item>
-    
+    <language>en</language><atom:link href="http://localhost:1313/tags/dev-ref/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -8,13 +8,24 @@
     <language>en</language>
     <lastBuildDate>Sun, 10 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Creating Wrap Around Textures with Krita for VFX</title>
-      <link>https://bkjam.github.io/posts/2024-11-10-creating-wrap-around-textures-with-krita-for-vfx/</link>
+      <title>Krita - Creating Wrap Around Textures for VFX</title>
+      <link>https://bkjam.github.io/posts/2024-11-10-krita-creating-wrap-around-textures-for-vfx/</link>
       <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://bkjam.github.io/posts/2024-11-10-creating-wrap-around-textures-with-krita-for-vfx/</guid>
+      <guid>https://bkjam.github.io/posts/2024-11-10-krita-creating-wrap-around-textures-for-vfx/</guid>
       
         <description>Quick Guide on how to use Krita and create wrap around textures</description>
+      
+    </item>
+    
+    <item>
+      <title>Krita - Tips &amp; Hot Keys</title>
+      <link>https://bkjam.github.io/posts/2024-11-10-krita-tips-and-hotkeys/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-11-10-krita-tips-and-hotkeys/</guid>
+      
+        <description>Quick Reference on Hot Keys for Krita</description>
       
     </item>
     
@@ -25,7 +36,7 @@
       
       <guid>https://bkjam.github.io/tags/</guid>
       
-        <description>&lt;div class=&#34;tag-cloud-tags&#34;&gt;&lt;a href=&#34;https://bkjam.github.io/tags/medium/&#34;&gt;Medium &lt;sup&gt;17&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/software-engineering/&#34;&gt;Software-Engineering &lt;sup&gt;13&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-boot/&#34;&gt;Spring-Boot &lt;sup&gt;11&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/game-development/&#34;&gt;Game-Development &lt;sup&gt;7&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/dev-ref/&#34;&gt;Dev-Ref &lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/unity/&#34;&gt;Unity &lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/blender/&#34;&gt;Blender &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/vfx/&#34;&gt;Vfx &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/websocket/&#34;&gt;Websocket &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/minio/&#34;&gt;Minio &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/react/&#34;&gt;React &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/redis/&#34;&gt;Redis &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/s3/&#34;&gt;S3 &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-cloud/&#34;&gt;Spring-Cloud &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/typescript/&#34;&gt;Typescript &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/web/&#34;&gt;Web &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ag-grid/&#34;&gt;Ag-Grid &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/database/&#34;&gt;Database &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/krita/&#34;&gt;Krita &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ldap/&#34;&gt;Ldap &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/lua/&#34;&gt;Lua &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/nginx/&#34;&gt;Nginx &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/testing/&#34;&gt;Testing &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/zustand/&#34;&gt;Zustand &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/div&gt;</description>
+        <description>&lt;div class=&#34;tag-cloud-tags&#34;&gt;&lt;a href=&#34;https://bkjam.github.io/tags/medium/&#34;&gt;Medium &lt;sup&gt;17&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/software-engineering/&#34;&gt;Software-Engineering &lt;sup&gt;13&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-boot/&#34;&gt;Spring-Boot &lt;sup&gt;11&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/game-development/&#34;&gt;Game-Development &lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ref/&#34;&gt;Ref &lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/unity/&#34;&gt;Unity &lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/blender/&#34;&gt;Blender &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/vfx/&#34;&gt;Vfx &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/websocket/&#34;&gt;Websocket &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/krita/&#34;&gt;Krita &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/minio/&#34;&gt;Minio &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/react/&#34;&gt;React &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/redis/&#34;&gt;Redis &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/s3/&#34;&gt;S3 &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-cloud/&#34;&gt;Spring-Cloud &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/typescript/&#34;&gt;Typescript &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/web/&#34;&gt;Web &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ag-grid/&#34;&gt;Ag-Grid &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/database/&#34;&gt;Database &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ldap/&#34;&gt;Ldap &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/lua/&#34;&gt;Lua &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/nginx/&#34;&gt;Nginx &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/testing/&#34;&gt;Testing &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/zustand/&#34;&gt;Zustand &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/div&gt;</description>
       
     </item>
     
