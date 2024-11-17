@@ -212,7 +212,7 @@ Indie Game Developer
 
     ,
         "url" : "https:\/\/bkjam.github.io\/posts\/2024-11-17-unity-object-pooling\/",
-        "wordCount" : "250",
+        "wordCount" : "257",
         "genre" : [ ],
         "keywords" : [ 
       
@@ -402,10 +402,10 @@ Indie Game Developer
             
             <a
               
-              href="/bookmarks/"
+              href="/tags/ref"
               
               title=""
-              >Bookmarks</a
+              >References</a
             >
           </li>
         
@@ -421,21 +421,6 @@ Indie Game Developer
               
               title=""
               >Tags</a
-            >
-          </li>
-        
-
-      
-        
-        
-          <li class="nav__list-item">
-            
-            <a
-              
-              href="/tags/ref"
-              
-              title=""
-              >References</a
             >
           </li>
         
@@ -482,8 +467,8 @@ Indie Game Developer
       
         <h1>Unity - Object Pooling Reference</h1>
       
-      <h2 id="using-unitys-objectpooling">Using Unity&rsquo;s ObjectPooling</h2>
-<p>This is a technique I learnt from <a href="https://www.youtube.com/watch?v=WrzrtMxLgpc">this youtube video</a></p>
+      <h2 id="using-unityengineobjectpool">Using UnityEngine.ObjectPool</h2>
+<p>This is a technique I learnt from <a href="https://www.youtube.com/watch?v=WrzrtMxLgpc">this youtube video</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">BulletHellManager</span><span class="p">:</span> <span class="n">Singleton</span><span class="p">&lt;</span><span class="n">BulletHellManager</span><span class="p">&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">ObjectPool</span><span class="p">&lt;</span><span class="n">Bullet</span><span class="p">&gt;</span> <span class="n">bulletPool</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">readonly</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Bullet</span><span class="p">&gt;</span> <span class="n">activeProjectiles</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Bullet</span><span class="p">&gt;();</span>
@@ -537,7 +522,7 @@ Indie Game Developer
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="using-simple-scripts">Using Simple Scripts</h2>
-<p>Referencing <a href="https://learn.unity.com/tutorial/introduction-to-object-pooling">Unity&rsquo;s Introudction to Object Pooling</a>, we can use the following scripts</p>
+<p>Referencing <a href="https://learn.unity.com/tutorial/introduction-to-object-pooling">Unity&rsquo;s Introudction to Object Pooling</a>, we can use the following scripts to manually control our instantiated objects using List.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="n">ObjectPool</span> <span class="n">SharedInstance</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">GameObject</span><span class="p">&gt;</span> <span class="n">pooledObjects</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">GameObject</span> <span class="n">objectToPool</span><span class="p">;</span>
