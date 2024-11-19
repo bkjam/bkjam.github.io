@@ -63,6 +63,17 @@
     </item>
     
     <item>
+      <title>Exploring File Download Reverse Proxy with Nginx &#43; Lua &#43; Redis</title>
+      <link>https://bkjam.github.io/posts/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-09-09-exploring-fire-download-reverse-proxy-with-nginx-lua-redis/</guid>
+      
+        <description>How to reverse proxy to a custom dynamic download URL that is stored in Redis with Nginx and Lua</description>
+      
+    </item>
+    
+    <item>
       <title>Blender - Tips &amp; Hot Keys</title>
       <link>https://bkjam.github.io/posts/2024-05-11-blender-tips-and-hotkeys/</link>
       <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
@@ -74,6 +85,50 @@
     </item>
     
     <item>
+      <title>Building a S3 File Download Service using Spring Boot and Minio Client</title>
+      <link>https://bkjam.github.io/posts/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client/</link>
+      <pubDate>Mon, 29 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-04-29-building-a-s3-file-download-service-using-spring-boot-and-minio-client/</guid>
+      
+        <description>Implement a File Download Service that can handle large file downloads and multiple file downloads as zip</description>
+      
+    </item>
+    
+    <item>
+      <title>Quick Reference to Setup Universal Render Pipeline for Unity Projects</title>
+      <link>https://bkjam.github.io/posts/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</link>
+      <pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</guid>
+      
+        <description>Step-by-step guide on how to set up URP for Unity Projects</description>
+      
+    </item>
+    
+    <item>
+      <title>React - How to Implement Custom MultiSelect Cell Editor in AgGrid</title>
+      <link>https://bkjam.github.io/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2023-11-06-react-how-to-implement-custom-multiselect-cell-editor-in-aggrid/</guid>
+      
+        <description>Issues Faced and Code References on How to Implement Mantine MultiSelect Dropdown in AgGrid Tables</description>
+      
+    </item>
+    
+    <item>
+      <title>React - Avoid Unnecessary Re-Rendering of Array Components When Using Zustand</title>
+      <link>https://bkjam.github.io/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/</link>
+      <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2023-10-12-react-avoid-unnecessary-rerendering-of-array-components-when-using-zustand/</guid>
+      
+        <description>How to avoid re-rendering all array components when only one component’s state is updated when using Zustand and React</description>
+      
+    </item>
+    
+    <item>
       <title>How to Build WebGL Unity Games and Publish to Itch.io</title>
       <link>https://bkjam.github.io/posts/2024-09-04-how-to-build-webgl-unity-games-and-publish-to-itchio/</link>
       <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
@@ -81,6 +136,28 @@
       <guid>https://bkjam.github.io/posts/2024-09-04-how-to-build-webgl-unity-games-and-publish-to-itchio/</guid>
       
         <description>Publishing demo to Itch.io to gather feedback for Rolling Mind Prototype on Itch.io</description>
+      
+    </item>
+    
+    <item>
+      <title>How to Query the Active Directory Using Spring Boot LdapTemplate</title>
+      <link>https://bkjam.github.io/posts/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/</link>
+      <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2023-01-18-how-to-query-the-active-directory-using-spring-boot-ldaptemplate/</guid>
+      
+        <description>Quick Overview on LDAP queries with Spring Boot LdapTemplate</description>
+      
+    </item>
+    
+    <item>
+      <title>Building a WebSocket Server in a Microservice Architecture</title>
+      <link>https://bkjam.github.io/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/</link>
+      <pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bkjam.github.io/posts/2022-05-04-building-a-websocket-server-in-a-microservice-architecture/</guid>
+      
+        <description>Designing a WebSocket server in a microservice architecture for real-time communications</description>
       
     </item>
     
