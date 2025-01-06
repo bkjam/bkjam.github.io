@@ -30,17 +30,6 @@
     </item>
     
     <item>
-      <title>Exporting FBX from Blender to Unity</title>
-      <link>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</link>
-      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</guid>
-      
-        <description>Quick Guide on how to export fbx from Blender and import in Unity</description>
-      
-    </item>
-    
-    <item>
       <title>Quick Reference to Setup Universal Render Pipeline for Unity Projects</title>
       <link>https://bkjam.github.io/posts/2024-03-04-quick-reference-to-setup-universal-render-pipeline-for-unity-projects/</link>
       <pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate>

@@ -6,18 +6,7 @@
     <description>Recent content in Posts on Bkjam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Krita - How to create Ring With Outer Glow</title>
-      <link>https://bkjam.github.io/posts/2024-11-30-krita-creating-ring-with-outer-glow/</link>
-      <pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-11-30-krita-creating-ring-with-outer-glow/</guid>
-      
-        <description>Quick Reference on how to create a ring with outer glow in Krita for VFX texture</description>
-      
-    </item>
-    
+    <lastBuildDate>Sun, 17 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unity - Object Pooling Reference</title>
       <link>https://bkjam.github.io/posts/2024-11-17-unity-object-pooling/</link>
@@ -26,17 +15,6 @@
       <guid>https://bkjam.github.io/posts/2024-11-17-unity-object-pooling/</guid>
       
         <description>Quick Reference on How to implement Object Pooling in Unity</description>
-      
-    </item>
-    
-    <item>
-      <title>Krita - Creating Wrap Around Textures for VFX</title>
-      <link>https://bkjam.github.io/posts/2024-11-10-krita-creating-wrap-around-textures-for-vfx/</link>
-      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-11-10-krita-creating-wrap-around-textures-for-vfx/</guid>
-      
-        <description>Quick Guide on how to use Krita and create wrap around textures</description>
       
     </item>
     
@@ -52,17 +30,6 @@
     </item>
     
     <item>
-      <title>Blender - How to create a Smoke Cloud</title>
-      <link>https://bkjam.github.io/posts/2024-10-31-blender-smoke-cloud/</link>
-      <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-10-31-blender-smoke-cloud/</guid>
-      
-        <description>Simple guide to create a smoke cloud mesh in blender for vfx</description>
-      
-    </item>
-    
-    <item>
       <title>Unity VFX References</title>
       <link>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</link>
       <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
@@ -70,17 +37,6 @@
       <guid>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</guid>
       
         <description>Quick Reference Guides for creating VFX in Unity</description>
-      
-    </item>
-    
-    <item>
-      <title>Exporting FBX from Blender to Unity</title>
-      <link>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</link>
-      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</guid>
-      
-        <description>Quick Guide on how to export fbx from Blender and import in Unity</description>
       
     </item>
     

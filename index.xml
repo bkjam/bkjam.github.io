@@ -6,18 +6,7 @@
     <description>Recent content on Bkjam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Krita - How to create Ring With Outer Glow</title>
-      <link>https://bkjam.github.io/posts/2024-11-30-krita-creating-ring-with-outer-glow/</link>
-      <pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-11-30-krita-creating-ring-with-outer-glow/</guid>
-      
-        <description>Quick Reference on how to create a ring with outer glow in Krita for VFX texture</description>
-      
-    </item>
-    
+    <lastBuildDate>Sun, 17 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unity - Object Pooling Reference</title>
       <link>https://bkjam.github.io/posts/2024-11-17-unity-object-pooling/</link>
@@ -26,17 +15,6 @@
       <guid>https://bkjam.github.io/posts/2024-11-17-unity-object-pooling/</guid>
       
         <description>Quick Reference on How to implement Object Pooling in Unity</description>
-      
-    </item>
-    
-    <item>
-      <title>Krita - Creating Wrap Around Textures for VFX</title>
-      <link>https://bkjam.github.io/posts/2024-11-10-krita-creating-wrap-around-textures-for-vfx/</link>
-      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-11-10-krita-creating-wrap-around-textures-for-vfx/</guid>
-      
-        <description>Quick Guide on how to use Krita and create wrap around textures</description>
       
     </item>
     
@@ -58,18 +36,7 @@
       
       <guid>https://bkjam.github.io/tags/</guid>
       
-        <description>&lt;div class=&#34;tag-cloud-tags&#34;&gt;&lt;a href=&#34;https://bkjam.github.io/tags/medium/&#34;&gt;Medium &lt;sup&gt;17&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ref/&#34;&gt;Ref &lt;sup&gt;15&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/software-engineering/&#34;&gt;Software-Engineering &lt;sup&gt;13&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-boot/&#34;&gt;Spring-Boot &lt;sup&gt;11&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/game-development/&#34;&gt;Game-Development &lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/unity/&#34;&gt;Unity &lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/vfx/&#34;&gt;Vfx &lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/blender/&#34;&gt;Blender &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/krita/&#34;&gt;Krita &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/websocket/&#34;&gt;Websocket &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/minio/&#34;&gt;Minio &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/react/&#34;&gt;React &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/redis/&#34;&gt;Redis &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/s3/&#34;&gt;S3 &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-cloud/&#34;&gt;Spring-Cloud &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/typescript/&#34;&gt;Typescript &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/web/&#34;&gt;Web &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ag-grid/&#34;&gt;Ag-Grid &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/database/&#34;&gt;Database &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ldap/&#34;&gt;Ldap &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/lua/&#34;&gt;Lua &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/nginx/&#34;&gt;Nginx &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/testing/&#34;&gt;Testing &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/zustand/&#34;&gt;Zustand &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/div&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Blender - How to create a Smoke Cloud</title>
-      <link>https://bkjam.github.io/posts/2024-10-31-blender-smoke-cloud/</link>
-      <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-10-31-blender-smoke-cloud/</guid>
-      
-        <description>Simple guide to create a smoke cloud mesh in blender for vfx</description>
+        <description>&lt;div class=&#34;tag-cloud-tags&#34;&gt;&lt;a href=&#34;https://bkjam.github.io/tags/medium/&#34;&gt;Medium &lt;sup&gt;17&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ref/&#34;&gt;Ref &lt;sup&gt;13&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/software-engineering/&#34;&gt;Software-Engineering &lt;sup&gt;13&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-boot/&#34;&gt;Spring-Boot &lt;sup&gt;11&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/unity/&#34;&gt;Unity &lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/game-development/&#34;&gt;Game-Development &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/websocket/&#34;&gt;Websocket &lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/minio/&#34;&gt;Minio &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/react/&#34;&gt;React &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/redis/&#34;&gt;Redis &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/s3/&#34;&gt;S3 &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/spring-cloud/&#34;&gt;Spring-Cloud &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/typescript/&#34;&gt;Typescript &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/web/&#34;&gt;Web &lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ag-grid/&#34;&gt;Ag-Grid &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/blender/&#34;&gt;Blender &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/database/&#34;&gt;Database &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/krita/&#34;&gt;Krita &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/ldap/&#34;&gt;Ldap &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/lua/&#34;&gt;Lua &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/nginx/&#34;&gt;Nginx &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/testing/&#34;&gt;Testing &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/vfx/&#34;&gt;Vfx &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;a href=&#34;https://bkjam.github.io/tags/zustand/&#34;&gt;Zustand &lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/div&gt;</description>
       
     </item>
     
@@ -81,17 +48,6 @@
       <guid>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</guid>
       
         <description>Quick Reference Guides for creating VFX in Unity</description>
-      
-    </item>
-    
-    <item>
-      <title>Exporting FBX from Blender to Unity</title>
-      <link>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</link>
-      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</guid>
-      
-        <description>Quick Guide on how to export fbx from Blender and import in Unity</description>
       
     </item>
     

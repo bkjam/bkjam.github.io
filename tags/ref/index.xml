@@ -6,18 +6,7 @@
     <description>Recent content in Ref on Bkjam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/tags/ref/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Krita - How to create Ring With Outer Glow</title>
-      <link>https://bkjam.github.io/posts/2024-11-30-krita-creating-ring-with-outer-glow/</link>
-      <pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-11-30-krita-creating-ring-with-outer-glow/</guid>
-      
-        <description>Quick Reference on how to create a ring with outer glow in Krita for VFX texture</description>
-      
-    </item>
-    
+    <lastBuildDate>Sun, 17 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bkjam.github.io/tags/ref/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unity - Object Pooling Reference</title>
       <link>https://bkjam.github.io/posts/2024-11-17-unity-object-pooling/</link>
@@ -48,17 +37,6 @@
       <guid>https://bkjam.github.io/posts/2024-10-30-unity-vfx-references/</guid>
       
         <description>Quick Reference Guides for creating VFX in Unity</description>
-      
-    </item>
-    
-    <item>
-      <title>Exporting FBX from Blender to Unity</title>
-      <link>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</link>
-      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/</guid>
-      
-        <description>Quick Guide on how to export fbx from Blender and import in Unity</description>
       
     </item>
     
